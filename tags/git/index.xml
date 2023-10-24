@@ -9,19 +9,19 @@
     <lastBuildDate>Tue, 24 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title> Hugo 添加評論功能</title>
-      <link>https://ChrisLinOvO.github.io/blog/2023/10/add-comments/</link>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/10/add-comments/</link>
       <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://ChrisLinOvO.github.io/blog/2023/10/add-comments/</guid>
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/add-comments/</guid>
       <description>前言 Utterances 是一種基於 GitHub Issues 的評論系統。它允許在靜態網站中嵌入一個評論框，並將評論存儲在與自己的 GitHub 存儲庫相關聯的 Issues 中。</description>
     </item>
     
     <item>
       <title>使用 Hugo 在 GitHub 上架設個人網站</title>
-      <link>https://ChrisLinOvO.github.io/blog/2023/10/jekyll-to-hugo/</link>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/10/jekyll-to-hugo/</link>
       <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://ChrisLinOvO.github.io/blog/2023/10/jekyll-to-hugo/</guid>
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/jekyll-to-hugo/</guid>
       <description>前言 之前用的 Jekyll 主題創作者沒在維護，現在版本的 GitHub 不能 build 了，轉移至 Hugo 架設個人網站</description>
     </item>
     
