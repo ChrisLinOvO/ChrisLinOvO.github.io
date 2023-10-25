@@ -8,12 +8,14 @@
     <language>zh-tw</language>
     <lastBuildDate>Wed, 25 Oct 2023 22:00:00 +0800</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/ga/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>如何在 Google Analytics 4 事件設定</title>
+      <title>如何在 Google Analytics 4 自訂事件&amp;轉換</title>
       <link>https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics-setting/</link>
       <pubDate>Wed, 25 Oct 2023 22:00:00 +0800</pubDate>
       
       <guid>https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics-setting/</guid>
-      <description></description>
+      <description>前言 想要針對各特定頁面觸發事件和追蹤點擊事件，該怎麼做？
+特定頁面觸發事件 步驟 1：建立事件 可到 Google Analytics 點選左下角齒輪管理/資源設定/事件創建。
+這邊舉例/about頁面事件</description>
     </item>
     
     <item>
