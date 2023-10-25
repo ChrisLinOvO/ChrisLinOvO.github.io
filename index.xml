@@ -6,7 +6,17 @@
     <description>Recent content on Chris Lin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 24 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>添加 Google Analytics</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics/</link>
+      <pubDate>Wed, 25 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics/</guid>
+      <description>前言 想查看使用者對於我的網站網站互動
+開始添加 Google Analytics？ 步驟 1：點擊Google Analytics，後按下「開始測量」，就可以開始設定 步驟 2：建立帳戶 輸入帳戶名稱後，往下拉下面不用改，按下一步。</description>
+    </item>
+    
     <item>
       <title> Hugo 添加評論功能</title>
       <link>https://ChrisLinOvO.github.io/blogs/2023/10/add-comments/</link>
