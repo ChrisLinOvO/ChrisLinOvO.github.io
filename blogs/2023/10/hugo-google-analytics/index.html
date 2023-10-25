@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I am a software engineer with more than 3 years of experience.">
+  <meta name="description" content="Hugo 主題設定 GA4 教學">
   <meta name="author" content="Chris">
     
   
@@ -106,162 +106,84 @@
 </header>
 <!-- /navigation -->
 
-
 <section class="section-sm">
   <div class="container">
     <div class="row">
-      
-      <div class="col-lg-4 pr-lg-5">
-  <div class="widgets">
-    
-    <div class="widget">
-      
-      <h4 class="widget-title">About Me</h4>
-      
-      <img src="https://ChrisLinOvO.github.io/images/author-1.jpg" alt=""
-        class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4">
-      
-      <p><p>我是林志隆，目前有 3 年以上前端開發經驗，擅長獨立作業完成各項需求，對於新的事物總是充滿好奇，保持著自我學習的態度更精進</p></p>
-      <a href="https://ChrisLinOvO.github.io/about/" class="btn btn-outline-primary">Know More</a>
-      
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Category</h4>
-      <ul class="list-unstyled">
-        <li><a
-            href="/categories/notes/">Notes</a>
-        </li>
-        <li><a
-            href="/categories/tech/">Tech</a>
-        </li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Tag</h4>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/ga/">Ga</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/git/">Git</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/google/">Google</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/hugo/">Hugo</a></li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Social</h4>
-      <ul class="list-inline social-links">
+      <div class="col-lg-10 mx-auto">
+        <h2>Hugo 添加 Google Analytics</h2>
+        <div class="mb-3 post-meta">
+          <span
+            >By Chris</span
+          >
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2023-10-25</span>
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          
+          <a
+            href="/categories/tech"
+            class="text-primary"
+            >Tech</a
+          >
+           
+        </div>
         
-        <li class="list-inline-item"><a target="_blank" href="https://github.com/ChrisLinOvO"><i class="ti-github"></i></a></li>
+        <img
+          src="https://ChrisLinOvO.github.io/images/post/hugo-ga-logo.jpg"
+          class="img-fluid w-100 mb-4"
+          alt="Hugo 添加 Google Analytics"
+        />
         
-        <li class="list-inline-item"><a target="_blank" href="mailto:qq2120621@gmail.com"><i class="ti-email"></i></a></li>
-        
-      </ul>
-    </div>
-    
-    
-  </div>
+        <div class="content mb-5"><h3 id="前言">前言</h3>
+<hr>
+<p>想查看使用者對於我的網站網站互動</p>
+<h3 id="開始添加-google-analytics">開始添加 Google Analytics</h3>
+<hr>
+<h4 id="步驟-1點擊google-analyticshttpsanalyticsgooglecomanalyticswebprovisionprovision後按下開始測量就可以開始設定">步驟 1：點擊<a href="https://analytics.google.com/analytics/web/provision/#/provision">Google Analytics</a>，後按下「開始測量」，就可以開始設定</h4>
+<h4 id="步驟-2建立帳戶">步驟 2：建立帳戶</h4>
+<p>輸入帳戶名稱後，往下拉下面不用改，按下一步。</p>
+<p><img src="../../../../images/post/post-3-1.jpg" alt="image"></p>
+<h4 id="步驟-3建立資源">步驟 3：建立資源</h4>
+<p>輸入屬性名稱，下面報表時區、幣別可以不用改，按下一步。</p>
+<p><img src="../../../../images/post/post-3-2.jpg" alt="image"></p>
+<h4 id="步驟-4選擇商家資訊">步驟 4：選擇商家資訊</h4>
+<p>選擇產業類別(平常寫的文章什麼類型)，按下一步。</p>
+<p><img src="../../../../images/post/post-3-3.jpg" alt="image"></p>
+<h4 id="步驟-5選擇業務目標">步驟 5：選擇業務目標</h4>
+<p>這裡我是選擇「產生待開發客戶」、「檢視使用者行為」，這兩個都可以透過事件追蹤功能來記錄關鍵的互動，按下建立。</p>
+<p><img src="../../../../images/post/post-3-4.jpg" alt="image"></p>
+<h4 id="步驟-6著手收集資料">步驟 6：著手收集資料</h4>
+<p>點選網站平台後，設定您的網頁串流，輸入網站網址及名稱後，建立串流。</p>
+<p><img src="../../../../images/post/post-3-5.jpg" alt="image"></p>
+<h4 id="步驟-7加入-google-代碼至主題">步驟 7：加入 Google 代碼至主題</h4>
+<p>建立完成後會出現「網頁串流詳情」，這時按下「查看代碼操作說明」，會出現手動安裝代碼，</p>
+<p>將代碼貼到<code>themes/layouts/partials/head.hml</code>裡面即可。</p>
+<p><img src="../../../../images/post/post-3-6.jpg" alt="image"></p>
+<blockquote>
+<p>如果是下載比較新版的主題，要把舊版 GA 設定刪除，需在<code>head.html</code>原本設定的 GA 以及<code>config.toml</code>裡面<code>googleAnalitycsID</code>移除</p>
+</blockquote>
+<h4 id="步驟-8確認-ga-與個人網站連結成功">步驟 8：確認 GA 與個人網站連結成功</h4>
+<p><img src="../../../../images/post/post-3-7.jpg" alt="image"></p>
+<h3 id="結語">結語</h3>
+<hr>
+<p>看完以上內容，可以完成加入 GA4，至於 GA4 的靈魂「事件」可能研究過後整理一篇文章做介紹。</p>
 </div>
 
-      
-      <div class="col-lg-8 mb-5 mb-lg-0">
-        <div class="row">
-           
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/tags/ga/" class="h5 d-block my-3"
-        >GA</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
         
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>0001-01-01</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-         
-      </div>
-      <p class="card-text"></p>
-      <a href="https://ChrisLinOvO.github.io/tags/ga/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/tags/google/" class="h5 d-block my-3"
-        >Google</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
         
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>0001-01-01</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-         
-      </div>
-      <p class="card-text"></p>
-      <a href="https://ChrisLinOvO.github.io/tags/google/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/tags/hugo/" class="h5 d-block my-3"
-        >Hugo</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
-        
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>0001-01-01</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-         
-      </div>
-      <p class="card-text"></p>
-      <a href="https://ChrisLinOvO.github.io/tags/hugo/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/tags/git/" class="h5 d-block my-3"
-        >Git</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
-        
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>0001-01-01</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-         
-      </div>
-      <p class="card-text"></p>
-      <a href="https://ChrisLinOvO.github.io/tags/git/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-        </div>
-      </div>
+        <script
+  src="https://utteranc.es/client.js"
+  repo="ChrisLinOvO/ChrisLinOvO.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
 
-      
-      <div class="col-12 mt-5">
-        
       </div>
     </div>
   </div>
 </section>
-
 
 
 

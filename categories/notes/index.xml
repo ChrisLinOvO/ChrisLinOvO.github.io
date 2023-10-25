@@ -6,43 +6,16 @@
     <description>Recent content in Notes on Chris Lin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Wed, 25 Oct 2023 10:07:47 +0800</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Oct 2023 20:00:00 +0800</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>添加 Google Search Console</title>
-      <link>https://ChrisLinOvO.github.io/blogs/2023/10/google-search/</link>
-      <pubDate>Wed, 25 Oct 2023 10:07:47 +0800</pubDate>
+      <title>Google Analytics 4 介紹</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics-introduction/</link>
+      <pubDate>Wed, 25 Oct 2023 20:00:00 +0800</pubDate>
       
-      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/google-search/</guid>
-      <description>前言 目的想在 Google 被搜尋到我的個人 Blog
-開始添加 Google Search Console 步驟 1：點擊Google Search Console，後按下「立即開始」，就可以開始設定 步驟 2：選取資源類型 點擊網址前置字元區塊，輸入個人網站網址後，按繼續，這時如果有設定好 GA，他這邊會透過 GA 去驗證你的網站，點擊前往資源。</description>
-    </item>
-    
-    <item>
-      <title>添加 Google Analytics</title>
-      <link>https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics/</link>
-      <pubDate>Wed, 25 Oct 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics/</guid>
-      <description>前言 想查看使用者對於我的網站網站互動
-開始添加 Google Analytics 步驟 1：點擊Google Analytics，後按下「開始測量」，就可以開始設定 步驟 2：建立帳戶 輸入帳戶名稱後，往下拉下面不用改，按下一步。</description>
-    </item>
-    
-    <item>
-      <title> Hugo 添加評論功能</title>
-      <link>https://ChrisLinOvO.github.io/blogs/2023/10/add-comments/</link>
-      <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/add-comments/</guid>
-      <description>前言 Utterances 是一種基於 GitHub Issues 的評論系統。它允許在靜態網站中嵌入一個評論框，並將評論存儲在與自己的 GitHub 存儲庫相關聯的 Issues 中。</description>
-    </item>
-    
-    <item>
-      <title>使用 Hugo 在 GitHub 上架設個人網站</title>
-      <link>https://ChrisLinOvO.github.io/blogs/2023/10/jekyll-to-hugo/</link>
-      <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/jekyll-to-hugo/</guid>
-      <description>前言 之前用的 Jekyll 主題創作者沒在維護，現在版本的 GitHub 不能 build 了，轉移至 Hugo 架設個人網站</description>
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics-introduction/</guid>
+      <description>前言 介紹通用版 GA 與 GA4 差異 通用版 GA：追蹤網頁資料為核心。
+GA4：事件為核心。
+這個簡單的表格比較了通用版 GA 和 GA4 在數據收集方式、用戶跟踪、報告功能、用戶隱私和未來支持等方面的主要差異。</description>
     </item>
     
   </channel>

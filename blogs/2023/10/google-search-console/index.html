@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I am a software engineer with more than 3 years of experience.">
+  <meta name="description" content="想要文章出現在 Google，快來加 Google Search Console 吧!!">
   <meta name="author" content="Chris">
     
   
@@ -106,162 +106,79 @@
 </header>
 <!-- /navigation -->
 
-
 <section class="section-sm">
   <div class="container">
     <div class="row">
-      
-      <div class="col-lg-4 pr-lg-5">
-  <div class="widgets">
-    
-    <div class="widget">
-      
-      <h4 class="widget-title">About Me</h4>
-      
-      <img src="https://ChrisLinOvO.github.io/images/author-1.jpg" alt=""
-        class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4">
-      
-      <p><p>我是林志隆，目前有 3 年以上前端開發經驗，擅長獨立作業完成各項需求，對於新的事物總是充滿好奇，保持著自我學習的態度更精進</p></p>
-      <a href="https://ChrisLinOvO.github.io/about/" class="btn btn-outline-primary">Know More</a>
-      
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Category</h4>
-      <ul class="list-unstyled">
-        <li><a
-            href="/categories/notes/">Notes</a>
-        </li>
-        <li><a
-            href="/categories/tech/">Tech</a>
-        </li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Tag</h4>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/ga/">Ga</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/git/">Git</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/google/">Google</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/hugo/">Hugo</a></li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Social</h4>
-      <ul class="list-inline social-links">
+      <div class="col-lg-10 mx-auto">
+        <h2>添加 Google Search Console</h2>
+        <div class="mb-3 post-meta">
+          <span
+            >By Chris</span
+          >
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2023-10-25</span>
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          
+          <a
+            href="/categories/tech"
+            class="text-primary"
+            >Tech</a
+          >
+           
+        </div>
         
-        <li class="list-inline-item"><a target="_blank" href="https://github.com/ChrisLinOvO"><i class="ti-github"></i></a></li>
+        <img
+          src="https://ChrisLinOvO.github.io/images/post/google-search-logo-1.jpg"
+          class="img-fluid w-100 mb-4"
+          alt="添加 Google Search Console"
+        />
         
-        <li class="list-inline-item"><a target="_blank" href="mailto:qq2120621@gmail.com"><i class="ti-email"></i></a></li>
-        
-      </ul>
-    </div>
-    
-    
-  </div>
+        <div class="content mb-5"><h3 id="前言">前言</h3>
+<hr>
+<p>目的想在 Google 被搜尋到我的個人 Blog</p>
+<h3 id="開始添加-google-search-console">開始添加 Google Search Console</h3>
+<hr>
+<h4 id="步驟-1點擊google-search-consolehttpssearchgooglecomsearch-consoleabout後按下立即開始就可以開始設定">步驟 1：點擊<a href="https://search.google.com/search-console/about">Google Search Console</a>，後按下「立即開始」，就可以開始設定</h4>
+<h4 id="步驟-2選取資源類型">步驟 2：選取資源類型</h4>
+<p>點擊<code>網址前置字元</code>區塊，輸入個人網站網址後，按繼續，這時如果有設定好 GA，他這邊會透過 GA 去驗證你的網站，點擊前往資源。</p>
+<p><img src="../../../../images/post/post-4-1.jpg" alt="image"></p>
+<h4 id="步驟-3新增-sitemap">步驟 3：新增 Sitemap</h4>
+<p>點選側邊選單 Sitemap 填寫網址，輸入<code>sitemap.xml</code>即可。</p>
+<p><img src="../../../../images/post/post-4-2.jpg" alt="image"></p>
+<blockquote>
+<p>Sitemap：會把網站所有頁面列出來在這個檔案裡，在把 Sitemap 這個檔案上傳到 Google Search Console上，Google 會將這些頁面存到 Google 搜尋引擎裡面，這樣別人在 Google 搜尋時就能找到你的個人網站了。
+實際會在打包後產出<code>public/sitemap.xml</code>檔案裡，這些檔案會列出個人網站所有頁面、每個頁面修改時間，到時候會被 Google Search 就能找到。</p>
+</blockquote>
+<h4 id="步驟-4檢查-blog-能夠被-google-搜尋到">步驟 4：檢查 Blog 能夠被 Google 搜尋到</h4>
+<p>方法：在 Google Search 輸入<code>site:個人網站網址</code></p>
+<pre tabindex="0"><code>site:ChrisLinOvO.github.io
+</code></pre><blockquote>
+<p>剛建立好可能要等明天才搜尋的到</p>
+</blockquote>
+<blockquote>
+<p>也可以 Google Search Console 手動建立索引，要求指定頁面加到 Google 搜尋引擎裡面</p>
+</blockquote>
+<h3 id="結語">結語</h3>
+<hr>
+<p>看完以上內容，趕快加入 Google Search Console，可以輕鬆查看在 Google Search 數據及報表，若要提升搜尋結果排行較前面，可進行 SEO 優化，之後會再做介紹。</p>
 </div>
 
-      
-      <div class="col-lg-8 mb-5 mb-lg-0">
-        <div class="row">
-           
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/tags/ga/" class="h5 d-block my-3"
-        >GA</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
         
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>0001-01-01</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-         
-      </div>
-      <p class="card-text"></p>
-      <a href="https://ChrisLinOvO.github.io/tags/ga/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/tags/google/" class="h5 d-block my-3"
-        >Google</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
         
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>0001-01-01</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-         
-      </div>
-      <p class="card-text"></p>
-      <a href="https://ChrisLinOvO.github.io/tags/google/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/tags/hugo/" class="h5 d-block my-3"
-        >Hugo</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
-        
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>0001-01-01</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-         
-      </div>
-      <p class="card-text"></p>
-      <a href="https://ChrisLinOvO.github.io/tags/hugo/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/tags/git/" class="h5 d-block my-3"
-        >Git</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
-        
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>0001-01-01</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-         
-      </div>
-      <p class="card-text"></p>
-      <a href="https://ChrisLinOvO.github.io/tags/git/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-        </div>
-      </div>
+        <script
+  src="https://utteranc.es/client.js"
+  repo="ChrisLinOvO/ChrisLinOvO.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
 
-      
-      <div class="col-12 mt-5">
-        
       </div>
     </div>
   </div>
 </section>
-
 
 
 
