@@ -159,6 +159,16 @@
 <h4 id="步驟-2新增轉換-1">步驟 2：新增轉換</h4>
 <p>同上，在資源轉換設定。</p>
 <p><img src="../../../../images/post/post-6-6.jpg" alt="image"></p>
+<h3 id="進階實作-如何在程式中自訂事件發送給ga">進階實作-如何在程式中自訂事件發送給GA</h3>
+<hr>
+<p>在程式碼加入 <code>gtag event</code>，這邊我用點擊<code>Know More</code>按鈕作為 Demo，只要在程式中添加以下圖是代碼就可以發事件給 GA。</p>
+<blockquote>
+<p>當使用者點擊具有 &ldquo;knowMoreButton&rdquo; ID 的按鈕時，這段 JavaScript 代碼會觸發一個自定義事件，並將事件數據發送到 Google Analytics。這個事件包括事件名稱（&ldquo;know_more_button_click&rdquo;）、事件類別（&ldquo;按鈕點擊&rdquo;）、事件標籤（&ldquo;點擊了更多按鈕&rdquo;）和一個可選的值（1，用於量化事件的價值）。這有助於跟踪 Google Analytics 中使用者點擊 &ldquo;Know More&rdquo; 按鈕的互動。</p>
+</blockquote>
+<p><img src="../../../../images/post/post-6-7.jpg" alt="image"></p>
+<p><img src="../../../../images/post/post-6-8.jpg" alt="image"></p>
+<p>這時在個人網頁觸發幾次<code>Know More</code>事件，可以在 Google Analytics 即時報表上看到數據了。</p>
+<p><img src="../../../../images/post/post-6-9.jpg" alt="image"></p>
 <h3 id="結語">結語</h3>
 <hr>
 <p>透過自訂事件&amp;轉換更能追蹤自己想要的數據了🎉</p>
