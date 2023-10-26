@@ -118,22 +118,36 @@
       
       <h4 class="widget-title">About Me</h4>
       
-      <img src="https://ChrisLinOvO.github.io/images/author-1.jpg" alt=""
-        class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4">
+      <img
+        src="https://ChrisLinOvO.github.io/images/author-1.jpg"
+        alt=""
+        class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4"
+      />
       
       <p><p>我是林志隆，目前有 3 年以上前端開發經驗，擅長獨立作業完成各項需求，對於新的事物總是充滿好奇，保持著自我學習的態度更精進</p></p>
-      <a href="https://ChrisLinOvO.github.io/about/" class="btn btn-outline-primary">Know More</a>
+      <a
+        id="knowMoreButton"
+        href="https://ChrisLinOvO.github.io/about/"
+        class="btn btn-outline-primary"
+        >Know More</a
+      >
       
     </div>
     
     <div class="widget">
       <h4 class="widget-title">Category</h4>
       <ul class="list-unstyled">
-        <li><a
-            href="/categories/notes/">Notes</a>
+        <li>
+          <a
+            href="/categories/notes/"
+            >Notes</a
+          >
         </li>
-        <li><a
-            href="/categories/tech/">Tech</a>
+        <li>
+          <a
+            href="/categories/tech/"
+            >Tech</a
+          >
         </li>
       </ul>
     </div>
@@ -141,14 +155,34 @@
     <div class="widget">
       <h4 class="widget-title">Tag</h4>
       <ul class="list-inline">
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/ga/">Ga</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/git/">Git</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/google/">Google</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/hugo/">Hugo</a></li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/ga/"
+            >Ga</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/git/"
+            >Git</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/google/"
+            >Google</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/hugo/"
+            >Hugo</a
+          >
+        </li>
       </ul>
     </div>
     
@@ -156,9 +190,17 @@
       <h4 class="widget-title">Social</h4>
       <ul class="list-inline social-links">
         
-        <li class="list-inline-item"><a target="_blank" href="https://github.com/ChrisLinOvO"><i class="ti-github"></i></a></li>
+        <li class="list-inline-item">
+          <a target="_blank" href="https://github.com/ChrisLinOvO"
+            ><i class="ti-github"></i
+          ></a>
+        </li>
         
-        <li class="list-inline-item"><a target="_blank" href="mailto:qq2120621@gmail.com"><i class="ti-email"></i></a></li>
+        <li class="list-inline-item">
+          <a target="_blank" href="mailto:qq2120621@gmail.com"
+            ><i class="ti-email"></i
+          ></a>
+        </li>
         
       </ul>
     </div>
@@ -166,6 +208,18 @@
     
   </div>
 </div>
+
+<script>
+  document
+    .getElementById("knowMoreButton")
+    .addEventListener("click", function () {
+      gtag("event", "know_more_button_click", {
+        event_category: "Button Click",
+        event_label: "Know More Button Clicked",
+        value: 1,
+      });
+    });
+</script>
 
       
       <div class="col-lg-8 mb-5 mb-lg-0">
