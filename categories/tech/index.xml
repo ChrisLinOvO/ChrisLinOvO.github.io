@@ -6,7 +6,18 @@
     <description>Recent content in Tech on Chris Lin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Wed, 25 Oct 2023 22:00:00 +0800</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo SEO（搜尋引擎優化）實踐</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/10/hugo-seo/</link>
+      <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/hugo-seo/</guid>
+      <description>前言 SEO是什麼？： SEO 代表搜索引擎優化，它是一系列策略和技術，用於提高網站在搜索引擎中的排名。
+為什麼它如此重要？： SEO 是吸引有機流量、提高品牌知名度、增加潛在客戶和改善線上業務成功的關鍵因素。
+本文的目標：以下是使用 Hugo 產生靜態網頁的 SEO 最佳化建議。</description>
+    </item>
+    
     <item>
       <title>如何在 Google Analytics 4 自訂事件&amp;轉換</title>
       <link>https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics-setting/</link>
@@ -40,10 +51,10 @@
     
     <item>
       <title> Hugo 添加評論功能</title>
-      <link>https://ChrisLinOvO.github.io/blogs/2023/10/add-comments/</link>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/10/hugo-comments/</link>
       <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/add-comments/</guid>
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/hugo-comments/</guid>
       <description>前言 Utterances 是一種基於 GitHub Issues 的評論系統。它允許在靜態網站中嵌入一個評論框，並將評論存儲在與自己的 GitHub 存儲庫相關聯的 Issues 中。</description>
     </item>
     

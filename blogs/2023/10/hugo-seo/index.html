@@ -5,12 +5,14 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I am a software engineer with more than 3 years of experience.">
+  <meta name="description" content="Hugo 產生靜態網頁的 SEO 最佳化建議">
   <meta name="author" content="Chris">
     
   
   <meta name="theme-name" content="liva-hugo" />
 
+  
+  <meta name="keywords" content="Hugo SEO, 靜態網頁SEO, SEO最佳化建議, 搜尋引擎優化, 網站排名">
   
   
   <meta name="generator" content="Hugo 0.119.0">
@@ -108,175 +110,86 @@
 </header>
 <!-- /navigation -->
 
-
 <section class="section-sm">
   <div class="container">
     <div class="row">
-      
-      <div class="col-lg-4 pr-lg-5">
-  <div class="widgets">
-    
-    <div class="widget">
-      
-      <h4 class="widget-title">About Me</h4>
-      
-      <img
-        src="https://ChrisLinOvO.github.io/images/author-1.jpg"
-        alt=""
-        class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4"
-      />
-      
-      <p><p>我是林志隆，目前有 3 年以上前端開發經驗，擅長獨立作業完成各項需求，對於新的事物總是充滿好奇，保持著自我學習的態度更精進</p></p>
-      <a
-        id="knowMoreButton"
-        href="https://ChrisLinOvO.github.io/about/"
-        class="btn btn-outline-primary"
-        >Know More</a
-      >
-      
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Category</h4>
-      <ul class="list-unstyled">
-        <li>
-          <a
-            href="/categories/notes/"
-            >Notes</a
+      <div class="col-lg-10 mx-auto">
+        <h2>Hugo SEO（搜尋引擎優化）實踐</h2>
+        <div class="mb-3 post-meta">
+          <span
+            >By Chris</span
           >
-        </li>
-        <li>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2023-10-26</span>
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          
           <a
-            href="/categories/tech/"
+            href="/categories/tech"
+            class="text-primary"
             >Tech</a
           >
-        </li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Tag</h4>
-      <ul class="list-inline">
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/ga/"
-            >Ga</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/git/"
-            >Git</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/google/"
-            >Google</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/hugo/"
-            >Hugo</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/seo/"
-            >Seo</a
-          >
-        </li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Social</h4>
-      <ul class="list-inline social-links">
+           
+        </div>
         
-        <li class="list-inline-item">
-          <a target="_blank" href="https://github.com/ChrisLinOvO"
-            ><i class="ti-github"></i
-          ></a>
-        </li>
+        <img
+          src="https://ChrisLinOvO.github.io/images/post/seo-logo.jpg"
+          class="img-fluid w-100 mb-4"
+          alt="Hugo SEO（搜尋引擎優化）實踐"
+        />
         
-        <li class="list-inline-item">
-          <a target="_blank" href="mailto:qq2120621@gmail.com"
-            ><i class="ti-email"></i
-          ></a>
-        </li>
-        
-      </ul>
-    </div>
-    
-    
-  </div>
+        <div class="content mb-5"><h3 id="前言">前言</h3>
+<hr>
+<ul>
+<li>
+<p><strong>SEO是什麼？</strong>： SEO 代表搜索引擎優化，它是一系列策略和技術，用於提高網站在搜索引擎中的排名。</p>
+</li>
+<li>
+<p><strong>為什麼它如此重要？</strong>： SEO 是吸引有機流量、提高品牌知名度、增加潛在客戶和改善線上業務成功的關鍵因素。</p>
+</li>
+<li>
+<p><strong>本文的目標</strong>：以下是使用 Hugo 產生靜態網頁的 SEO 最佳化建議。</p>
+</li>
+</ul>
+<h3 id="設定頁面關鍵字">設定頁面關鍵字</h3>
+<hr>
+<h4 id="步驟-1在該篇文章-markdown-添加-keywords">步驟 1：在該篇文章 Markdown 添加 keywords</h4>
+<pre tabindex="0"><code>keywords:
+  - Hugo SEO
+  - 靜態網頁SEO
+  - SEO最佳化建議
+  - 搜尋引擎優化
+  - 網站排名
+</code></pre><h4 id="步驟-2添加-meta-標籤">步驟 2：添加 meta 標籤</h4>
+<p>這邊我是加在<code>themes/layouts/partials/head.html</code>裏面。</p>
+<pre tabindex="0"><code>{{ with .Params.keywords }}
+  &lt;meta name=&#34;keywords&#34; content=&#34;{{ delimit . &#34;, &#34; }}&#34;&gt;
+{{ end }}
+</code></pre><blockquote>
+<p><code>{{ with .Params.keywords }}</code>這是一個條件語句，检查文章 Markdown 文件中是否存在<code>keywords</code>字段 ，然而<code>delimit</code>用逗號和空格分隔成一個字符串。</p>
+</blockquote>
+<h4 id="步驟-3打包後看-html-結果這樣就完成頁面關鍵字設定">步驟 3：打包後看 html 結果，這樣就完成頁面關鍵字設定</h4>
+<pre tabindex="0"><code>&lt;meta name=&#34;keywords&#34; content=&#34;Hugo SEO, 靜態網頁SEO, SEO最佳化建議, 搜尋引擎優化, 網站排名&#34;&gt;
+</code></pre><h3 id="結語">結語</h3>
+<hr>
+<p>正確使用關鍵字可以提高您的文章在搜尋引擎中的排名，但不要忘記提供高質量的內容和有價值的信息。</p>
 </div>
 
-<script>
-  document
-    .getElementById("knowMoreButton")
-    .addEventListener("click", function () {
-      gtag("event", "know_more_button_click", {
-        event_category: "Button Click",
-        event_label: "Know More Button Clicked",
-        value: 1,
-      });
-    });
-</script>
+        
+        
+        <script
+  src="https://utteranc.es/client.js"
+  repo="ChrisLinOvO/ChrisLinOvO.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
 
-      
-      <div class="col-lg-8 mb-5 mb-lg-0">
-        <div class="row">
-           
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <img
-      src="https://ChrisLinOvO.github.io/images/post/ga4-logo.jpg"
-      class="card-img-top"
-      alt="Google Analytics 4 介紹"
-    />
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics-introduction/" class="h5 d-block my-3"
-        >Google Analytics 4 介紹</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
-        
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>2023-10-25</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        
-        <a
-          href="/categories/notes"
-          class="text-primary"
-          >Notes</a
-        >
-         
-      </div>
-      <p class="card-text">提供一些 GA 相關知識😊</p>
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics-introduction/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-        </div>
-      </div>
-
-      
-      <div class="col-12 mt-5">
-        
       </div>
     </div>
   </div>
 </section>
-
 
 
 

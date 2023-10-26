@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I am a software engineer with more than 3 years of experience.">
+  <meta name="description" content="想要留言給作者嗎？在 Hugo 上使用 Utterances">
   <meta name="author" content="Chris">
     
   
@@ -108,175 +108,83 @@
 </header>
 <!-- /navigation -->
 
-
 <section class="section-sm">
   <div class="container">
     <div class="row">
-      
-      <div class="col-lg-4 pr-lg-5">
-  <div class="widgets">
-    
-    <div class="widget">
-      
-      <h4 class="widget-title">About Me</h4>
-      
-      <img
-        src="https://ChrisLinOvO.github.io/images/author-1.jpg"
-        alt=""
-        class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4"
-      />
-      
-      <p><p>我是林志隆，目前有 3 年以上前端開發經驗，擅長獨立作業完成各項需求，對於新的事物總是充滿好奇，保持著自我學習的態度更精進</p></p>
-      <a
-        id="knowMoreButton"
-        href="https://ChrisLinOvO.github.io/about/"
-        class="btn btn-outline-primary"
-        >Know More</a
-      >
-      
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Category</h4>
-      <ul class="list-unstyled">
-        <li>
-          <a
-            href="/categories/notes/"
-            >Notes</a
+      <div class="col-lg-10 mx-auto">
+        <h2>Hugo 添加評論功能</h2>
+        <div class="mb-3 post-meta">
+          <span
+            >By Chris</span
           >
-        </li>
-        <li>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2023-10-24</span>
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          
           <a
-            href="/categories/tech/"
+            href="/categories/tech"
+            class="text-primary"
             >Tech</a
           >
-        </li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Tag</h4>
-      <ul class="list-inline">
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/ga/"
-            >Ga</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/git/"
-            >Git</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/google/"
-            >Google</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/hugo/"
-            >Hugo</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/seo/"
-            >Seo</a
-          >
-        </li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Social</h4>
-      <ul class="list-inline social-links">
+           
+        </div>
         
-        <li class="list-inline-item">
-          <a target="_blank" href="https://github.com/ChrisLinOvO"
-            ><i class="ti-github"></i
-          ></a>
-        </li>
+        <img
+          src="https://ChrisLinOvO.github.io/images/post/comments-logo.jpg"
+          class="img-fluid w-100 mb-4"
+          alt="Hugo 添加評論功能"
+        />
         
-        <li class="list-inline-item">
-          <a target="_blank" href="mailto:qq2120621@gmail.com"
-            ><i class="ti-email"></i
-          ></a>
-        </li>
-        
-      </ul>
-    </div>
-    
-    
-  </div>
+        <div class="content mb-5"><h3 id="前言">前言</h3>
+<hr>
+<p>Utterances 是一種基於 GitHub Issues 的評論系統。它允許在靜態網站中嵌入一個評論框，並將評論存儲在與自己的 GitHub 存儲庫相關聯的 Issues 中。</p>
+<h3 id="安裝-utterances-及配置">安裝 Utterances 及配置</h3>
+<hr>
+<h4 id="步驟-1到安裝頁面httpsgithubcomappsutterances後點選-install">步驟 1：到<a href="https://github.com/apps/utterances">安裝頁面</a>後點選 Install</h4>
+<p><img src="../../../../images/post/post-2-1.jpg" alt="image"></p>
+<h4 id="步驟-2選擇要安裝-utterances-的-github-repository">步驟 2：選擇要安裝 Utterances 的 GitHub Repository</h4>
+<p><img src="../../../../images/post/post-2-2.jpg" alt="image"></p>
+<h4 id="步驟-3添加配置至程式碼中">步驟 3：添加配置至程式碼中</h4>
+<p>可由<a href="https://utteranc.es/">官網</a>進行配置</p>
+<h5 id="設置-repo-名稱">設置 repo 名稱</h5>
+<p><img src="../../../../images/post/post-2-3.jpg" alt="image"></p>
+<h5 id="選擇訪客留言-issue-名稱">選擇訪客留言 issue 名稱</h5>
+<p><img src="../../../../images/post/post-2-4.jpg" alt="image"></p>
+<h5 id="選擇主題">選擇主題</h5>
+<p><img src="../../../../images/post/post-2-5.jpg" alt="image"></p>
+<h5 id="可複製產出的代碼貼在自己的-repo">可複製產出的代碼貼在自己的 repo</h5>
+<p>這邊我是放在<code>themes/layouts/partials</code>資料夾建立一個<code>comments.html</code>，把生成的代碼複製過去。</p>
+<pre tabindex="0"><code>&lt;script
+  src=&#34;https://utteranc.es/client.js&#34;
+  repo=&#34;ChrisLinOvO/ChrisLinOvO.github.io&#34;
+  issue-term=&#34;pathname&#34;
+  theme=&#34;github-light&#34;
+  crossorigin=&#34;anonymous&#34;
+  async
+&gt;&lt;/script&gt;
+</code></pre><p>若每篇文章最底下要加評論，只需要在<code>themes/layouts/_default/single.html</code>裡加上</p>
+<pre tabindex="0"><code>{{ partial &#34;comments.html&#34; . }}
+</code></pre><h3 id="結語">結語</h3>
+<hr>
+<p>Utterances 是一個方便的評論系統，可用於 Hugo 靜態網站，它與 GitHub 整合，並通過 Issues 存儲評論，使評論管理變得簡單而有效。添加 Utterances 評論系統可以提升您的網站的互動性和參與度。</p>
 </div>
 
-<script>
-  document
-    .getElementById("knowMoreButton")
-    .addEventListener("click", function () {
-      gtag("event", "know_more_button_click", {
-        event_category: "Button Click",
-        event_label: "Know More Button Clicked",
-        value: 1,
-      });
-    });
-</script>
+        
+        
+        <script
+  src="https://utteranc.es/client.js"
+  repo="ChrisLinOvO/ChrisLinOvO.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
 
-      
-      <div class="col-lg-8 mb-5 mb-lg-0">
-        <div class="row">
-           
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <img
-      src="https://ChrisLinOvO.github.io/images/post/ga4-logo.jpg"
-      class="card-img-top"
-      alt="Google Analytics 4 介紹"
-    />
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics-introduction/" class="h5 d-block my-3"
-        >Google Analytics 4 介紹</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
-        
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>2023-10-25</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        
-        <a
-          href="/categories/notes"
-          class="text-primary"
-          >Notes</a
-        >
-         
-      </div>
-      <p class="card-text">提供一些 GA 相關知識😊</p>
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics-introduction/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-        </div>
-      </div>
-
-      
-      <div class="col-12 mt-5">
-        
       </div>
     </div>
   </div>
 </section>
-
 
 
 
