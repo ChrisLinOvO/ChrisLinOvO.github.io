@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-tw"><head>
   <meta charset="utf-8">
-  <title>Chris Lin&#39;s Blog</title>
+  <title>Hugo SEO（搜尋引擎優化）實踐</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -170,6 +170,30 @@
 </blockquote>
 <h4 id="步驟-3打包後看-html-結果這樣就完成頁面關鍵字設定">步驟 3：打包後看 html 結果，這樣就完成頁面關鍵字設定</h4>
 <pre tabindex="0"><code>&lt;meta name=&#34;keywords&#34; content=&#34;Hugo SEO, 靜態網頁SEO, SEO最佳化建議, 搜尋引擎優化, 網站排名&#34;&gt;
+</code></pre><h3 id="設定頁面標題">設定頁面標題</h3>
+<hr>
+<h4 id="步驟-1在該篇文章-markdown-添加-title">步驟 1：在該篇文章 Markdown 添加 title</h4>
+<pre tabindex="0"><code>title: &#34;Hugo SEO（搜尋引擎優化）實踐&#34;
+</code></pre><h4 id="步驟-2添加-title-標籤">步驟 2：添加 title 標籤</h4>
+<p>這邊我是加在<code>themes/layouts/partials/head.html</code>裏面。</p>
+<ul>
+<li><strong>這段意思是 先檢查是否在該頁面有設定標題，如果沒有會用整個網站的標題參數</strong></li>
+</ul>
+<pre tabindex="0"><code>&lt;title&gt;{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}&lt;/title&gt;
+</code></pre><h4 id="步驟-3打包後看-html-結果這樣就完成頁面標題設定">步驟 3：打包後看 html 結果，這樣就完成頁面標題設定</h4>
+<pre tabindex="0"><code>&lt;title&gt;Hugo SEO（搜尋引擎優化）實踐&lt;/title&gt;
+</code></pre><h3 id="設定頁面描述">設定頁面描述</h3>
+<hr>
+<h4 id="步驟-1在該篇文章-markdown-添加-description">步驟 1：在該篇文章 Markdown 添加 description</h4>
+<pre tabindex="0"><code>description: &#34;Hugo 產生靜態網頁的 SEO 最佳化建議&#34;
+</code></pre><h4 id="步驟-2添加-meta-標籤-1">步驟 2：添加 meta 標籤</h4>
+<p>這邊我是加在<code>themes/layouts/partials/head.html</code>裏面。</p>
+<ul>
+<li><strong>這段意思是同頁面標題</strong></li>
+</ul>
+<pre tabindex="0"><code>&lt;meta name=&#34;description&#34; content=&#34;{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}&#34;&gt;
+</code></pre><h4 id="步驟-3打包後看-html-結果這樣就完成頁面描述設定">步驟 3：打包後看 html 結果，這樣就完成頁面描述設定</h4>
+<pre tabindex="0"><code>&lt;meta name=&#34;description&#34; content=&#34;Hugo 產生靜態網頁的 SEO 最佳化建議&#34;&gt;
 </code></pre><h3 id="結語">結語</h3>
 <hr>
 <p>正確使用關鍵字可以提高您的文章在搜尋引擎中的排名，但不要忘記提供高質量的內容和有價值的信息。</p>
