@@ -8,6 +8,16 @@
     <language>zh-tw</language>
     <lastBuildDate>Tue, 24 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>解決 Hugo Markdown 無法另開網頁問題</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/10/target-blank-logo/</link>
+      <pubDate>Fri, 27 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/target-blank-logo/</guid>
+      <description>前言 在寫 Markdown 文章時候，想要為 link 添加 {target=&amp;quot;_blank&amp;quot;} 屬性參考文章，但卻起不了作用(會變字串)。
+這是一個連結[網站](http://example.com){target=&amp;#34;_blank&amp;#34;}的示例。 這是在猜想可能是 Hugo 版本不相容，就用上網找了解法，他說：Hugo 的安全模式可能會阻止執行 JavaScript。在安全模式下，Hugo 默認會禁用 JavaScript 和某些 HTML 標籤以增加網站的安全性。</description>
+    </item>
+    
+    <item>
       <title>Hugo SEO（搜尋引擎優化）實踐</title>
       <link>https://ChrisLinOvO.github.io/blogs/2023/10/hugo-seo/</link>
       <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
@@ -47,7 +57,7 @@ GA4：事件為核心。
       
       <guid>https://ChrisLinOvO.github.io/blogs/2023/10/google-search-console/</guid>
       <description>前言 目的想在 Google 被搜尋到我的個人 Blog
-開始添加 Google Search Console 步驟 1：點擊Google Search Console，後按下「立即開始」，就可以開始設定 步驟 2：選取資源類型 點擊網址前置字元區塊，輸入個人網站網址後，按繼續，這時如果有設定好 GA，他這邊會透過 GA 去驗證你的網站，點擊前往資源。</description>
+開始添加 Google Search Console 步驟 1：點擊 Google Search Console，後按下「立即開始」，就可以開始設定 步驟 2：選取資源類型 點擊網址前置字元區塊，輸入個人網站網址後，按繼續，這時如果有設定好 GA，他這邊會透過 GA 去驗證你的網站，點擊前往資源。</description>
     </item>
     
     <item>
@@ -57,7 +67,7 @@ GA4：事件為核心。
       
       <guid>https://ChrisLinOvO.github.io/blogs/2023/10/hugo-google-analytics/</guid>
       <description>前言 想查看使用者對於我的網站網站互動
-開始添加 Google Analytics 步驟 1：點擊Google Analytics，後按下「開始測量」，就可以開始設定 步驟 2：建立帳戶 輸入帳戶名稱後，往下拉下面不用改，按下一步。</description>
+開始添加 Google Analytics 步驟 1：點擊 Google Analytics，後按下「開始測量」，就可以開始設定 步驟 2：建立帳戶 輸入帳戶名稱後，往下拉下面不用改，按下一步。</description>
     </item>
     
     <item>

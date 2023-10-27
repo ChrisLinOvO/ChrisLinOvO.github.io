@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-tw"><head>
   <meta charset="utf-8">
-  <title>Notes</title>
+  <title>解決 Hugo Markdown 無法另開網頁問題</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I am a software engineer with more than 3 years of experience.">
+  <meta name="description" content="在 Markdown 添加 ShortCodes，來解決另開網頁不 work">
   <meta name="author" content="Chris">
     
   
@@ -108,207 +108,77 @@
 </header>
 <!-- /navigation -->
 
-
 <section class="section-sm">
   <div class="container">
     <div class="row">
-      
-      <div class="col-lg-4 pr-lg-5">
-  <div class="widgets">
-    
-    <div class="widget">
-      
-      <h4 class="widget-title">About Me</h4>
-      
-      <img
-        src="https://ChrisLinOvO.github.io/images/author-1.jpg"
-        alt=""
-        class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4"
-      />
-      
-      <p><p>我是林志隆，目前有 3 年以上前端開發經驗，擅長獨立作業完成各項需求，對於新的事物總是充滿好奇，保持著自我學習的態度更精進</p></p>
-      <a
-        id="knowMoreButton"
-        href="https://ChrisLinOvO.github.io/about/"
-        class="btn btn-outline-primary"
-        >Know More</a
-      >
-      
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Category</h4>
-      <ul class="list-unstyled">
-        <li>
+      <div class="col-lg-10 mx-auto">
+        <h2>解決 Hugo Markdown 無法另開網頁問題</h2>
+        <div class="mb-3 post-meta">
+          <span
+            >By Chris</span
+          >
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2023-10-27</span>
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          
           <a
-            href="/categories/notes/"
+            href="/categories/notes"
+            class="text-primary"
             >Notes</a
           >
-        </li>
-        <li>
-          <a
-            href="/categories/tech/"
-            >Tech</a
-          >
-        </li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Tag</h4>
-      <ul class="list-inline">
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/ga/"
-            >Ga</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/git/"
-            >Git</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/google/"
-            >Google</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/hugo/"
-            >Hugo</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/seo/"
-            >Seo</a
-          >
-        </li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Social</h4>
-      <ul class="list-inline social-links">
+           
+        </div>
         
-        <li class="list-inline-item">
-          <a target="_blank" href="https://github.com/ChrisLinOvO"
-            ><i class="ti-github"></i
-          ></a>
-        </li>
+        <img
+          src="https://ChrisLinOvO.github.io/images/post/target-blank-logo.jpg"
+          class="img-fluid w-100 mb-4"
+          alt="解決 Hugo Markdown 無法另開網頁問題"
+        />
         
-        <li class="list-inline-item">
-          <a target="_blank" href="mailto:qq2120621@gmail.com"
-            ><i class="ti-email"></i
-          ></a>
-        </li>
-        
-      </ul>
-    </div>
-    
-    
-  </div>
+        <div class="content mb-5"><h3 id="前言">前言</h3>
+<hr>
+<p>在寫 Markdown 文章時候，想要為 link 添加 <code>{target=&quot;_blank&quot;}</code> 屬性<a href="https://stackoverflow.com/questions/4425198/can-i-create-links-with-target-blank-in-markdown" target="_blank">參考文章</a>，但卻起不了作用(會變字串)。</p>
+<pre tabindex="0"><code>這是一個連結[網站](http://example.com){target=&#34;_blank&#34;}的示例。
+</code></pre><p>這是在猜想可能是 Hugo 版本不相容，就用上網找了解法，他說：<code>Hugo 的安全模式可能會阻止執行 JavaScript。在安全模式下，Hugo 默認會禁用 JavaScript 和某些 HTML 標籤以增加網站的安全性</code>。</p>
+<p>他說可以在<code>config.toml</code>進行配置，禁用 Hugo 的安全模式。</p>
+<pre tabindex="0"><code>[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+</code></pre><p>但這個方法是可以執行另開網站，但會有安全性風險，所以我就棄用了。</p>
+<h3 id="解決方案在-markdown-添加-shortcodes">解決方案：在 Markdown 添加 ShortCodes</h3>
+<hr>
+<h4 id="步驟-1在themeslayouts底下新增一個資料夾shortcodes並建立target-blankhtml">步驟 1：在<code>themes/layouts</code>底下新增一個資料夾<code>shortcodes</code>，並建立<code>target-blank.html</code></h4>
+<p>並添加以下內容，這個 ShortCode 將創建<code>target=&quot;_blank&quot;</code>屬性，並帶兩個參數。</p>
+<ul>
+<li><code>.Get &quot;url&quot;</code> 用來指定 Link 的 URL。</li>
+<li><code>.Inner</code> 用來指定 Link 的 文本。</li>
+</ul>
+<pre tabindex="0"><code>&lt;a href=&#34;{{ .Get &#34;url&#34; }}&#34; target=&#34;_blank&#34;&gt;{{ .Inner }}&lt;/a&gt;
+</code></pre><h4 id="步驟-2加在想要-markdown-中">步驟 2：加在想要 Markdown 中</h4>
+<p>注意 shortCode 命名盡量跟 html 文件名保持ㄧ至。</p>
+<p><img src="../../../../images/post/post-7-1.jpg" alt="image"></p>
+<h3 id="結語">結語</h3>
+<hr>
+<p>看完以上內容，可以完成解決 Hugo Markdown 無法另開網頁問題，如果以上有問題歡迎討論。</p>
 </div>
 
-<script>
-  document
-    .getElementById("knowMoreButton")
-    .addEventListener("click", function () {
-      gtag("event", "know_more_button_click", {
-        event_category: "Button Click",
-        event_label: "Know More Button Clicked",
-        value: 1,
-      });
-    });
-</script>
+        
+        
+        <script
+  src="https://utteranc.es/client.js"
+  repo="ChrisLinOvO/ChrisLinOvO.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
 
-      
-      <div class="col-lg-8 mb-5 mb-lg-0">
-        <div class="row">
-           
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <img
-      src="https://ChrisLinOvO.github.io/images/post/target-blank-logo.jpg"
-      class="card-img-top"
-      alt="解決 Hugo Markdown 無法另開網頁問題"
-    />
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/10/target-blank-logo/" class="h5 d-block my-3"
-        >解決 Hugo Markdown 無法另開網頁問題</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
-        
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>2023-10-27</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        
-        <a
-          href="/categories/notes"
-          class="text-primary"
-          >Notes</a
-        >
-         
-      </div>
-      <p class="card-text">在 Markdown 添加 ShortCodes，來解決另開網頁不 work</p>
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/10/target-blank-logo/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <img
-      src="https://ChrisLinOvO.github.io/images/post/ga4-logo.jpg"
-      class="card-img-top"
-      alt="Google Analytics 4 介紹"
-    />
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics-introduction/" class="h5 d-block my-3"
-        >Google Analytics 4 介紹</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
-        
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>2023-10-25</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        
-        <a
-          href="/categories/notes"
-          class="text-primary"
-          >Notes</a
-        >
-         
-      </div>
-      <p class="card-text">提供一些 GA 相關知識😊</p>
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics-introduction/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-        </div>
-      </div>
-
-      
-      <div class="col-12 mt-5">
-        
       </div>
     </div>
   </div>
 </section>
-
 
 
 
