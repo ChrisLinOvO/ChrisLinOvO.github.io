@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-tw"><head>
   <meta charset="utf-8">
-  <title>Hugo SEO（搜尋引擎優化）實踐</title>
+  <title>Hugo SEO（搜尋引擎優化）實踐 - Chris Lin&#39;s Blog</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -177,9 +177,9 @@
 </code></pre><h4 id="步驟-2添加-title-標籤">步驟 2：添加 title 標籤</h4>
 <p>這邊我是加在<code>themes/layouts/partials/head.html</code>裏面。</p>
 <ul>
-<li><strong>這段意思是 先檢查是否在該頁面有設定標題，如果沒有會用整個網站的標題參數</strong></li>
+<li><strong>這段意思是：如果當前頁面不是首頁，則會在標題中包括網站的名稱，以區分首頁和其他頁面的標題顯示方式。如果當前頁面是首頁，則只顯示頁面的標題，不包括網站名稱。</strong></li>
 </ul>
-<pre tabindex="0"><code>&lt;title&gt;{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}&lt;/title&gt;
+<pre tabindex="0"><code>&lt;title&gt;{{ $isHomePage := eq .Title .Site.Title }}{{ .Title }}{{ if eq $isHomePage false }} - {{ .Site.Title }}{{ end }}&lt;/title&gt;
 </code></pre><h4 id="步驟-3打包後看-html-結果這樣就完成頁面標題設定">步驟 3：打包後看 html 結果，這樣就完成頁面標題設定</h4>
 <pre tabindex="0"><code>&lt;title&gt;Hugo SEO（搜尋引擎優化）實踐&lt;/title&gt;
 </code></pre><h3 id="設定頁面描述">設定頁面描述</h3>
