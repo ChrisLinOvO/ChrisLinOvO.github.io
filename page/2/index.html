@@ -273,6 +273,41 @@
             <article class="card">
               
               <img
+                src="https://ChrisLinOvO.github.io/images/post/ga4-logo.jpg"
+                class="card-img-top"
+                alt="Google Analytics 4 介紹"
+              />
+              
+              <div class="card-body px-0">
+                <a href="https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics-introduction/" class="h5 d-block my-3"
+                  >Google Analytics 4 介紹</a
+                >
+                <div class="mb-3 post-meta">
+                  <span>By Chris</span>
+                  
+                  <span class="border-bottom border-primary px-2 mx-1"></span>
+                  <span>2023-10-25</span>
+                  <span class="border-bottom border-primary px-2 mx-1"></span>
+                  
+                  <a
+                    href="/categories/notes"
+                    class="text-primary"
+                    >Notes</a
+                  >
+                   
+                </div>
+                <p class="card-text">提供一些 GA 相關知識😊</p>
+                <a href="https://ChrisLinOvO.github.io/blogs/2023/10/google-analytics-introduction/" class="btn btn-outline-primary"
+                  >read more</a
+                >
+              </div>
+            </article>
+          </div>
+          
+          <div class="col-md-6 mb-4">
+            <article class="card">
+              
+              <img
                 src="https://ChrisLinOvO.github.io/images/post/google-search-logo-1.jpg"
                 class="card-img-top"
                 alt="添加 Google Search Console"
@@ -511,5 +546,82 @@
   display: none;
 }
 </style>
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <style>
+       
+      #lineShareButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    #lineShareButton img {
+        width: 60px;  
+        height: auto;
+    }
+
+    #lineShareButton p {
+        margin: 0;  
+    }
+    </style>
+  </head>
+  <body>
+    
+    <div id="lineShareButton">
+      <a href="javascript:void(0);" onclick="shareToLINE();">
+        <img src="images/LINE_Brand_icon.png" alt="LINE APP 圖片" />
+        <p>分享好友</p>
+      </a>
+    </div>
+
+    <script>
+      
+      var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+
+      
+      var shareButton = document.getElementById("lineShareButton");
+
+      
+      shareButton.addEventListener("click", function () {
+        
+        var currentURL = window.location.href;
+
+        
+        if (isMobile) {
+          
+          if (typeof liff !== "undefined") {
+            liff
+              .init({ liffId: "1656626039-ypP3YN8V" })
+              .then(function () {
+                
+                liff.shareTargetPicker([
+                  {
+                    type: "url",
+                    title: "分享的網頁",
+                    url: currentURL,
+                  },
+                ]);
+              })
+              .catch(function (error) {
+                console.error(error);
+              });
+          }
+        } else {
+          
+          window.open("https://lineit.line.me/share/ui?url=" + currentURL);
+        }
+      });
+    </script>
+  </body>
+</html>
 </body>
 </html>
