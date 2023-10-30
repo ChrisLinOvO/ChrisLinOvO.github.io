@@ -354,13 +354,15 @@
                     liff.login(); 
                   }
                   
-                  liff.shareTargetPicker([
-                    {
-                      type: "url",
-                      title: "分享的網頁",
-                      url: currentURL,
-                    },
-                  ]);
+                  window.location.href = "https://lineit.line.me/share/ui?url=" + currentURL;
+
+                
+                
+                
+                
+                
+                
+                
                 })
                 .catch(function (error) {
                   console.error(error);
