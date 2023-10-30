@@ -471,6 +471,9 @@
               liff
                 .init({ liffId: "2001397246-jbLPM3xw" })
                 .then(function () {
+                  if (!liff.isLoggedIn()) {
+                    liff.login(); 
+                  }
                   
                   liff.shareTargetPicker([
                     {
