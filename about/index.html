@@ -343,8 +343,6 @@
           
           var currentURL = window.location.href;
 
-          var sharedText = `來自${getUserName()}的分享🎉`;
-
           
           if (isMobile) {
             
@@ -358,13 +356,9 @@
                   
                   liff.shareTargetPicker([
                     {
-                      type: "text",
-                      text: sharedText,
-                    },
-                    {
                       type: "url",
                       title: "分享的網頁",
-                      url: `https://lineit.line.me/share/ui?url=${currentURL}`,
+                      url: "https://lineit.line.me/share/ui?url=" + currentURL,
                     },
                   ]);
                 })
@@ -374,7 +368,7 @@
             }
           } else {
             
-            window.open(`https://lineit.line.me/share/ui?url=${currentURL}`);
+            window.open("https://lineit.line.me/share/ui?url=" + currentURL);
           }
         });
       }
