@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-tw"><head>
   <meta charset="utf-8">
-  <title>Heroku 轉移至 Fly.io  - Chris Lin&#39;s Blog</title>
+  <title>Line LIFF ShareTargetPicker - Chris Lin&#39;s Blog</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Heroku 轉移至 Fly.io 筆記">
+  <meta name="description" content="Line 分享當前頁面給好友">
   <meta name="author" content="Chris">
     
   
@@ -112,20 +112,20 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">
-        <h2>Heroku 轉移至 Fly.io</h2>
+        <h2>Line LIFF ShareTargetPicker</h2>
         <div class="mb-3 post-meta">
           <span
             >By Chris</span
           >
           
           <span class="border-bottom border-primary px-2 mx-1"></span>
-          <span>2023-10-29</span>
+          <span>2023-10-30</span>
           <span class="border-bottom border-primary px-2 mx-1"></span>
           
           <a
-            href="/categories/notes"
+            href="/categories/portfolio"
             class="text-primary"
-            >Notes</a
+            >Portfolio</a
           >
            
         </div>
@@ -133,45 +133,49 @@
         <img
           src="https://ChrisLinOvO.github.io/images/post/fly.io-logo.jpg"
           class="img-fluid w-100 mb-4"
-          alt="Heroku 轉移至 Fly.io"
+          alt="Line LIFF ShareTargetPicker"
         />
         
         <div class="content mb-5"><h3 id="前言">前言</h3>
 <hr>
-<p>由於 Heroku 取消了免費的服務&hellip;個人作品都壞掉了，因此換成 Fly.io 部署</p>
-<h3 id="在-ｆlyio-建立專案">在 Ｆly.io 建立專案</h3>
+<p>之前在前公司有用到 Line shareTargetPicker API 的應用，用來發送訪客 QR code 給 Line 好友，這邊做一個簡單 Demo，單純轉發當前 URL 給好友。</p>
+<h3 id="line-liff-sharetargetpicker-教學">Line LIFF ShareTargetPicker 教學</h3>
 <hr>
-<h4 id="步驟-1安裝-flyctl">步驟 1：安裝 flyctl</h4>
-<p>這裡教學以 macOS 為例，可參考 <a href="https://fly.io/docs/hands-on/install-flyctl/#macos" target="_blank">官網</a> 。</p>
-<pre tabindex="0"><code>brew install flyctl
-</code></pre><h4 id="步驟-2註冊並登入">步驟 2：註冊並登入</h4>
-<p>會彈出瀏覽器視窗，可以連結 GitHub 帳號。</p>
-<pre tabindex="0"><code>flyctl auth signup
-</code></pre><pre tabindex="0"><code>flyctl auth login
-</code></pre><h4 id="步驟-3啟動既有專案">步驟 3：啟動既有專案</h4>
-<p>cd 到專案後，下<code>flyctl launch</code>，輸入專案的名稱。</p>
-<p><img src="../../../../images/post/post-8-1.jpg" alt="image"></p>
-<p>選擇 server region，我這邊選擇香港(Hong Kong)。</p>
-<p><img src="../../../../images/post/post-8-2.jpg" alt="image"></p>
-<blockquote>
-<p>注意帳號一定要綁定信用卡才行用 <img src="../../../../images/post/post-8-3.jpg" alt="image"></p>
-</blockquote>
-<p>會問需要使用 DB 嗎?這裡就看需求了(剛好我這個專案需要)，我就選 Yes 。</p>
-<p><img src="../../../../images/post/post-8-4.jpg" alt="image"></p>
-<p><img src="../../../../images/post/post-8-5.jpg" alt="image"></p>
-<h4 id="步驟-4開始部署">步驟 4：開始部署</h4>
-<pre tabindex="0"><code>flyctl deploy
-</code></pre><p>這時在終端機看到<code>succeeded</code>代表完成部署🎉</p>
-<p><img src="../../../../images/post/post-8-6.jpg" alt="image"></p>
-<blockquote>
-<p>可以在終端機下<code>flyctl logs</code>除錯</p>
-</blockquote>
-<h4 id="步驟-5訪問自己網站">步驟 5：訪問自己網站</h4>
-<p>可以從<code>https://fly.io/dashboard</code>查看所建立的 APP ，裡面會有 Hostname。</p>
-<p><img src="../../../../images/post/post-8-7.jpg" alt="image"></p>
+<h4 id="步驟-1進到-hahahugoshortcode14s0hbhb-建立-channel">步驟 1：進到 <a href="https://developers.line.biz/zh-hant/" target="_blank">developerse官網</a> 建立 channel</h4>
+<p>選擇 Products，請選擇<code>LINE Login</code>，然後<code>Create a new channel</code></p>
+<p><img src="../../../../images/post/post-10-1.jpg" alt="image"></p>
+<h4 id="步驟-2建立-liff">步驟 2：建立 LIFF</h4>
+<p>這時點選頁籤<code>LIFF</code>按下<code>Add</code>。</p>
+<p><img src="../../../../images/post/post-10-2.jpg" alt="image"></p>
+<p>以下說明 LIFF 表單</p>
+<ul>
+<li>
+<p>Size：這一項有三個值 Full、Tall、Compact，說明 LINE 打開 LIFF 時，他的大小要多大。
+要注意的是，分享的按鈕只會在「Full」這個 Size 出現。</p>
+</li>
+<li>
+<p>Endpoint URL ：使用者點擊了 LIFF 的連結，實際上 LIFF 是開啟了哪個頁面。</p>
+</li>
+<li>
+<p>Scopes ：指的是我們想要取哪些資料，「chat_message.write」，這項是如果要用到主動幫使用者發訊息的 sendMessages 函式時，這邊就必須打勾，不然 sendMessages 就無法使用。</p>
+</li>
+<li>
+<p>Add friend option ：當使用者要登入我們建立的 LIFF 時，要怎麼推薦他加入我們的 LINE。</p>
+</li>
+<li>
+<p>Scan QR ：指要不要使用 LIFF 的打開 QR code 掃描器功能。</p>
+</li>
+</ul>
+<h4 id="步驟-3建立-liff-完成">步驟 3：建立 LIFF 完成</h4>
+<p>建立完成後記得勾選<code>shareTargetPicker</code>，這項功能是主動讓使用者發送我們指定的訊息給他的好友。</p>
+<p><code>LIFF ID</code>這個要先記起來，之後寫 JS 用到。</p>
+<p><img src="../../../../images/post/post-10-3.jpg" alt="image"></p>
+<h4 id="步驟-4liff-轉成公開">步驟 4：LIFF 轉成公開</h4>
+<p>進到 LINE Developers 的後台，進到我們創建的 LIFF，會有一個「Developing」的按鈕，需要按下「Publish」就會轉成公開</p>
+<p><img src="../../../../images/post/post-10-4.jpg" alt="image"></p>
 <h3 id="結語">結語</h3>
 <hr>
-<p>Heroku 轉移至 Fly.io，讓我的小皮妞Bot復活，但要小心不要亂搞避免產生額外費用<a href="https://fly.io/docs/about/pricing/#free-allowances" target="_blank">參考</a>。</p>
+<p>主要是可以讓使用者用 Line 就可以快速分享該頁面。</p>
 </div>
 
         
@@ -325,15 +329,15 @@
                     liff.login(); 
                   }
                   
-                
-
-                  liff.shareTargetPicker([
-                    {
-                      type: "url",
-                      title: "分享的網頁",
-                      url: "https://lineit.line.me/share/ui?url=" + currentURL,
-                    },
-                  ]);
+                  window.location.href =
+                    "https://lineit.line.me/share/ui?url=" + currentURL;
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                 })
                 .catch(function (error) {
                   console.error(error);
