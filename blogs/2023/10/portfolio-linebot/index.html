@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>LineBot 關鍵字儲存查詢 - Chris Lin&#39;s Blog</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="用來記錄一些個人資料">
+  <meta name="author" content="Chris">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+
+  
+  
+  <meta name="generator" content="Hugo 0.119.0">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ChrisLinOvO.github.io/images/favicon-blog-2.png " type="image/x-icon">
+  <link rel="icon" href="https://ChrisLinOvO.github.io/images/favicon-blog-2.png " type="image/x-icon">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VG0G1B3B5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3VG0G1B3B5');
+  </script>
+
+</head>
+<body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view nav-link-mobile" href="https://ChrisLinOvO.github.io">Chris Lin's Blog</a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu nav-link-mobile"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="https://ChrisLinOvO.github.io">Chris Lin's Blog</a>
+            </li>
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://ChrisLinOvO.github.io"></a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ChrisLinOvO.github.io/about/">About Me</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://chrislinovo.github.io/blog/" target="_blank">Old Website</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search nav-link-mobile"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ChrisLinOvO.github.io/search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark nav-link-mobile"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <h2>LineBot 關鍵字儲存查詢</h2>
+        <div class="mb-3 post-meta">
+          <span
+            >By Chris</span
+          >
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2023-10-29</span>
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          
+          <a
+            href="/categories/portfolio"
+            class="text-primary"
+            >Portfolio</a
+          >
+           
+        </div>
+        
+        <img
+          src="https://ChrisLinOvO.github.io/images/post/linebot-logo.jpg"
+          class="img-fluid w-100 mb-4"
+          alt="LineBot 關鍵字儲存查詢"
+        />
+        
+        <div class="content mb-5"><h3 id="前言">前言</h3>
+<hr>
+<p>依照個人喜好做出各種風格的機器人像是 AI 聊天，接收到的文字另存至資料庫等</p>
+<h3 id="建立-line-bot">建立 Line bot</h3>
+<hr>
+<h4 id="步驟-1在-hahahugoshortcode14s0hbhb-登入自己line帳號">步驟 1：在 <a href="https://developers.line.biz/zh-hant/" target="_blank">LINE Developers</a> 登入自己Line帳號</h4>
+<h4 id="步驟-2建立-line-頻道">步驟 2：建立 line 頻道</h4>
+<p>選擇 Messaging API</p>
+<p><img src="../../../../images/post/post-9-1.jpg" alt="image"></p>
+<h4 id="步驟-3將帳號加為好友">步驟 3：將帳號加為好友</h4>
+<p>建立好 channel，可在第二個頁籤<code>Messaging API</code>看到<code>Bot basic ID</code>，這就是新增好友的 ID，也可以掃QR code。</p>
+<p><img src="../../../../images/post/post-9-2.jpg" alt="image"></p>
+<h4 id="步驟-4設定-webhook">步驟 4：設定 Webhook</h4>
+<p>往下滑會看到<code>Webhook settings</code>，把<code>Use webhook</code>打開，上方的 URL可以先不輸入，等等再回來設定。</p>
+<p><img src="../../../../images/post/post-9-3.jpg" alt="image"></p>
+<h4 id="步驟-5記下程式連接bot必要的密鑰">步驟 5：記下程式連接Bot必要的密鑰</h4>
+<p>這兩個到時候我是添加到程式中<code>.env</code>的設定。</p>
+<ul>
+<li>Basic settings — Channel secret</li>
+</ul>
+<p><img src="../../../../images/post/post-9-4.jpg" alt="image"></p>
+<ul>
+<li>Messaging API — Channel access token</li>
+</ul>
+<p><img src="../../../../images/post/post-9-5.jpg" alt="image"></p>
+<h4 id="步驟-6設定自動回覆及打招呼">步驟 6：設定自動回覆及打招呼</h4>
+<p>在<code>Messaging API</code>頁籤拉到下面會看到<code>LINE Official Account features</code>，點選<code>Auto-reply messages</code>右邊的編輯可以設定。</p>
+<p><img src="../../../../images/post/post-9-6.jpg" alt="image"></p>
+<p>回應設定就看個人需求，我這邊都是打開。</p>
+<p><img src="../../../../images/post/post-9-7.jpg" alt="image"></p>
+<h3 id="建立聊天機器人專案">建立聊天機器人專案</h3>
+<hr>
+<p>這邊我是用 Node.js + MongoDB Atlas 部署到 Render</p>
+<h3 id="以下是撰寫-nodejs-程式筆記">以下是撰寫 Node.js 程式筆記</h3>
+<h4 id="步驟-1安裝linebot-sdk這個套件並在專案底下建立一個appjs的檔案">步驟 1：安裝<code>@line/bot-sdk</code>這個套件，並在專案底下建立一個<code>app.js</code>的檔案</h4>
+<pre tabindex="0"><code>npm i @line/bot-sdk express dotenv
+</code></pre><h4 id="步驟-2撰寫-line-bot">步驟 2：撰寫 LINE Bot</h4>
+<p>不外乎前面就是引入<code>@line/bot-sdk</code>、<code>express</code>與<code>dotenv</code>這三個套件，Line 官方有提供<a href="https://github.com/line/line-bot-sdk-nodejs/blob/master/examples/echo-bot/index.js" target="_blank">範例程式碼</a>。</p>
+<p><img src="../../../../images/post/post-9-8.jpg" alt="image"></p>
+<h4 id="步驟-3建立env並寫下創建-linebot-的密鑰channelsecret及channelaccesstoken">步驟 3：建立<code>.env</code>，並寫下創建 LineBot 的密鑰<code>channelSecret</code>及<code>channelAccessToken</code>。</h4>
+<p><img src="../../../../images/post/post-9-9.jpg" alt="image"></p>
+<h3 id="部署至-render">部署至 Render</h3>
+<hr>
+<h4 id="步驟-1到hahahugoshortcode14s2hbhb並-connect-github">步驟 1：到<a href="https://render.com/" target="_blank">官網註冊</a>，並 Connect GitHub</h4>
+<h4 id="步驟-2選擇要部署的專案">步驟 2：選擇要部署的專案</h4>
+<p>點選<code>Web Services</code></p>
+<p><img src="../../../../images/post/post-9-10.jpg" alt="image"></p>
+<p>設置<code>Configure account</code>，選擇 LineBot 專案</p>
+<p><img src="../../../../images/post/post-9-11.jpg" alt="image"></p>
+<p><img src="../../../../images/post/post-9-12.jpg" alt="image"></p>
+<h4 id="步驟-3connect-要部署的專案">步驟 3：Connect 要部署的專案</h4>
+<p>點擊Connect</p>
+<p><img src="../../../../images/post/post-9-13.jpg" alt="image"></p>
+<h4 id="步驟-4填寫部署資訊">步驟 4：填寫部署資訊</h4>
+<p><img src="../../../../images/post/post-9-14.jpg" alt="image"></p>
+<h4 id="步驟-5選擇收費方案">步驟 5：選擇收費方案</h4>
+<p>這裡我選Free</p>
+<p><img src="../../../../images/post/post-9-15.jpg" alt="image"></p>
+<h4 id="步驟-6advanced區塊填入環境變數">步驟 6：「Advanced」區塊填入環境變數</h4>
+<p>點一下「Add Environment Variable」，依照欄位填入</p>
+<p><img src="../../../../images/post/post-9-16.jpg" alt="image"></p>
+<h4 id="步驟-7create-web-service">步驟 7：Create Web Service</h4>
+<p>這時候就會開始進行部署</p>
+<p><img src="../../../../images/post/post-9-17.jpg" alt="image"></p>
+<h3 id="回到-line-設定-webhook">回到 line 設定 webhook</h3>
+<p><a href="https://line-bot-xxxx.onrender.com/callback">https://line-bot-xxxx.onrender.com/callback</a></p>
+<p><img src="../../../../images/post/post-9-18.jpg" alt="image"></p>
+<h3 id="小皮妞bot-demo">小皮妞Bot Demo</h3>
+<ol>
+<li><strong>打開指令介紹</strong>：<code>**</code></li>
+</ol>
+<p><img src="../../../../images/post/post-9-19.jpg" alt="image"></p>
+<ol start="2">
+<li><strong>增加紀錄</strong>：<code>@標題@內容</code></li>
+</ol>
+<p><img src="../../../../images/post/post-9-20.jpg" alt="image"></p>
+<ol start="3">
+<li><strong>搜詢當下關鍵字</strong>：<code>@@關鍵字</code></li>
+</ol>
+<p><img src="../../../../images/post/post-9-21.jpg" alt="image"></p>
+<ol start="4">
+<li><strong>刪除當下第N筆文章</strong>：<code>@$N</code></li>
+</ol>
+<p><img src="../../../../images/post/post-9-22.jpg" alt="image"></p>
+<ol start="5">
+<li><strong>輸出當下&quot;文章編號(第N*10筆)</strong>：<code>$$$N</code></li>
+</ol>
+<p><img src="../../../../images/post/post-9-23.jpg" alt="image"></p>
+<ol start="6">
+<li><strong>輸出當下第N筆文章</strong>：<code>$$N</code></li>
+</ol>
+<p><img src="../../../../images/post/post-9-24.jpg" alt="image"></p>
+<ol start="7">
+<li><strong>輸出自己&quot;文章編號(第N*10筆)</strong>：<code>$$$myN</code></li>
+</ol>
+<ul>
+<li>可以群聊針對自己文章查詢</li>
+</ul>
+<p><img src="../../../../images/post/post-9-25.jpg" alt="image"></p>
+<ol start="8">
+<li><strong>輸出不存在指令</strong>：<code>可以隨便打測試</code></li>
+</ol>
+<p><img src="../../../../images/post/post-9-26.jpg" alt="image"></p>
+<h3 id="結語">結語</h3>
+<hr>
+<p>Heroku 轉移至 Fly.io，讓我的皮皮Bot復活，但莫名其妙被多收錢，因此再轉移至 Render。</p>
+<p>而 Render 優點：</p>
+<ol>
+<li>
+<p>有免費計畫，且不用先綁信用卡，用起來比較安心</p>
+</li>
+<li>
+<p>每個月免費 500 分鐘建構，和 450 小時免費使用時數</p>
+</li>
+</ol>
+</div>
+
+        
+        
+        <script
+  src="https://utteranc.es/client.js"
+  repo="ChrisLinOvO/ChrisLinOvO.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ChrisLinOvO.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ChrisLinOvO.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ChrisLinOvO.github.io/js/script.min.js"></script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+<div id="js-cookie-box" class="cookie-box cookie-box-hide">
+	This site uses cookies. By continuing to use this website, you agree to their use. <span id="js-cookie-button" class="btn btn-sm btn-primary ml-2">I Accept</span>
+</div>
+<script>
+	(function ($) {
+		const cookieBox = document.getElementById('js-cookie-box');
+		const cookieButton = document.getElementById('js-cookie-button');
+		if (!Cookies.get('cookie-box')) {
+			cookieBox.classList.remove('cookie-box-hide');
+			cookieButton.onclick = function () {
+				Cookies.set('cookie-box', true, {
+					expires:  2 
+				});
+				cookieBox.classList.add('cookie-box-hide');
+			};
+		}
+	})(jQuery);
+</script>
+
+
+<style>
+.cookie-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 9999;
+  padding: 1rem 2rem;
+  background: rgb(71, 71, 71);
+  transition: all .75s cubic-bezier(.19, 1, .22, 1);
+  color: #fdfdfd;
+}
+
+.cookie-box-hide {
+  display: none;
+}
+</style>
+</body>
+</html>

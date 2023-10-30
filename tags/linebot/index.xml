@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LineBot on Chris Lin&#39;s Blog</title>
+    <link>https://ChrisLinOvO.github.io/tags/linebot/</link>
+    <description>Recent content in LineBot on Chris Lin&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 29 Oct 2023 23:00:00 +0800</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/linebot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LineBot 關鍵字儲存查詢</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-linebot/</link>
+      <pubDate>Sun, 29 Oct 2023 23:00:00 +0800</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-linebot/</guid>
+      <description>前言 依照個人喜好做出各種風格的機器人像是 AI 聊天，接收到的文字另存至資料庫等
+建立 Line bot 步驟 1：在 LINE Developers 登入自己Line帳號 步驟 2：建立 line 頻道 選擇 Messaging API</description>
+    </item>
+    
+  </channel>
+</rss>
