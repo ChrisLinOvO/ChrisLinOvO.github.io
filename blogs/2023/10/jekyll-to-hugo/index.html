@@ -355,15 +355,15 @@ brew install --build-from-source hugo
                     liff.login(); 
                   }
                   
-                  window.location.href = "https://lineit.line.me/share/ui?url=" + currentURL;
+                
 
-                
-                
-                
-                
-                
-                
-                
+                  liff.shareTargetPicker([
+                    {
+                      type: "url",
+                      title: "分享的網頁",
+                      url: "https://lineit.line.me/share/ui?url=" + currentURL,
+                    },
+                  ]);
                 })
                 .catch(function (error) {
                   console.error(error);

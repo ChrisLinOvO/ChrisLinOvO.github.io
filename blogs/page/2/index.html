@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="this is meta description">
+  <meta name="description" content="歡迎來到我的部落格">
   <meta name="author" content="Chris">
     
   
@@ -595,15 +595,15 @@
                     liff.login(); 
                   }
                   
-                  window.location.href = "https://lineit.line.me/share/ui?url=" + currentURL;
+                
 
-                
-                
-                
-                
-                
-                
-                
+                  liff.shareTargetPicker([
+                    {
+                      type: "url",
+                      title: "分享的網頁",
+                      url: "https://lineit.line.me/share/ui?url=" + currentURL,
+                    },
+                  ]);
                 })
                 .catch(function (error) {
                   console.error(error);
