@@ -44,7 +44,9 @@
     gtag('config', 'G-3VG0G1B3B5');
   </script>
   <script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.3.4/vconsole.min.js"></script>
-  
+  <script>
+    var vConsole = new VConsole(); 
+  </script>
 
 </head>
 <body>
@@ -358,21 +360,25 @@
                       })
                       .catch((error) => {
                         console.error("在 Line 客户端中分享失敗", error);
-                        window.location.href = externalUrl;
+                        
+                        window.open(externalUrl);
                       });
                   } else {
                     console.error(
                       "你的 LINE App 暫時不支援 Share Target Picker ，將開啟外部瀏覽器。"
                     );
-                    window.location.href = externalUrl;
+                    
+                    window.open(externalUrl);
                   }
                 })
                 .catch((error) => {
                   console.error("無法取得用戶資料:", error);
+                  window.open(externalUrl);
                 });
             })
             .catch((error) => {
               console.error("LIFF 初始化失败:", error);
+              window.open(externalUrl);
             });
         } else {
           
