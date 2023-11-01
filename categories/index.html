@@ -478,26 +478,31 @@
         const currentURL = window.location.href;
         
         if (typeof liff !== "undefined" && liff.isInClient()) {
-          liff
-            .shareTargetPicker([
-              {
-                type: "text",
-                text: currentURL,
-              },
-            ])
-            .then(() => {
-              console.log("在Line客户端中分享成功");
-            })
-            .catch((error) => {
-              console.error("在Line客户端中分享失敗", error);
-            });
+          
+          liff.getProfile().then((profile) => {
+            const nickname = profile.displayName;
+            const shareText = `好友 ${nickname} 分享了這個連結😊: ${currentURL}`;
+            
+            liff
+              .shareTargetPicker([
+                {
+                  type: "text",
+                  text: currentURL,
+                },
+              ])
+              .then(() => {
+                console.log("在 Line 客户端中分享成功");
+              })
+              .catch((error) => {
+                console.error("在 Line 客户端中分享失敗", error);
+              });
+          });
         } else {
           
           window.open("https://lineit.line.me/share/ui?url=" + currentURL);
         }
       });
     </script>
-    
   </body>
 </html>
 </body>
