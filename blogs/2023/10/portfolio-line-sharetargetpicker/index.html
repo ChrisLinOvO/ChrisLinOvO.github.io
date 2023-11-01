@@ -318,18 +318,14 @@
         
         var shareButton = document.getElementById("lineShareButton");
 
-        var scrollPosition = 0; 
-    window.addEventListener("scroll", function() {
-        var scrollY = window.scrollY || window.pageYOffset;
-        if (scrollY > scrollPosition) {
-            
-            shareButton.style.display = "none";
-        } else {
-            
-            shareButton.style.display = "flex";
-        }
-        scrollPosition = scrollY;
-    });
+        window.addEventListener("scroll", function() {
+            var scrollY = window.scrollY || window.pageYOffset;
+            if (scrollY > 100) { 
+                shareButton.style.display = "none";
+            } else {
+                shareButton.style.display = "flex"; 
+            }
+        });
 
         
         shareButton.addEventListener("click", function () {
