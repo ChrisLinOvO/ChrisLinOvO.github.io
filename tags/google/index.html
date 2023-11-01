@@ -541,11 +541,16 @@
           shareButton.style.display = "flex"; 
         }
       });
+
+      function isMobileUser() {
+        return /Mobile|Mobi/i.test(navigator.userAgent);
+      }
+
       shareButton.addEventListener("click", () => {
         
         const currentURL = window.location.href;
         
-        if (typeof liff !== "undefined" && liff.isInClient()) {
+        if (typeof liff !== "undefined" && isMobileUser()) {
           
           liff.getProfile().then((profile) => {
             const nickname = profile.displayName;
