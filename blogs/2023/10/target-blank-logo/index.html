@@ -259,13 +259,6 @@
   <head>
     
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-    <script>
-      async function initializeLiff() {
-        await liff.init({ liffId: "2001397246-jbLPM3xw" });
-      }
-
-      initializeLiff();
-    </script>
     <style>
        
       #lineShareButton {
@@ -323,33 +316,43 @@
         if (isMobileDevice()) {
           console.log("isMobile");
           
-          liff.getProfile().then((profile) => {
-            console.log("profile", profile);
-            const nickname = profile.displayName;
-            const shareText = `好友 ${nickname} 分享了這個連結😊: ${currentUrl}`;
-            
-            console.log("shareText", shareText);
-            if (liff.isApiAvailable("shareTargetPicker")) {
-              liff
-                .shareTargetPicker([
-                  {
-                    type: "text",
-                    text: shareText,
-                  },
-                ])
-                .then(() => {
-                  console.log("在 Line 客户端中分享成功");
-                })
-                .catch((error) => {
-                  console.log("error ", shareText);
-                  console.error("在 Line 客户端中分享失敗", error);
-                });
-            } else {
-              alert(
-                "你的 LINE App 暫時不支援 Share Target Picker ，將開始外部瀏覽器。"
-              );
-            }
-          });
+          liff
+            .init({
+              liffId: "2001397246-jbLPM3xw",
+              login: "required",
+            })
+            .then(() => {
+              liff.getProfile().then((profile) => {
+                console.log("profile", profile);
+                const nickname = profile.displayName;
+                const shareText = `好友 ${nickname} 分享了這個連結😊: ${currentUrl}`;
+                
+                console.log("shareText", shareText);
+                if (liff.isApiAvailable("shareTargetPicker")) {
+                  liff
+                    .shareTargetPicker([
+                      {
+                        type: "text",
+                        text: shareText,
+                      },
+                    ])
+                    .then(() => {
+                      console.log("在 Line 客户端中分享成功");
+                    })
+                    .catch((error) => {
+                      console.log("error ", shareText);
+                      console.error("在 Line 客户端中分享失敗", error);
+                    });
+                } else {
+                  alert(
+                    "你的 LINE App 暫時不支援 Share Target Picker ，將開始外部瀏覽器。"
+                  );
+                }
+              });
+            })
+            .catch((error) => {
+              console.error("LIFF 初始化失败:", error);
+            });
         } else {
           
           window.open(`https://lineit.line.me/share/ui?url=${currentUrl}`);
