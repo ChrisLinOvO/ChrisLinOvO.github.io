@@ -337,13 +337,11 @@
           liff.getProfile().then((profile) => {
             console.log("profile", profile);
             const nickname = profile.displayName;
-            const shareText = `好友 ${nickname} 分享了這個連結`;
-            
+            const shareText = `好友 ${nickname} 分享了這個連結😊: ${currentURL}`;
             
             if (liff.isApiAvailable("shareTargetPicker")) {
               console.log("shareText", shareText);
-              liff
-                .shareTargetPicker([
+              liff.shareTargetPicker([
                   {
                     type: "text",
                     text: shareText,
