@@ -614,13 +614,22 @@
                   
                   
                   
-                  liff.shareTargetPicker([
+                  liff.shareTargetPicker(
+                    [
+                      {
+                        type: "text",
+                        text: "Hello, World!",
+                      },
+                      
+                      
+                      
+                      
+                      
+                    ],
                     {
-                      type: "url",
-                      text: "分享的網頁",
-                      value: currentURL,
-                    },
-                  ]);
+                      isMultiple: true,
+                    }
+                  );
                 })
                 .catch(function (error) {
                   console.error(error);
