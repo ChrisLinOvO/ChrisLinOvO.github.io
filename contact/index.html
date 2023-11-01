@@ -307,19 +307,15 @@
         if (typeof liff !== "undefined" && isMobileUser()) {
           console.log("isMobile");
           
-          
-          
-          
-          
-          
-          if (liff.isApiAvailable("shareTargetPicker")) {
-            liff.getProfile().then((profile) => {
-              console.log("profile", profile);
-              const nickname = profile.displayName;
-              const shareText = `好友 ${nickname} 分享了這個連結😊: https://chrislinovo.github.io/about/`;
-              
-              console.log("shareText", shareText);
-              liff.shareTargetPicker([
+          liff.getProfile().then((profile) => {
+            console.log("profile", profile);
+            const nickname = profile.displayName;
+            const shareText = `好友 ${nickname} 分享了這個連結😊: https://chrislinovo.github.io/about/`;
+            
+            console.log("shareText", shareText);
+            if (liff.isApiAvailable("shareTargetPicker")) {
+              liff
+                .shareTargetPicker([
                   {
                     type: "text",
                     text: shareText,
@@ -332,13 +328,15 @@
                   console.log("error ", shareText);
                   console.error("在 Line 客户端中分享失敗", error);
                 });
-            });
-          } else {
-            alert(
-              "你的 LINE App 暫時不支援 Share Target Picker ，將開始外部瀏覽器。"
-            );
-          }
-          
+            } else {
+              alert(
+                "你的 LINE App 暫時不支援 Share Target Picker ，將開始外部瀏覽器。"
+              );
+            }
+            if (liff.isApiAvailable("multipleLiffTransition")) {
+              window.location.href = "https://line.me/2001397246-jbLPM3xw";
+            }
+          });
         } else {
           
           window.open(
