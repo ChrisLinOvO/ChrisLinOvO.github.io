@@ -322,7 +322,7 @@
         
         shareButton.addEventListener("click", function () {
           
-          var currentURL = window.location.href;
+          const currentURL = window.location.href;
 
           
           if (isMobile) {
@@ -340,8 +340,8 @@
                   liff.shareTargetPicker([
                     {
                       type: "url",
-                      title: "分享的網頁",
-                      value: "https://lineit.line.me/share/ui?url=" + currentURL,
+                      text: "分享的網頁",
+                      value: currentURL,
                     },
                   ]);
                 })

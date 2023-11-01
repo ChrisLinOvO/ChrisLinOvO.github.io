@@ -355,7 +355,7 @@ brew install --build-from-source hugo
         
         shareButton.addEventListener("click", function () {
           
-          var currentURL = window.location.href;
+          const currentURL = window.location.href;
 
           
           if (isMobile) {
@@ -373,8 +373,8 @@ brew install --build-from-source hugo
                   liff.shareTargetPicker([
                     {
                       type: "url",
-                      title: "分享的網頁",
-                      value: "https://lineit.line.me/share/ui?url=" + currentURL,
+                      text: "分享的網頁",
+                      value: currentURL,
                     },
                   ]);
                 })
