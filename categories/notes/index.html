@@ -502,6 +502,19 @@
         
         var shareButton = document.getElementById("lineShareButton");
 
+        var scrollPosition = 0; 
+    window.addEventListener("scroll", function() {
+        var scrollY = window.scrollY || window.pageYOffset;
+        if (scrollY > scrollPosition) {
+            
+            shareButton.style.display = "none";
+        } else {
+            
+            shareButton.style.display = "flex";
+        }
+        scrollPosition = scrollY;
+    });
+
         
         shareButton.addEventListener("click", function () {
           
@@ -518,15 +531,15 @@
                     liff.login(); 
                   }
                   
-                  window.location.href =
-                    "https://lineit.line.me/share/ui?url=" + currentURL;
                   
                   
-                  
-                  
-                  
-                  
-                  
+                  liff.shareTargetPicker([
+                    {
+                      type: "url",
+                      title: "分享的網頁",
+                      value: "https://lineit.line.me/share/ui?url=" + currentURL,
+                    },
+                  ]);
                 })
                 .catch(function (error) {
                   console.error(error);
@@ -538,6 +551,8 @@
           }
         });
       }
+
+     
     </script>
   </body>
 </html>
