@@ -346,22 +346,13 @@
                   
                   
                   
-                  liff.shareTargetPicker(
-                    [
-                      {
-                        type: "text",
-                        text: "Hello, World!",
-                      },
-                      
-                      
-                      
-                      
-                      
-                    ],
+                  liff.shareTargetPicker([
                     {
-                      isMultiple: true,
+                      type: "url",
+                      text: "分享的網頁",
+                      value: "https://liff.line.me/2001397246-jbLPM3xw" + currentURL,
                     }
-                  );
+                  ]);
                 })
                 .catch(function (error) {
                   console.error(error);
