@@ -338,8 +338,7 @@
               const shareText = `好友 ${nickname} 分享了這個連結😊: https://chrislinovo.github.io/about/`;
               
               console.log("shareText", shareText);
-              liff
-                .shareTargetPicker([
+              liff.shareTargetPicker([
                   {
                     type: "text",
                     text: shareText,
@@ -349,6 +348,7 @@
                   console.log("在 Line 客户端中分享成功");
                 })
                 .catch((error) => {
+                  console.log("error ", shareText);
                   console.error("在 Line 客户端中分享失敗", error);
                 });
             });
