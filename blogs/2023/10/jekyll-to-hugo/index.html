@@ -392,7 +392,7 @@ brew install --build-from-source hugo
                 })
                 .catch((error) => {
                   console.error("無法取得用戶資料:", error);
-                  window.location.href = externalUrl;
+                  liff.login();
                 });
             })
             .catch((error) => {
