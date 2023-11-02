@@ -6,7 +6,18 @@
     <description>Recent content in Line on Chris Lin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 30 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/line/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/line/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>午餐機器人</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-lunch-linebot/</link>
+      <pubDate>Thu, 02 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-lunch-linebot/</guid>
+      <description>前言 當時在前公司訂便當的時候，都要跑去每個人座位詢問，挺麻煩的!
+於是決定與一位後端同仁一起搭建午餐機器人。
+架構 這邊我是用 Feathers + MongoDB Atlas 部署到 Render 作品</description>
+    </item>
+    
     <item>
       <title>Line LIFF ShareTargetPicker</title>
       <link>https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-line-sharetargetpicker/</link>
@@ -18,10 +29,10 @@
     
     <item>
       <title>LineBot 關鍵字儲存查詢</title>
-      <link>https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-linebot/</link>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-qq-linebot/</link>
       <pubDate>Sun, 29 Oct 2023 23:00:00 +0800</pubDate>
       
-      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-linebot/</guid>
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-qq-linebot/</guid>
       <description>前言 依照個人喜好做出各種風格的機器人像是 AI 聊天，接收到的文字另存至資料庫等
 建立 Line bot 步驟 1：在 LINE Developers 登入自己Line帳號 步驟 2：建立 line 頻道 選擇 Messaging API</description>
     </item>

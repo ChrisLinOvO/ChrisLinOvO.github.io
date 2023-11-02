@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-tw"><head>
   <meta charset="utf-8">
-  <title>Fly.io - Chris Lin&#39;s Blog</title>
+  <title>午餐機器人 - Chris Lin&#39;s Blog</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I am a software engineer with more than 3 years of experience.">
+  <meta name="description" content="串接 LineBot 及後台管理訂單介面">
   <meta name="author" content="Chris">
     
   
@@ -110,237 +110,114 @@
 </header>
 <!-- /navigation -->
 
-
 <section class="section-sm">
   <div class="container">
     <div class="row">
-      
-      <div class="col-lg-4 pr-lg-5">
-  <div class="widgets">
-    
-    <div class="widget">
-      
-      <h4 class="widget-title">About Me</h4>
-      
-      <img
-        src="https://ChrisLinOvO.github.io/images/author-1.jpg"
-        alt=""
-        class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4"
-      />
-      
-      <p><p>我是林志隆，目前有 3 年以上前端開發經驗，擅長獨立作業完成各項需求，對於新的事物總是充滿好奇，保持著自我學習的態度更精進</p></p>
-      <a
-        id="knowMoreButton"
-        href="https://ChrisLinOvO.github.io/about/"
-        class="btn btn-outline-primary"
-        >Know More</a
-      >
-      
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Category</h4>
-      <ul class="list-unstyled">
-        <li>
-          <a
-            href="/categories/notes/"
-            >Notes</a
+      <div class="col-lg-10 mx-auto">
+        <h2>午餐機器人</h2>
+        <div class="mb-3 post-meta">
+          <span
+            >By Chris</span
           >
-        </li>
-        <li>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2023-11-02</span>
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          
           <a
-            href="/categories/portfolio/"
+            href="/categories/portfolio"
+            class="text-primary"
             >Portfolio</a
           >
-        </li>
-        <li>
-          <a
-            href="/categories/tech/"
-            >Tech</a
-          >
-        </li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Tag</h4>
-      <ul class="list-inline">
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/feathers/"
-            >Feathers</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/fly.io/"
-            >Fly.io</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/ga/"
-            >Ga</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/git/"
-            >Git</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/google/"
-            >Google</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/heroku/"
-            >Heroku</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/hugo/"
-            >Hugo</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/line/"
-            >Line</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/linebot/"
-            >Linebot</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/ngrok/"
-            >Ngrok</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/react/"
-            >React</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/render/"
-            >Render</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/seo/"
-            >Seo</a
-          >
-        </li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Social</h4>
-      <ul class="list-inline social-links">
+           
+        </div>
         
-        <li class="list-inline-item">
-          <a target="_blank" href="https://github.com/ChrisLinOvO"
-            ><i class="ti-github"></i
-          ></a>
-        </li>
+        <img
+          src="https://ChrisLinOvO.github.io/images/post/lunch-logo.jpg"
+          class="img-fluid w-100 mb-4"
+          alt="午餐機器人"
+        />
         
-        <li class="list-inline-item">
-          <a target="_blank" href="mailto:qq2120621@gmail.com"
-            ><i class="ti-email"></i
-          ></a>
-        </li>
-        
-      </ul>
-    </div>
-    
-    
-  </div>
+        <div class="content mb-5"><h3 id="前言">前言</h3>
+<hr>
+<p>當時在前公司訂便當的時候，都要跑去每個人座位詢問，挺麻煩的!</p>
+<p>於是決定與一位後端同仁一起搭建午餐機器人。</p>
+<h5 id="架構">架構</h5>
+<p>這邊我是用 Feathers + MongoDB Atlas 部署到 Render 作品</p>
+<ol>
+<li>後台介面：Feathers、React 和 Feathers Socket.IO 創建一個實時應用程序，並實現數據的即時更新。</li>
+<li>LineBot：設定 Channel ID、Channel Secret&hellip;等必要資訊，並 Webhook 路由及處理 LineBot 事件</li>
+</ol>
+<h3 id="測試環境用-ngrok-建立一個-linebot-webhook-的-https-url">測試環境用 Ngrok 建立一個 LineBot Webhook 的 HTTPS URL</h3>
+<hr>
+<h4 id="步驟-1在-hahahugoshortcode15s0hbhb-創建一個帳戶">步驟 1：在 <a href="https://ngrok.com/" target="_blank">Ngrok官網</a> 創建一個帳戶</h4>
+<h4 id="步驟-2執行-ngrok">步驟 2：執行 Ngrok</h4>
+<ol>
+<li>
+<p>下載並解壓縮後你會獲得一個 ngrok 的執行檔。</p>
+</li>
+<li>
+<p>Mac 環境變數設定：需要將 ngrok 執行檔拖曳到 /usr/local/bin/ 資料夾內。</p>
+</li>
+<li>
+<p>切換到<code>/bin</code>目錄 將 Webhook 轉發到本地端口（例如 3030）。</p>
+</li>
+</ol>
+<p><img src="../../../../images/post/post-11-1.jpg" alt="image"></p>
+<ol start="4">
+<li>啟動服務</li>
+</ol>
+<p>可以看到 Forwarding 有一個 https 服務，到時候就可以貼到 LineBot Webhook。</p>
+<p><img src="../../../../images/post/post-11-2.jpg" alt="image"></p>
+<p><img src="../../../../images/post/post-11-3.jpg" alt="image"></p>
+<blockquote>
+<p>LineBot設定就不再探討，可以去我寫的 <a href="/blogs/2023/10/portfolio-qq-linebot/" target="_blank">LineBot 關鍵字儲存查詢</a> 文章看</p>
+</blockquote>
+<h3 id="午餐機器人及後台管理-demo">午餐機器人及後台管理 Demo</h3>
+<hr>
+<ol>
+<li>可在後台新建菜單</li>
+</ol>
+<p><img src="../../../../images/post/post-11-4.jpg" alt="image"></p>
+<ol start="2">
+<li>這時候可以看見LineBot輸入<code>吃</code>(這邊是我們自己下的指令)，就會產生訂單</li>
+</ol>
+<p><img src="../../../../images/post/post-11-5.jpg" alt="image"></p>
+<ol start="3">
+<li>接著按下開始訂單，就依照機器人回覆輸入相對應文字</li>
+</ol>
+<p><img src="../../../../images/post/post-11-6.jpg" alt="image"></p>
+<ol start="4">
+<li>後台介面就可以看到在 LineBot 輸入的資訊了</li>
+</ol>
+<ul>
+<li>也可以對成員新增、編輯、刪除、查詢</li>
+</ul>
+<p><img src="../../../../images/post/post-11-7.jpg" alt="image"></p>
+<ol start="5">
+<li>當同事過來給當天值日生繳錢時，就可以按下<code>付錢</code>，後台頁面也會統計誰沒繳方便查詢</li>
+</ol>
+<p><img src="../../../../images/post/post-11-8.jpg" alt="image"></p>
+<h3 id="結語">結語</h3>
+<hr>
+<p>以上就是我們替同事製作的<code>午餐 Bot</code>，大家只要加官方帳號，動手輸入一些指令就能輕鬆訂便當，真的方便許多🎉</p>
 </div>
 
-<script>
-  document
-    .getElementById("knowMoreButton")
-    .addEventListener("click", function () {
-      gtag("event", "know_more_button_click", {
-        event_category: "Button Click",
-        event_label: "Know More Button Clicked",
-        value: 1,
-      });
-    });
-</script>
+        
+        
+        <script
+  src="https://utteranc.es/client.js"
+  repo="ChrisLinOvO/ChrisLinOvO.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
 
-      
-      <div class="col-lg-8 mb-5 mb-lg-0">
-        <div class="row">
-           
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <img
-      src="https://ChrisLinOvO.github.io/images/post/fly.io-logo.jpg"
-      class="card-img-top"
-      alt="Heroku 轉移至 Fly.io"
-    />
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/10/heroku-to-flyio/" class="h5 d-block my-3"
-        >Heroku 轉移至 Fly.io</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
-        
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>2023-10-29</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        
-        <a
-          href="/categories/notes"
-          class="text-primary"
-          >Notes</a
-        >
-         
-      </div>
-      <p class="card-text">Heroku 轉移至 Fly.io 筆記</p>
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/10/heroku-to-flyio/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-        </div>
-      </div>
-
-      
-      <div class="col-12 mt-5">
-        
       </div>
     </div>
   </div>
 </section>
-
 
 
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Feathers on Chris Lin&#39;s Blog</title>
+    <link>https://ChrisLinOvO.github.io/tags/feathers/</link>
+    <description>Recent content in Feathers on Chris Lin&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Thu, 02 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/feathers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>午餐機器人</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-lunch-linebot/</link>
+      <pubDate>Thu, 02 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-lunch-linebot/</guid>
+      <description>前言 當時在前公司訂便當的時候，都要跑去每個人座位詢問，挺麻煩的!
+於是決定與一位後端同仁一起搭建午餐機器人。
+架構 這邊我是用 Feathers + MongoDB Atlas 部署到 Render 作品</description>
+    </item>
+    
+  </channel>
+</rss>
