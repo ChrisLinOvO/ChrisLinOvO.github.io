@@ -8,6 +8,16 @@
     <language>zh-tw</language>
     <lastBuildDate>Tue, 24 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Matching Game</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-match-game/</link>
+      <pubDate>Thu, 02 Nov 2023 10:00:00 +0800</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-match-game/</guid>
+      <description>前言 這是我練習用 React Native 來寫 App，並使用 Expo 呈現
+以下用 Expo 線上工具 Demo 進到 Expo 可以針對不同 Device 查案 以下環境是 iOS 遊戲規則：直到全部配對成功</description>
+    </item>
+    
+    <item>
       <title>午餐機器人</title>
       <link>https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-lunch-linebot/</link>
       <pubDate>Thu, 02 Nov 2023 00:00:00 +0000</pubDate>
