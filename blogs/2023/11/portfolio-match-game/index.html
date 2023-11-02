@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-tw"><head>
   <meta charset="utf-8">
-  <title>Line - Chris Lin&#39;s Blog</title>
+  <title>Matching Game - Chris Lin&#39;s Blog</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I am a software engineer with more than 3 years of experience.">
+  <meta name="description" content="React Native 製作小遊戲">
   <meta name="author" content="Chris">
     
   
@@ -110,308 +110,66 @@
 </header>
 <!-- /navigation -->
 
-
 <section class="section-sm">
   <div class="container">
     <div class="row">
-      
-      <div class="col-lg-4 pr-lg-5">
-  <div class="widgets">
-    
-    <div class="widget">
-      
-      <h4 class="widget-title">About Me</h4>
-      
-      <img
-        src="https://ChrisLinOvO.github.io/images/author-1.jpg"
-        alt=""
-        class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4"
-      />
-      
-      <p><p>我是林志隆，目前有 3 年以上前端開發經驗，擅長獨立作業完成各項需求，對於新的事物總是充滿好奇，保持著自我學習的態度更精進</p></p>
-      <a
-        id="knowMoreButton"
-        href="https://ChrisLinOvO.github.io/about/"
-        class="btn btn-outline-primary"
-        >Know More</a
-      >
-      
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Category</h4>
-      <ul class="list-unstyled">
-        <li>
-          <a
-            href="/categories/notes/"
-            >Notes</a
+      <div class="col-lg-10 mx-auto">
+        <h2>Matching Game</h2>
+        <div class="mb-3 post-meta">
+          <span
+            >By Chris</span
           >
-        </li>
-        <li>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2023-11-02</span>
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          
           <a
-            href="/categories/portfolio/"
+            href="/categories/portfolio"
+            class="text-primary"
             >Portfolio</a
           >
-        </li>
-        <li>
-          <a
-            href="/categories/tech/"
-            >Tech</a
-          >
-        </li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Tag</h4>
-      <ul class="list-inline">
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/feathers/"
-            >Feathers</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/fly.io/"
-            >Fly.io</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/ga/"
-            >Ga</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/git/"
-            >Git</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/google/"
-            >Google</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/heroku/"
-            >Heroku</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/hugo/"
-            >Hugo</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/line/"
-            >Line</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/linebot/"
-            >Linebot</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/ngrok/"
-            >Ngrok</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/react/"
-            >React</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/react-native/"
-            >React native</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/render/"
-            >Render</a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a
-            class="d-block p-2 bg-primary text-white"
-            href="/tags/seo/"
-            >Seo</a
-          >
-        </li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Social</h4>
-      <ul class="list-inline social-links">
+           
+        </div>
         
-        <li class="list-inline-item">
-          <a target="_blank" href="https://github.com/ChrisLinOvO"
-            ><i class="ti-github"></i
-          ></a>
-        </li>
+        <img
+          src="https://ChrisLinOvO.github.io/images/post/match-game-logo.jpg"
+          class="img-fluid w-100 mb-4"
+          alt="Matching Game"
+        />
         
-        <li class="list-inline-item">
-          <a target="_blank" href="mailto:qq2120621@gmail.com"
-            ><i class="ti-email"></i
-          ></a>
-        </li>
-        
-      </ul>
-    </div>
-    
-    
-  </div>
+        <div class="content mb-5"><h3 id="前言">前言</h3>
+<hr>
+<p>這是我練習用 React Native 來寫 App，並使用 Expo 呈現</p>
+<h3 id="以下用-hahahugoshortcode18s0hbhb-demo">以下用 <a href="https://snack.expo.dev/@git/github.com/ChrisLinOvO/MatchGame" target="_blank">Expo 線上工具</a> Demo</h3>
+<hr>
+<h4 id="進到-expo-可以針對不同-device-查案">進到 Expo 可以針對不同 Device 查案</h4>
+<ul>
+<li>以下環境是 iOS</li>
+</ul>
+<p>遊戲規則：直到全部配對成功</p>
+<p><img src="../../../../images/post/post-12-1.jpg" alt="image"></p>
+<p><img src="../../../../images/post/post-12-2.jpg" alt="image"></p>
+<h3 id="結語">結語</h3>
+<hr>
+<p>重 0 開始建置 React Native ，讓我更清楚架構。</p>
 </div>
 
-<script>
-  document
-    .getElementById("knowMoreButton")
-    .addEventListener("click", function () {
-      gtag("event", "know_more_button_click", {
-        event_category: "Button Click",
-        event_label: "Know More Button Clicked",
-        value: 1,
-      });
-    });
-</script>
+        
+        
+        <script
+  src="https://utteranc.es/client.js"
+  repo="ChrisLinOvO/ChrisLinOvO.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
 
-      
-      <div class="col-lg-8 mb-5 mb-lg-0">
-        <div class="row">
-           
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <img
-      src="https://ChrisLinOvO.github.io/images/post/lunch-logo.jpg"
-      class="card-img-top"
-      alt="午餐機器人"
-    />
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/11/portfolio-lunch-linebot/" class="h5 d-block my-3"
-        >午餐機器人</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
-        
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>2023-11-02</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        
-        <a
-          href="/categories/portfolio"
-          class="text-primary"
-          >Portfolio</a
-        >
-         
-      </div>
-      <p class="card-text">串接 LineBot 及後台管理訂單介面</p>
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/11/portfolio-lunch-linebot/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <img
-      src="https://ChrisLinOvO.github.io/images/post/share-target-picker-logo.jpg"
-      class="card-img-top"
-      alt="Line LIFF ShareTargetPicker"
-    />
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-line-sharetargetpicker/" class="h5 d-block my-3"
-        >Line LIFF ShareTargetPicker</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
-        
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>2023-10-30</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        
-        <a
-          href="/categories/portfolio"
-          class="text-primary"
-          >Portfolio</a
-        >
-         
-      </div>
-      <p class="card-text">Line 分享當前頁面給好友</p>
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-line-sharetargetpicker/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-          <div class="col-md-8 mb-4">
-  <article class="card">
-    
-    <img
-      src="https://ChrisLinOvO.github.io/images/post/linebot-logo.jpg"
-      class="card-img-top"
-      alt="LineBot 關鍵字儲存查詢"
-    />
-    
-    <div class="card-body px-0">
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-qq-linebot/" class="h5 d-block my-3"
-        >LineBot 關鍵字儲存查詢</a
-      >
-      <div class="mb-3 post-meta">
-        <span>By Chris</span>
-        
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        <span>2023-10-29</span>
-        <span class="border-bottom border-primary px-2 mx-1"></span>
-        
-        <a
-          href="/categories/portfolio"
-          class="text-primary"
-          >Portfolio</a
-        >
-         
-      </div>
-      <p class="card-text">用來記錄一些個人資料</p>
-      <a href="https://ChrisLinOvO.github.io/blogs/2023/10/portfolio-qq-linebot/" class="btn btn-outline-primary">read more</a>
-    </div>
-  </article>
-</div> 
-        </div>
-      </div>
-
-      
-      <div class="col-12 mt-5">
-        
       </div>
     </div>
   </div>
 </section>
-
 
 
 
