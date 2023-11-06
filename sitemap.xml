@@ -3,21 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ChrisLinOvO.github.io/categories/</loc>
-    <lastmod>2023-11-02T10:00:00+08:00</lastmod>
+    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ChrisLinOvO.github.io/</loc>
-    <lastmod>2023-11-02T10:00:00+08:00</lastmod>
+    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ChrisLinOvO.github.io/tags/mysql/</loc>
+    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ChrisLinOvO.github.io/tags/node.js/</loc>
+    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ChrisLinOvO.github.io/categories/portfolio/</loc>
+    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ChrisLinOvO.github.io/tags/react.js/</loc>
+    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ChrisLinOvO.github.io/tags/redux/</loc>
+    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ChrisLinOvO.github.io/tags/</loc>
+    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ChrisLinOvO.github.io/blogs/2023/11/portfolio-wow-fit/</loc>
+    <lastmod>2023-11-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ChrisLinOvO.github.io/blogs/2023/11/portfolio-match-game/</loc>
     <lastmod>2023-11-02T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://ChrisLinOvO.github.io/categories/portfolio/</loc>
-    <lastmod>2023-11-02T10:00:00+08:00</lastmod>
-  </url><url>
     <loc>https://ChrisLinOvO.github.io/tags/react-native/</loc>
-    <lastmod>2023-11-02T10:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://ChrisLinOvO.github.io/tags/</loc>
     <lastmod>2023-11-02T10:00:00+08:00</lastmod>
   </url><url>
     <loc>https://ChrisLinOvO.github.io/tags/feathers/</loc>
@@ -30,9 +45,6 @@
     <lastmod>2023-11-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ChrisLinOvO.github.io/tags/ngrok/</loc>
-    <lastmod>2023-11-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ChrisLinOvO.github.io/tags/react/</loc>
     <lastmod>2023-11-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ChrisLinOvO.github.io/blogs/2023/11/portfolio-lunch-linebot/</loc>
