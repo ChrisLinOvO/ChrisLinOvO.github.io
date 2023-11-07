@@ -8,6 +8,16 @@
     <language>zh-tw</language>
     <lastBuildDate>Tue, 24 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>物業系統</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/11/property-notes/</link>
+      <pubDate>Tue, 07 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/11/property-notes/</guid>
+      <description>前言 這是一個物業管理，其中也有硬體端整合，這套系統從零到現在正式上線，我全程參與，包含事前規劃流程設計、UI討論。
+技術架構 前後端分離，前端用 React.js 開發及 icejs+(fusion/antd)UI，完成管理者後台介面及 APP 使用者介面 使用 Feathers 框架創建 REST API 和 WebSocket 與後端溝通，帳號權限處理、帳號登入登出機制 資料庫使用 MongoDB 使用 Docker-compose 部屬到公司購買實體主機 功能介紹 使用者APP介面 帳號設置：綁定社區、QRCode掃描或帳密登入建立帳號。</description>
+    </item>
+    
+    <item>
       <title>複合型健身房官方網站「WoW FIT」</title>
       <link>https://ChrisLinOvO.github.io/blogs/2023/11/portfolio-wow-fit/</link>
       <pubDate>Fri, 03 Nov 2023 00:00:00 +0000</pubDate>
