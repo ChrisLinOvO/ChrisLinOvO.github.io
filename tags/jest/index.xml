@@ -6,7 +6,18 @@
     <description>Recent content in Jest on Chris Lin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 07 Nov 2023 14:00:00 +0800</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/jest/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Nov 2023 16:00:00 +0800</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/jest/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React Testing Library</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/11/react-testing-library/</link>
+      <pubDate>Tue, 07 Nov 2023 16:00:00 +0800</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/11/react-testing-library/</guid>
+      <description>前言 React Testing Library 主要提供幾個方法：render、fireEvent、screen、waitFor。
+前置設定需搭配 @testing-library/jest-dom。
+什麼時候該用此 Library 可參考官方Solution render 用於渲染 React 組件到虛擬 DOM 中，並返回一個包含渲染結果的容器對象。</description>
+    </item>
+    
     <item>
       <title>React Hook Testing Library</title>
       <link>https://ChrisLinOvO.github.io/blogs/2023/11/react-hook-testing-library/</link>
