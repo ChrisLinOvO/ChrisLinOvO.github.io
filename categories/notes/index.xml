@@ -29,11 +29,11 @@
     </item>
     
     <item>
-      <title>React Hook Testing Library</title>
-      <link>https://ChrisLinOvO.github.io/blogs/2023/11/react-hook-testing-library/</link>
+      <title>React Hooks Testing Library</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/11/react-hooks-testing-library/</link>
       <pubDate>Tue, 07 Nov 2023 14:00:00 +0800</pubDate>
       
-      <guid>https://ChrisLinOvO.github.io/blogs/2023/11/react-hook-testing-library/</guid>
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/11/react-hooks-testing-library/</guid>
       <description>前言 React Hooks Testing Library 主要提供三個方法：renderHook、act、cleanup。
 什麼時候該用此 Library 官方Solution 使用</description>
     </item>
