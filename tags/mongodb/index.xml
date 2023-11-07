@@ -6,11 +6,11 @@
     <description>Recent content in MongoDB on Chris Lin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 07 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Nov 2023 10:00:00 +0800</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>物業系統</title>
       <link>https://ChrisLinOvO.github.io/blogs/2023/11/property-notes/</link>
-      <pubDate>Tue, 07 Nov 2023 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 07 Nov 2023 10:00:00 +0800</pubDate>
       
       <guid>https://ChrisLinOvO.github.io/blogs/2023/11/property-notes/</guid>
       <description>前言 這是一個物業管理，其中也有硬體端整合，這套系統從零到現在正式上線，我全程參與，包含事前規劃流程設計、UI討論。

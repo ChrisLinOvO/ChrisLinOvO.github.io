@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Testing Library on Chris Lin&#39;s Blog</title>
+    <link>https://ChrisLinOvO.github.io/tags/testing-library/</link>
+    <description>Recent content in Testing Library on Chris Lin&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Tue, 07 Nov 2023 14:00:00 +0800</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/testing-library/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React Hook Testing Library</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/11/react-hook-testing-library/</link>
+      <pubDate>Tue, 07 Nov 2023 14:00:00 +0800</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/11/react-hook-testing-library/</guid>
+      <description>前言 React Hooks Testing Library 主要提供三個方法：renderHook、act、cleanup。
+什麼時候該用此 Library 官方Solution 使用</description>
+    </item>
+    
+  </channel>
+</rss>

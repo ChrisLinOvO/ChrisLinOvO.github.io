@@ -8,9 +8,19 @@
     <language>zh-tw</language>
     <lastBuildDate>Tue, 24 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>React Hook Testing Library</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/11/react-hook-testing-library/</link>
+      <pubDate>Tue, 07 Nov 2023 14:00:00 +0800</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/11/react-hook-testing-library/</guid>
+      <description>前言 React Hooks Testing Library 主要提供三個方法：renderHook、act、cleanup。
+什麼時候該用此 Library 官方Solution 使用</description>
+    </item>
+    
+    <item>
       <title>物業系統</title>
       <link>https://ChrisLinOvO.github.io/blogs/2023/11/property-notes/</link>
-      <pubDate>Tue, 07 Nov 2023 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 07 Nov 2023 10:00:00 +0800</pubDate>
       
       <guid>https://ChrisLinOvO.github.io/blogs/2023/11/property-notes/</guid>
       <description>前言 這是一個物業管理，其中也有硬體端整合，這套系統從零到現在正式上線，我全程參與，包含事前規劃流程設計、UI討論。
