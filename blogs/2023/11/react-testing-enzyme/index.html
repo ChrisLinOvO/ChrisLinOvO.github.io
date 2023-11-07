@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-tw"><head>
   <meta charset="utf-8">
-  <title>React Testing Library - Chris Lin&#39;s Blog</title>
+  <title>React Testing Enzyme - Chris Lin&#39;s Blog</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用此 library 重點筆記">
+  <meta name="description" content="使用此 Enzyme 重點筆記">
   <meta name="author" content="Chris">
     
   
@@ -114,7 +114,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">
-        <h2>React Testing Library</h2>
+        <h2>React Testing Enzyme</h2>
         <div class="mb-3 post-meta">
           <span
             >By Chris</span
@@ -133,68 +133,145 @@
         </div>
         
         <img
-          src="https://ChrisLinOvO.github.io/images/post/react-testing-library-logo.jpg"
+          src="https://ChrisLinOvO.github.io/images/post/enzyme-logo.jpg"
           class="img-fluid w-100 mb-4"
-          alt="React Testing Library"
+          alt="React Testing Enzyme"
         />
         
         <div class="content mb-5"><h3 id="前言">前言</h3>
 <hr>
-<p><a href="https://testing-library.com/docs/" target="_blank">React Testing Library</a>  主要提供幾個方法：<code>render</code>、<code>fireEvent</code>、<code>screen</code>、<code>waitFor</code>。</p>
-<p>前置設定需搭配 <code>@testing-library/jest-dom</code>。</p>
-<h5 id="什麼時候該用此-library-可參考hahahugoshortcode23s1hbhb">什麼時候該用此 Library 可參考<a href="https://testing-library.com/docs/react-testing-library/intro#this-solution" target="_blank">官方Solution</a></h5>
-<hr>
-<h3 id="render">render</h3>
-<p>用於渲染 React 組件到虛擬 DOM 中，並返回一個包含渲染結果的容器對象。</p>
-<h3 id="fireevent">fireEvent</h3>
-<p>用於模擬 DOM 事件，例如點擊、輸入文字、提交表單等。這可用於觸發元素上的事件，以模擬使用者操作。</p>
-<h3 id="screen">screen</h3>
-<p>提供了一組方法來查找 DOM 元素，以進行測試操作。</p>
-<h3 id="waitfor">waitFor</h3>
-<p>用於等待異步操作完成，通常用於等待數據載入、渲染完成或狀態更新。</p>
+<p><a href="https://enzymejs.github.io/enzyme/" target="_blank">React Testing Enzyme</a> 主要介紹幾個方法：<code>shallow</code>、<code>render</code>、<code>mount</code>。</p>
+<table>
+<thead>
+<tr>
+<th>函數</th>
+<th>渲染範圍</th>
+<th>子元件渲染</th>
+<th>事件模擬</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>shallow</code></td>
+<td>只渲染元件本身</td>
+<td>不渲染子元件</td>
+<td>支援事件模擬</td>
+</tr>
+<tr>
+<td><code>render</code></td>
+<td>產生靜態 HTML 字串</td>
+<td>不在真實 DOM 渲染</td>
+<td>不支援事件模擬</td>
+</tr>
+<tr>
+<td><code>mount</code></td>
+<td>渲染整個 React 樹</td>
+<td>渲染所有子元件</td>
+<td>支援事件模擬</td>
+</tr>
+</tbody>
+</table>
 <h3 id="範例">範例</h3>
-<p>以下測試<code>測試按鈕點擊後是否正確顯示文字</code>流程。</p>
-<pre tabindex="0"><code>// ButtonComponent.js
+<ol>
+<li>使用<code>shallow</code>函數：</li>
+</ol>
+<p>情境：測試一個 React 按鈕元件的點擊事件處理，而不需要渲染其子元件。</p>
+<pre tabindex="0"><code>import React from &#39;react&#39;;
+import { shallow } from &#39;enzyme&#39;;
 
-import React, { useState } from &#39;react&#39;;
+const MyButton = ({ onClick }) =&gt; (
+  &lt;button onClick={onClick}&gt;Click me&lt;/button&gt;
+);
 
-function ButtonComponent() {
-  const [isClicked, setIsClicked] = useState(false);
+describe(&#39;MyButton&#39;, () =&gt; {
+  it(&#39;should handle click event using shallow&#39;, () =&gt; {
+    const onClickMock = jest.fn();
+    const wrapper = shallow(&lt;MyButton onClick={onClickMock} /&gt;);
+    wrapper.find(&#39;button&#39;).simulate(&#39;click&#39;);
+    expect(onClickMock).toHaveBeenCalled();
+  });
+});
+</code></pre><ol start="2">
+<li>使用<code>render</code>函數：</li>
+</ol>
+<p>情境：測試一個 React 文字元件的渲染結果，並確保它以特定方式呈現，但不需要模擬事件處理。</p>
+<pre tabindex="0"><code>import React from &#39;react&#39;;
+import { render } from &#39;enzyme&#39;;
 
-  return (
-    &lt;div&gt;
-      &lt;button onClick={() =&gt; setIsClicked(true)}&gt;Click Me&lt;/button&gt;
-      {isClicked &amp;&amp; &lt;p&gt;Button was clicked!&lt;/p&gt;}
-    &lt;/div&gt;
-  );
-}
+const Greeting = ({ name }) =&gt; (
+  &lt;div&gt;Hello, {name}!&lt;/div&gt;
+);
 
-export default ButtonComponent;
-</code></pre><pre tabindex="0"><code>import React from &#39;react&#39;;
-import { render, fireEvent, screen, waitFor } from &#39;@testing-library/react&#39;;
-import ButtonComponent from &#39;./ButtonComponent&#39;;
+describe(&#39;Greeting&#39;, () =&gt; {
+  it(&#39;should render greeting message using render&#39;, () =&gt; {
+    const renderedComponent = render(&lt;Greeting name=&#34;John&#34; /&gt;);
+    expect(renderedComponent.text()).toBe(&#39;Hello, John!&#39;);
+  });
+});
+</code></pre><ol start="3">
+<li>使用<code>mount</code>函數：</li>
+</ol>
+<p>情境：測試一個包含多個子元件的 React 表單，包括模擬事件處理和子元件的互動。</p>
+<pre tabindex="0"><code>import React from &#39;react&#39;;
+import { mount } from &#39;enzyme&#39;;
 
-test(&#39;測試按鈕點擊後是否正確顯示文字&#39;, async () =&gt; {
-  // 渲染組件
-  render(&lt;ButtonComponent /&gt;);
+const Form = ({ onSubmit }) =&gt; (
+  &lt;form onSubmit={onSubmit}&gt;
+    &lt;input type=&#34;text&#34; name=&#34;username&#34; /&gt;
+    &lt;input type=&#34;password&#34; name=&#34;password&#34; /&gt;
+    &lt;button type=&#34;submit&#34;&gt;Submit&lt;/button&gt;
+  &lt;/form&gt;
+);
 
-  // 首先確保文字元素不可見
-  expect(screen.queryByText(&#39;Button was clicked!&#39;)).toBeNull();
+describe(&#39;Form&#39;, () =&gt; {
+  it(&#39;should handle form submission using mount&#39;, () =&gt; {
+    const onSubmitMock = jest.fn();
+    const wrapper = mount(&lt;Form onSubmit={onSubmitMock} /&gt;);
+    const usernameInput = wrapper.find(&#39;input[name=&#34;username&#34;]&#39;);
+    const passwordInput = wrapper.find(&#39;input[name=&#34;password&#34;]&#39;);
+    const submitButton = wrapper.find(&#39;button&#39;);
 
-  // 找到按鈕元素
-  const button = screen.getByText(&#39;Click Me&#39;);
+    usernameInput.simulate(&#39;change&#39;, { target: { value: &#39;user123&#39; } });
+    passwordInput.simulate(&#39;change&#39;, { target: { value: &#39;password123&#39; } });
+    submitButton.simulate(&#39;submit&#39;);
 
-  // 模擬點擊按鈕
-  fireEvent.click(button);
-
-  // 使用 waitFor 等待直到文字元素出現
-  await waitFor(() =&gt; {
-    expect(screen.getByText(&#39;Button was clicked!&#39;)).toBeInTheDocument();
+    expect(onSubmitMock).toHaveBeenCalledWith({
+      username: &#39;user123&#39;,
+      password: &#39;password123&#39;,
+    });
   });
 });
 </code></pre><h3 id="結語">結語</h3>
 <hr>
-<p>以上是我在工作期間整理<code>react-testing-library</code>幾個基本用法，如果需更深入了解可到<a href="https://testing-library.com/docs/react-testing-library/example-intro" target="_blank">官方文件</a>學習。</p>
+<p>總結一下：</p>
+<ol>
+<li>
+<p><code>shallow</code> 函數：</p>
+<ul>
+<li>使用 <code>shallow</code> 函數時，它只渲染被測試元件本身，不渲染其子元件。</li>
+<li>主要用於測試被測試元件的行為，而不關心子元件的情況。</li>
+<li>可以模擬事件處理，用於測試點擊事件、輸入事件等。</li>
+</ul>
+</li>
+<li>
+<p><code>render</code> 函數：</p>
+<ul>
+<li><code>render</code> 函數將元件渲染成靜態 HTML 字串，但不在真實 DOM 中渲染。</li>
+<li>主要用於測試元件的渲染結果，以及進行快照測試。</li>
+<li>不支援事件模擬，因為它不在真實 DOM 中渲染。</li>
+</ul>
+</li>
+<li>
+<p><code>mount</code> 函數：</p>
+<ul>
+<li>使用 <code>mount</code> 函數時，它會渲染整個 React 樹，包括子元件。</li>
+<li>主要用於進行完整的測試，包括事件處理、互動和子元件渲染的情況。</li>
+<li>可以模擬事件處理，用於測試點擊事件、輸入事件等。</li>
+</ul>
+</li>
+</ol>
+<p>可以根據測試需求選擇適當的函數，以確保測試覆蓋到你的應用程式中不同情境下的需求。</p>
+<p>以上是我在工作期間整理<code>Enzyme</code>幾個基本用法。</p>
 </div>
 
         

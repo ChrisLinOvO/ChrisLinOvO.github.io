@@ -6,7 +6,17 @@
     <description>Recent content in Notes on Chris Lin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 07 Nov 2023 16:00:00 +0800</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Nov 2023 18:00:00 +0800</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React Testing Enzyme</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/11/react-testing-enzyme/</link>
+      <pubDate>Tue, 07 Nov 2023 18:00:00 +0800</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/11/react-testing-enzyme/</guid>
+      <description>前言 React Testing Enzyme 主要介紹幾個方法：shallow、render、mount。
+函數 渲染範圍 子元件渲染 事件模擬 shallow 只渲染元件本身 不渲染子元件 支援事件模擬 render 產生靜態 HTML 字串 不在真實 DOM 渲染 不支援事件模擬 mount 渲染整個 React 樹 渲染所有子元件 支援事件模擬 範例 使用shallow函數： 情境：測試一個 React 按鈕元件的點擊事件處理，而不需要渲染其子元件。</description>
+    </item>
+    
     <item>
       <title>React Testing Library</title>
       <link>https://ChrisLinOvO.github.io/blogs/2023/11/react-testing-library/</link>
