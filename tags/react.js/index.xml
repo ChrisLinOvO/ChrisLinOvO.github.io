@@ -6,7 +6,18 @@
     <description>Recent content in React.js on Chris Lin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 07 Nov 2023 18:00:00 +0800</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/react.js/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Nov 2023 22:00:00 +0800</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/react.js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use Jest</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/11/react-jest/</link>
+      <pubDate>Tue, 07 Nov 2023 22:00:00 +0800</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/11/react-jest/</guid>
+      <description>前言 紀錄一些重點
+使用 Jest 進行快照測試 每當您想要確保 UI 不會意外更改時，快照測試都是一個非常有用的工具。
+第一次執行此測試時，Jest 會在__tests__目錄內建立__snapshots__目錄，裡面建立一個 snapshot 檔案，檔名會是測試檔的名稱再加上.</description>
+    </item>
+    
     <item>
       <title>React Testing Enzyme</title>
       <link>https://ChrisLinOvO.github.io/blogs/2023/11/react-testing-enzyme/</link>

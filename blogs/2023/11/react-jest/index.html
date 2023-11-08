@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-tw"><head>
   <meta charset="utf-8">
-  <title>React Testing Library - Chris Lin&#39;s Blog</title>
+  <title>Use Jest - Chris Lin&#39;s Blog</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用此 library 重點筆記">
+  <meta name="description" content="紀錄一些 Jest 筆記">
   <meta name="author" content="Chris">
     
   
@@ -114,7 +114,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">
-        <h2>React Testing Library</h2>
+        <h2>Use Jest</h2>
         <div class="mb-3 post-meta">
           <span
             >By Chris</span
@@ -133,68 +133,198 @@
         </div>
         
         <img
-          src="https://ChrisLinOvO.github.io/images/post/react-testing-library-logo.png"
+          src="https://ChrisLinOvO.github.io/images/post/react-jest-logo.jpg"
           class="img-fluid w-100 mb-4"
-          alt="React Testing Library"
+          alt="Use Jest"
         />
         
         <div class="content mb-5"><h3 id="前言">前言</h3>
 <hr>
-<p><a href="https://testing-library.com/docs/" target="_blank">React Testing Library</a>  主要提供幾個方法：<code>render</code>、<code>fireEvent</code>、<code>screen</code>、<code>waitFor</code>。</p>
-<p>前置設定需搭配 <code>@testing-library/jest-dom</code>。</p>
-<h5 id="什麼時候該用此-library-可參考hahahugoshortcode24s1hbhb">什麼時候該用此 Library 可參考<a href="https://testing-library.com/docs/react-testing-library/intro#this-solution" target="_blank">官方Solution</a></h5>
+<p>紀錄一些重點</p>
+<h3 id="使用-jest-進行快照測試">使用 Jest 進行快照測試</h3>
 <hr>
-<h3 id="render">render</h3>
-<p>用於渲染 React 組件到虛擬 DOM 中，並返回一個包含渲染結果的容器對象。</p>
-<h3 id="fireevent">fireEvent</h3>
-<p>用於模擬 DOM 事件，例如點擊、輸入文字、提交表單等。這可用於觸發元素上的事件，以模擬使用者操作。</p>
-<h3 id="screen">screen</h3>
-<p>提供了一組方法來查找 DOM 元素，以進行測試操作。</p>
-<h3 id="waitfor">waitFor</h3>
-<p>用於等待異步操作完成，通常用於等待數據載入、渲染完成或狀態更新。</p>
-<h3 id="範例">範例</h3>
-<p>以下測試<code>測試按鈕點擊後是否正確顯示文字</code>流程。</p>
-<pre tabindex="0"><code>// ButtonComponent.js
+<p>每當您想要確保 UI 不會意外更改時，快照測試都是一個非常有用的工具。</p>
+<p>第一次執行此測試時，Jest 會在<code>__tests__</code>目錄內建立<code>__snapshots__</code>目錄，裡面建立一個 snapshot 檔案，檔名會是測試檔的名稱再加上<code>.snap</code>，當 UI 有變更的時候，Snapshot 就會顯示異動的部分。</p>
+<p>執行指令<code>npm run test -- -u</code>，覆蓋原本就的，產生新的 Snapshot。</p>
+<h4 id="範例">範例</h4>
+<pre tabindex="0"><code>// Button.js
+import React from &#39;react&#39;;
 
-import React, { useState } from &#39;react&#39;;
+const Button = ({ label }) =&gt; (
+  &lt;button&gt;{label}&lt;/button&gt;
+);
 
-function ButtonComponent() {
-  const [isClicked, setIsClicked] = useState(false);
+export default Button;
+</code></pre><pre tabindex="0"><code>// __tests__/Button.test.js
+import React from &#39;react&#39;;
+import renderer from &#39;react-test-renderer&#39;;
+import Button from &#39;./Button&#39;;
 
-  return (
-    &lt;div&gt;
-      &lt;button onClick={() =&gt; setIsClicked(true)}&gt;Click Me&lt;/button&gt;
-      {isClicked &amp;&amp; &lt;p&gt;Button was clicked!&lt;/p&gt;}
-    &lt;/div&gt;
-  );
-}
-
-export default ButtonComponent;
-</code></pre><pre tabindex="0"><code>import React from &#39;react&#39;;
-import { render, fireEvent, screen, waitFor } from &#39;@testing-library/react&#39;;
-import ButtonComponent from &#39;./ButtonComponent&#39;;
-
-test(&#39;測試按鈕點擊後是否正確顯示文字&#39;, async () =&gt; {
-  // 渲染組件
-  render(&lt;ButtonComponent /&gt;);
-
-  // 首先確保文字元素不可見
-  expect(screen.queryByText(&#39;Button was clicked!&#39;)).toBeNull();
-
-  // 找到按鈕元素
-  const button = screen.getByText(&#39;Click Me&#39;);
-
-  // 模擬點擊按鈕
-  fireEvent.click(button);
-
-  // 使用 waitFor 等待直到文字元素出現
-  await waitFor(() =&gt; {
-    expect(screen.getByText(&#39;Button was clicked!&#39;)).toBeInTheDocument();
-  });
+test(&#39;Button component snapshot&#39;, () =&gt; {
+  const component = renderer.create(&lt;Button label=&#34;Click Me&#34; /&gt;);
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
 });
+</code></pre><p>示意快照內容如下</p>
+<pre tabindex="0"><code>// 例如：Button.test.js.snap
+
+exports[`Button component snapshot 1`] = `
+&lt;button&gt;
+  Click Me
+&lt;/button&gt;
+`
+</code></pre><h3 id="測試覆蓋率報告coverage-reporting">測試覆蓋率報告（Coverage Reporting）</h3>
+<hr>
+<p>執行<code>npm run test -- --coverage</code>就可以取得測試覆蓋率的報告。如要修改配置可以參考 <a href="https://create-react-app.dev/docs/running-tests/#configuration" target="_blank">configuration</a> 的部分。</p>
+<h3 id="jestconfigjs-常用配置">jest.config.js 常用配置</h3>
+<hr>
+<ol>
+<li><strong>testRegex</strong></li>
+</ol>
+<p>用來匹配測試文件的路徑和文件名</p>
+<p>範例：</p>
+<pre tabindex="0"><code>testRegex: &#39;__tests__/.*\\.?(spec|test)\\.js?$&#39;
+</code></pre><ol start="2">
+<li><strong>testRegex</strong></li>
+</ol>
+<p>可以指定處理格式黨</p>
+<p>範例：</p>
+<pre tabindex="0"><code>moduleFileExtensions: [&#39;js&#39;, &#39;jsx&#39;, &#39;json&#39;]
+</code></pre><ol start="3">
+<li><strong>transform</strong></li>
+</ol>
+<p>可指定哪些文件該如何轉換</p>
+<p>範例：</p>
+<pre tabindex="0"><code>transform: {
+    &#39;\\.js$&#39;: [
+      &#39;es-jest&#39;,
+      {
+        jsxDev: true,
+        jsx: &#39;automatic&#39;,
+        loader: &#39;jsx&#39;
+      }
+    ]
+  }
+</code></pre><ol start="4">
+<li><strong>setupFiles</strong></li>
+</ol>
+<p>運行測試初始化配置</p>
+<p>範例：</p>
+<pre tabindex="0"><code>setupFiles: [&#39;&lt;rootDir&gt;/__tests__/setup/init.js&#39;]
+</code></pre><ol start="5">
+<li><strong>testEnvironment</strong></li>
+</ol>
+<p>指定測試運行環境，預設默認<code>jsdom</code></p>
+<p>範例：</p>
+<pre tabindex="0"><code>testEnvironment: &#39;jsdom&#39;
+</code></pre><ol start="6">
+<li><strong>coverageThreshold</strong></li>
+</ol>
+<p>用於設定測試覆蓋率值</p>
+<p>範例：</p>
+<pre tabindex="0"><code>coverageThreshold: {
+  global: {
+    statements: 80,
+    branches: 80,
+    functions: 80,
+    lines: 80,
+  },
+}
+</code></pre><ol start="7">
+<li><strong>moduleNameMapper</strong></li>
+</ol>
+<p>可指定模塊路徑該到哪裡</p>
+<p>範例：</p>
+<pre tabindex="0"><code>&#39;@storybook/addon-docs/(.*)&#39;: &#39;@storybook/addon-docs/dist/cjs/$1&#39;,
+&#39;@vzmi/ec_file_uploader_sdk&#39;: &#39;&lt;rootDir&gt;/__mocks__/file-uploader-sdk.js&#39;,
+&#39;uuid/v1&#39;: &#39;&lt;rootDir&gt;/__mocks__/uuidv1.js&#39;
+</code></pre><ol start="8">
+<li><strong>collectCoverage</strong></li>
+</ol>
+<p>啟用覆蓋率報告</p>
+<p>範例：</p>
+<pre tabindex="0"><code>collectCoverage: true
+</code></pre><ol start="9">
+<li><strong>collectCoverageFrom</strong></li>
+</ol>
+<p>指定哪些文件應包括在測試覆蓋率報告中</p>
+<p>範例：</p>
+<pre tabindex="0"><code>collectCoverageFrom: [&#39;src/**/*.{js,jsx}&#39;]
+</code></pre><ol start="10">
+<li><strong>reporters</strong></li>
+</ol>
+<p>生成測試報告生成測試報告的方式和格式</p>
+<p>範例：</p>
+<pre tabindex="0"><code>reporters: [&#39;default&#39;, &#39;jest-junit&#39;]
+</code></pre><ol start="11">
+<li><strong>coveragePathIgnorePatterns</strong></li>
+</ol>
+<p>配置覆蓋率報告需要忽略的路徑</p>
+<p>範例：</p>
+<pre tabindex="0"><code>coveragePathIgnorePatterns: [
+  &#39;&lt;rootDir&gt;/conf/&#39;,
+  &#39;&lt;rootDir&gt;/__tests__/config/&#39;,
+  &#39;&lt;rootDir&gt;/__tests__/support/&#39;
+]
+</code></pre><ol start="12">
+<li><strong>testPathIgnorePatterns</strong></li>
+</ol>
+<p>測試需要忽略的路徑</p>
+<p>範例：</p>
+<pre tabindex="0"><code>testPathIgnorePatterns: [
+  &#39;&lt;rootDir&gt;/node_modules/&#39;,
+  &#39;&lt;rootDir&gt;/__tests__/config/&#39;
+]
+</code></pre><ol start="13">
+<li><strong>globals</strong></li>
+</ol>
+<p>全局變量</p>
+<p>範例：</p>
+<pre tabindex="0"><code>globals: {
+    __DEV__: true
+}
+</code></pre><ol start="14">
+<li><strong>setupFilesAfterEnv</strong></li>
+</ol>
+<p>測試環境初始化後執行</p>
+<p>範例：</p>
+<pre tabindex="0"><code>setupFilesAfterEnv: [
+  &#39;&lt;rootDir&gt;/node_modules/raf/polyfill&#39;,
+  &#39;&lt;rootDir&gt;/node_modules/regenerator-runtime/runtime&#39;,
+  &#39;&lt;rootDir&gt;/__tests__/config/setup.js&#39;,
+]
+</code></pre><ol start="15">
+<li><strong>testRunner</strong></li>
+</ol>
+<p>指定 Jest 使用的運行器</p>
+<p>範例：</p>
+<pre tabindex="0"><code>testRunner: &#39;jest-jasmine2&#39;
+</code></pre><ol start="16">
+<li><strong>maxWorkers</strong></li>
+</ol>
+<p>配置 Jest 啟動後最大工作進程數，提高測試速度</p>
+<p>範例：</p>
+<pre tabindex="0"><code>maxWorkers: &#39;50%&#39;
+</code></pre><h3 id="jestfn">jest.fn()</h3>
+<hr>
+<p>創建一個 mock function，可模擬函數被調用，也可設置返回值</p>
+<pre tabindex="0"><code>// 創建一個模擬函數
+const mockFunction = jest.fn();
+
+// 設定模擬函數返回值
+mockFunction.mockReturnValue(42);
+
+// 調用模擬函數
+const result = mockFunction();
+
+// 測試模擬函數被調用一次
+expect(mockFunction).toBeCalledTimes(1);
+
+// 測試模擬函數返回值為 42
+expect(result).toBe(42);
 </code></pre><h3 id="結語">結語</h3>
 <hr>
-<p>以上是我在工作期間整理<code>react-testing-library</code>幾個基本用法，如果需更深入了解可到<a href="https://testing-library.com/docs/react-testing-library/example-intro" target="_blank">官方文件</a>學習。</p>
+<p>關於 Jest 筆記會持續更新～</p>
 </div>
 
         
