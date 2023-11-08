@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Puppeteer on Chris Lin&#39;s Blog</title>
+    <link>https://ChrisLinOvO.github.io/tags/puppeteer/</link>
+    <description>Recent content in Puppeteer on Chris Lin&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Wed, 08 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/puppeteer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>End-to-End (E2E) Testing</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/11/react-e2e-testing/</link>
+      <pubDate>Wed, 08 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/11/react-e2e-testing/</guid>
+      <description>前言 E2E 測試在模擬真實用戶在應用程式中的實際使用情境，驗證各個組件之間功能是否正常。
+主要測試目標如下：
+驗證應用功能：測試將模擬用戶與應用程式的互動情境，例如填寫表單、點擊按鈕、導航到不同頁面等，以確保所有功能正常運作。
+測試使用者界面（UI）：測試使用者界面，以確保 UI 元素的正確性和可用性。這包括驗證頁面佈局、樣式、互動和使用者體驗。
+跨瀏覽器和跨平台兼容性：測試不同的瀏覽器和操作系統上運行，以確保應用程式在各種環境中都能正常運作。這有助於發現和解決跨瀏覽器和跨平台兼容性問題。
+性能測試：測試應用程式的性能，例如加載時間、響應時間和並發用戶支援。這有助於發現性能瓶頸和優化機會。</description>
+    </item>
+    
+  </channel>
+</rss>

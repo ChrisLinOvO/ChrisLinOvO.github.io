@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>End-to-End (E2E) Testing - Chris Lin&#39;s Blog</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="紀錄一些 E2E Testing 筆記">
+  <meta name="author" content="Chris">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+
+  
+  
+  <meta name="generator" content="Hugo 0.119.0">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ChrisLinOvO.github.io/images/favicon-blog-2.png " type="image/x-icon">
+  <link rel="icon" href="https://ChrisLinOvO.github.io/images/favicon-blog-2.png " type="image/x-icon">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VG0G1B3B5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3VG0G1B3B5');
+  </script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.3.4/vconsole.min.js"></script>
+  
+
+</head>
+<body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view nav-link-mobile" href="https://ChrisLinOvO.github.io">Chris Lin's Blog</a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu nav-link-mobile"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="https://ChrisLinOvO.github.io">Chris Lin's Blog</a>
+            </li>
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://ChrisLinOvO.github.io"></a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ChrisLinOvO.github.io/about/">About Me</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://chrislinovo.github.io/blog/" target="_blank">Old Website</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search nav-link-mobile"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ChrisLinOvO.github.io/search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark nav-link-mobile"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <h2>End-to-End (E2E) Testing</h2>
+        <div class="mb-3 post-meta">
+          <span
+            >By Chris</span
+          >
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2023-11-08</span>
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          
+          <a
+            href="/categories/notes"
+            class="text-primary"
+            >Notes</a
+          >
+           
+        </div>
+        
+        <img
+          src="https://ChrisLinOvO.github.io/images/post/end-to-end-testing-logo.jpg"
+          class="img-fluid w-100 mb-4"
+          alt="End-to-End (E2E) Testing"
+        />
+        
+        <div class="content mb-5"><h3 id="前言">前言</h3>
+<hr>
+<p>E2E 測試在模擬真實用戶在應用程式中的實際使用情境，驗證各個組件之間功能是否正常。</p>
+<p>主要測試目標如下：</p>
+<ol>
+<li>
+<p><strong>驗證應用功能</strong>：測試將模擬用戶與應用程式的互動情境，例如填寫表單、點擊按鈕、導航到不同頁面等，以確保所有功能正常運作。</p>
+</li>
+<li>
+<p><strong>測試使用者界面（UI）</strong>：測試使用者界面，以確保 UI 元素的正確性和可用性。這包括驗證頁面佈局、樣式、互動和使用者體驗。</p>
+</li>
+<li>
+<p><strong>跨瀏覽器和跨平台兼容性</strong>：測試不同的瀏覽器和操作系統上運行，以確保應用程式在各種環境中都能正常運作。這有助於發現和解決跨瀏覽器和跨平台兼容性問題。</p>
+</li>
+<li>
+<p><strong>性能測試</strong>：測試應用程式的性能，例如加載時間、響應時間和並發用戶支援。這有助於發現性能瓶頸和優化機會。</p>
+</li>
+<li>
+<p><strong>視覺測試</strong>：驗證應用程式的用戶界面（UI）外觀和布局是否正確的測試方法。它的主要目標是檢測潛在的 UI 問題，例如樣式錯誤、布局差異、文本溢出等，以確保應用程式的 UI 在不同環境和設備上都能夠正確呈現。前公司為例是用<code>頁面截圖比對</code>。</p>
+</li>
+</ol>
+<p>以下 E2E 測試會使用自動化測試框架<code>CodeceptJS</code>來模擬用戶行為。</p>
+<h3 id="管理page-objects模組化">管理（Page Objects）模組化</h3>
+<hr>
+<p>可建立<code>pageObjects.js</code>，裡面 exports<code>pageObject</code>函數用來簡化頁面對象的管理和使用，提高腳本可讀性。</p>
+<pre tabindex="0"><code>// pageObjects.js
+
+// 可針對選擇器命名
+const pageObjects = {
+topNav: [&#39;.top-nav&#39;, &#39;Top Navigation&#39;],
+logoutBtn: [&#39;#logoutBtn&#39;, &#39;Logout Button&#39;]
+infoBlock: [&#39;[data-role=&#34;info-block&#34;]&#39;, &#39;info block&#39;]
+}
+
+const pageObject = (name) =&gt; {
+  const selectedPageObject = pageObjects[name]
+
+  if (!selectedPageObject) {
+    const msg = `❌ PAGE OBJECT ERROR: &#34;${name}&#34; is not defined!`
+    throw new Error(msg)
+  }
+
+  if (!selectedPageObject[2]) {
+    console.log(`✅ pageObject(&#39;${name}&#39;) =&gt; &#39;${selectedPageObject[0]}&#39;  // ${selectedPageObject[1]}`)
+    selectedPageObject[2] = 1
+  }
+
+  return selectedPageObject[0]
+}
+
+module.exports = {
+  pageObject
+}
+</code></pre><h5 id="如何應用-pageobject">如何應用 pageObject</h5>
+<p>以下範例示範用<code>pageObject('topNav')</code>，就可取得<code>pageObjects</code>定義的元素。</p>
+<pre tabindex="0"><code>Feature(&#39;Navigation @pc @noie @nosafari @nofirefox&#39;)
+const pageObject = require(&#39;./pageObjects&#39;).pageObject
+
+Scenario(&#39;open dashboard, see navigation sections&#39;, ({ I }) =&gt; {
+  I.amOnPage(&#39;/dashboard&#39;)
+  I.seeElement(pageObject(&#39;topNav&#39;))
+})
+</code></pre><h3 id="codeceptconfjs-配置">codecept.conf.js 配置</h3>
+<hr>
+<p>以下是常見的<code>WebDriver</code>和<code>Puppeteer</code>配置，可參考 <a href="https://codecept.io/configuration/" target="_blank">configuration</a>。</p>
+<pre tabindex="0"><code>exports.config = {
+  tests: &#39;./tests/*.js&#39;,
+  output: &#39;./output&#39;,
+  helpers: {
+    WebDriver: {
+      url: &#39;https://example.com&#39;, // 設定要測試的網站 URL
+      browser: &#39;chrome&#39;, // 選擇瀏覽器（可以是 chrome、firefox、edge 等）
+      windowSize: &#39;1920x1080&#39;, // 設定瀏覽器視窗大小
+    },
+    Puppeteer: {
+      url: &#39;https://example.com&#39;, // 設定要測試的網站 URL
+      show: false, // 是否顯示瀏覽器視窗
+      windowSize: &#39;1920x1080&#39;, // 設定瀏覽器視窗大小
+    },
+  },
+  include: {
+    I: &#39;./steps_file.js&#39;,
+  },
+  bootstrap: null,
+  mocha: {},
+  name: &#39;我的測試專案&#39;,
+  plugins: {
+    wdio: {
+      enabled: true,
+      services: [&#39;selenium-standalone&#39;],
+    },
+  },
+  multiple: {
+    parallel: {
+      chunks: 2,
+    },
+  },
+  screenshotPath: &#39;./output/screenshots&#39;
+}
+</code></pre><h3 id="visual-testing">Visual Testing</h3>
+<hr>
+<p>CodeceptJS 使用<code>WebDriver</code>幫助程式和Selenium來自動化瀏覽器。它還能夠截取應用程式的螢幕截圖，這可用於視覺測試，可參考<a href="https://codecept.io/visual/#visual-testing" target="_blank">官方文件</a>。</p>
+<p>方法：在<code>codecept.conf.js</code>新增配置，指定截圖目錄路徑。</p>
+<pre tabindex="0"><code>screenshotPath: &#39;./output/screenshots&#39;
+</code></pre><p>使用：</p>
+<pre tabindex="0"><code>Feature(&#39;視覺測試&#39;);
+
+Scenario(&#39;檢查頁面外觀&#39;, (I) =&gt; {
+  I.amOnPage(&#39;https://example.com&#39;);
+  // 執行一些操作...
+
+  // 生成並截圖至 screenshots 資料夾
+  I.saveScreenshot(&#39;my-screenshot.png&#39;);
+});
+</code></pre><h3 id="自定義-helper-配置">自定義 Helper 配置</h3>
+<hr>
+<p>可以在<code>codecept.conf.js</code>，自定 Helper。</p>
+<p>範例：<code>CustomHelper</code></p>
+<pre tabindex="0"><code>exports.config = {
+  helpers: {
+    WebDriver: {
+      // 配置 WebDriver Helper
+      url: &#39;http://example.com&#39;,
+      browser: &#39;chrome&#39;,
+    },
+    CustomHelper: {
+      // 配置 CustomHelper
+      apiKey: &#39;your_api_key_here&#39;,
+    },
+  },
+  // ...
+};
+</code></pre><p>如何使用</p>
+<pre tabindex="0"><code>class CustomHelper {
+  constructor(config) {
+    this.options = config; // 訪問自定義 Helper 的配置選項
+  }
+
+  async performCustomTask() {
+    const apiKey = this.options.apiKey;
+    // 使用 apiKey 
+  }
+}
+
+module.exports = CustomHelper;
+</code></pre><h3 id="結語">結語</h3>
+<hr>
+<p>關於 E2E Testing 筆記會持續更新～</p>
+</div>
+
+        
+        
+        <script
+  src="https://utteranc.es/client.js"
+  repo="ChrisLinOvO/ChrisLinOvO.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ChrisLinOvO.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ChrisLinOvO.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ChrisLinOvO.github.io/js/script.min.js"></script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+<div id="js-cookie-box" class="cookie-box cookie-box-hide">
+	This site uses cookies. By continuing to use this website, you agree to their use. <span id="js-cookie-button" class="btn btn-sm btn-primary ml-2">I Accept</span>
+</div>
+<script>
+	(function ($) {
+		const cookieBox = document.getElementById('js-cookie-box');
+		const cookieButton = document.getElementById('js-cookie-button');
+		if (!Cookies.get('cookie-box')) {
+			cookieBox.classList.remove('cookie-box-hide');
+			cookieButton.onclick = function () {
+				Cookies.set('cookie-box', true, {
+					expires:  2 
+				});
+				cookieBox.classList.add('cookie-box-hide');
+			};
+		}
+	})(jQuery);
+</script>
+
+
+<style>
+.cookie-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 9999;
+  padding: 1rem 2rem;
+  background: rgb(71, 71, 71);
+  transition: all .75s cubic-bezier(.19, 1, .22, 1);
+  color: #fdfdfd;
+}
+
+.cookie-box-hide {
+  display: none;
+}
+</style>
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <style>
+       
+      #lineShareButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        z-index: 9999;  
+      }
+
+      #lineShareButton img {
+        width: 60px;  
+        height: auto;
+      }
+
+      #lineShareButton p {
+        margin: 0;  
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="lineShareButton">
+      <button style="background: none; border: none; cursor: pointer">
+        <img src="/images/line-icon.png" alt="LINE APP 圖片" />
+        <p>分享好友</p>
+      </button>
+    </div>
+    <script>
+      
+      const shareButton = document.getElementById("lineShareButton");
+      const currentUrl = window.location.href;
+      const externalUrl = `https://lineit.line.me/share/ui?url=${currentUrl}`;
+
+      window.addEventListener("scroll", function () {
+        var scrollY = window.scrollY || window.pageYOffset;
+        if (scrollY > 100) {
+          
+          shareButton.style.display = "none";
+        } else {
+          shareButton.style.display = "flex"; 
+        }
+      });
+
+      function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      }
+
+      shareButton.addEventListener("click", () => {
+        
+        if (isMobileDevice()) {
+          console.log("isMobile");
+          
+          liff
+            .init({
+              liffId: "2001397246-jbLPM3xw",
+              login: "required",
+            })
+            .then(() => {
+              liff
+                .getProfile()
+                .then((profile) => {
+                  const nickname = profile.displayName;
+                  const shareText = `好友 ${nickname} 分享了這個連結😊: ${currentUrl}`;
+                  
+                  if (liff.isApiAvailable("shareTargetPicker")) {
+                    liff
+                      .shareTargetPicker([
+                        {
+                          type: "text",
+                          text: shareText,
+                        },
+                      ])
+                      .then((res) => {
+                        console.log("在 Line 客户端中分享成功", res);
+                      })
+                      .catch((error) => {
+                        console.error("在 Line 客户端中分享失敗", error);
+                        window.location.href = externalUrl;
+                      });
+                  } else {
+                    console.error(
+                      "你的 LINE App 暫時不支援 Share Target Picker ，將開啟外部瀏覽器。"
+                    );
+                    window.location.href = externalUrl;
+                  }
+                })
+                .catch((error) => {
+                  console.error("無法取得用戶資料:", error);
+                  window.location.href = externalUrl;
+                });
+            })
+            .catch((error) => {
+              console.error("LIFF 初始化失败:", error);
+              window.location.href = externalUrl;
+            });
+        } else {
+          
+          window.open(externalUrl);
+        }
+      });
+    </script>
+  </body>
+</html>
+</body>
+</html>

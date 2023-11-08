@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>webdriver - Chris Lin&#39;s Blog</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="I am a software engineer with more than 3 years of experience.">
+  <meta name="author" content="Chris">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+
+  
+  
+  <meta name="generator" content="Hugo 0.119.0">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ChrisLinOvO.github.io/images/favicon-blog-2.png " type="image/x-icon">
+  <link rel="icon" href="https://ChrisLinOvO.github.io/images/favicon-blog-2.png " type="image/x-icon">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VG0G1B3B5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3VG0G1B3B5');
+  </script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.3.4/vconsole.min.js"></script>
+  
+
+</head>
+<body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view nav-link-mobile" href="https://ChrisLinOvO.github.io">Chris Lin's Blog</a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu nav-link-mobile"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="https://ChrisLinOvO.github.io">Chris Lin's Blog</a>
+            </li>
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://ChrisLinOvO.github.io"></a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ChrisLinOvO.github.io/about/">About Me</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://chrislinovo.github.io/blog/" target="_blank">Old Website</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search nav-link-mobile"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ChrisLinOvO.github.io/search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark nav-link-mobile"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-lg-4 pr-lg-5">
+  <div class="widgets">
+    
+    <div class="widget">
+      
+      <h4 class="widget-title">About Me</h4>
+      
+      <img
+        src="https://ChrisLinOvO.github.io/images/author-1.jpg"
+        alt=""
+        class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4"
+      />
+      
+      <p><p>我是林志隆，目前有 3 年以上前端開發經驗，擅長獨立作業完成各項需求，對於新的事物總是充滿好奇，保持著自我學習的態度更精進</p></p>
+      <a
+        id="knowMoreButton"
+        href="https://ChrisLinOvO.github.io/about/"
+        class="btn btn-outline-primary"
+        >Know More</a
+      >
+      
+    </div>
+    
+    <div class="widget">
+      <h4 class="widget-title">Category</h4>
+      <ul class="list-unstyled">
+        <li>
+          <a
+            href="/categories/notes/"
+            >Notes</a
+          >
+        </li>
+        <li>
+          <a
+            href="/categories/portfolio/"
+            >Portfolio</a
+          >
+        </li>
+        <li>
+          <a
+            href="/categories/tech/"
+            >Tech</a
+          >
+        </li>
+      </ul>
+    </div>
+    
+    <div class="widget">
+      <h4 class="widget-title">Tag</h4>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/codeceptjs/"
+            >Codeceptjs</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/feathers/"
+            >Feathers</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/fly.io/"
+            >Fly.io</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/ga/"
+            >Ga</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/git/"
+            >Git</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/google/"
+            >Google</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/heroku/"
+            >Heroku</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/hugo/"
+            >Hugo</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/jest/"
+            >Jest</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/line/"
+            >Line</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/linebot/"
+            >Linebot</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/mongodb/"
+            >Mongodb</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/mysql/"
+            >Mysql</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/ngrok/"
+            >Ngrok</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/node.js/"
+            >Node.js</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/puppeteer/"
+            >Puppeteer</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/react-native/"
+            >React native</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/react.js/"
+            >React.js</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/redux/"
+            >Redux</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/render/"
+            >Render</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/seo/"
+            >Seo</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/testing-library/"
+            >Testing library</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            class="d-block p-2 bg-primary text-white"
+            href="/tags/webdriver/"
+            >Webdriver</a
+          >
+        </li>
+      </ul>
+    </div>
+    
+    <div class="widget">
+      <h4 class="widget-title">Social</h4>
+      <ul class="list-inline social-links">
+        
+        <li class="list-inline-item">
+          <a target="_blank" href="https://github.com/ChrisLinOvO"
+            ><i class="ti-github"></i
+          ></a>
+        </li>
+        
+        <li class="list-inline-item">
+          <a target="_blank" href="mailto:qq2120621@gmail.com"
+            ><i class="ti-email"></i
+          ></a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    
+  </div>
+</div>
+
+<script>
+  document
+    .getElementById("knowMoreButton")
+    .addEventListener("click", function () {
+      gtag("event", "know_more_button_click", {
+        event_category: "Button Click",
+        event_label: "Know More Button Clicked",
+        value: 1,
+      });
+    });
+</script>
+
+      
+      <div class="col-lg-8 mb-5 mb-lg-0">
+        <div class="row">
+           
+          <div class="col-md-8 mb-4">
+  <article class="card">
+    
+    <img
+      src="https://ChrisLinOvO.github.io/images/post/end-to-end-testing-logo.jpg"
+      class="card-img-top"
+      alt="End-to-End (E2E) Testing"
+    />
+    
+    <div class="card-body px-0">
+      <a href="https://ChrisLinOvO.github.io/blogs/2023/11/react-e2e-testing/" class="h5 d-block my-3"
+        >End-to-End (E2E) Testing</a
+      >
+      <div class="mb-3 post-meta">
+        <span>By Chris</span>
+        
+        <span class="border-bottom border-primary px-2 mx-1"></span>
+        <span>2023-11-08</span>
+        <span class="border-bottom border-primary px-2 mx-1"></span>
+        
+        <a
+          href="/categories/notes"
+          class="text-primary"
+          >Notes</a
+        >
+         
+      </div>
+      <p class="card-text">紀錄一些 E2E Testing 筆記</p>
+      <a href="https://ChrisLinOvO.github.io/blogs/2023/11/react-e2e-testing/" class="btn btn-outline-primary">read more</a>
+    </div>
+  </article>
+</div> 
+        </div>
+      </div>
+
+      
+      <div class="col-12 mt-5">
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<script>
+  var indexURL = "https://ChrisLinOvO.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ChrisLinOvO.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ChrisLinOvO.github.io/js/script.min.js"></script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+<div id="js-cookie-box" class="cookie-box cookie-box-hide">
+	This site uses cookies. By continuing to use this website, you agree to their use. <span id="js-cookie-button" class="btn btn-sm btn-primary ml-2">I Accept</span>
+</div>
+<script>
+	(function ($) {
+		const cookieBox = document.getElementById('js-cookie-box');
+		const cookieButton = document.getElementById('js-cookie-button');
+		if (!Cookies.get('cookie-box')) {
+			cookieBox.classList.remove('cookie-box-hide');
+			cookieButton.onclick = function () {
+				Cookies.set('cookie-box', true, {
+					expires:  2 
+				});
+				cookieBox.classList.add('cookie-box-hide');
+			};
+		}
+	})(jQuery);
+</script>
+
+
+<style>
+.cookie-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 9999;
+  padding: 1rem 2rem;
+  background: rgb(71, 71, 71);
+  transition: all .75s cubic-bezier(.19, 1, .22, 1);
+  color: #fdfdfd;
+}
+
+.cookie-box-hide {
+  display: none;
+}
+</style>
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <style>
+       
+      #lineShareButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        z-index: 9999;  
+      }
+
+      #lineShareButton img {
+        width: 60px;  
+        height: auto;
+      }
+
+      #lineShareButton p {
+        margin: 0;  
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="lineShareButton">
+      <button style="background: none; border: none; cursor: pointer">
+        <img src="/images/line-icon.png" alt="LINE APP 圖片" />
+        <p>分享好友</p>
+      </button>
+    </div>
+    <script>
+      
+      const shareButton = document.getElementById("lineShareButton");
+      const currentUrl = window.location.href;
+      const externalUrl = `https://lineit.line.me/share/ui?url=${currentUrl}`;
+
+      window.addEventListener("scroll", function () {
+        var scrollY = window.scrollY || window.pageYOffset;
+        if (scrollY > 100) {
+          
+          shareButton.style.display = "none";
+        } else {
+          shareButton.style.display = "flex"; 
+        }
+      });
+
+      function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      }
+
+      shareButton.addEventListener("click", () => {
+        
+        if (isMobileDevice()) {
+          console.log("isMobile");
+          
+          liff
+            .init({
+              liffId: "2001397246-jbLPM3xw",
+              login: "required",
+            })
+            .then(() => {
+              liff
+                .getProfile()
+                .then((profile) => {
+                  const nickname = profile.displayName;
+                  const shareText = `好友 ${nickname} 分享了這個連結😊: ${currentUrl}`;
+                  
+                  if (liff.isApiAvailable("shareTargetPicker")) {
+                    liff
+                      .shareTargetPicker([
+                        {
+                          type: "text",
+                          text: shareText,
+                        },
+                      ])
+                      .then((res) => {
+                        console.log("在 Line 客户端中分享成功", res);
+                      })
+                      .catch((error) => {
+                        console.error("在 Line 客户端中分享失敗", error);
+                        window.location.href = externalUrl;
+                      });
+                  } else {
+                    console.error(
+                      "你的 LINE App 暫時不支援 Share Target Picker ，將開啟外部瀏覽器。"
+                    );
+                    window.location.href = externalUrl;
+                  }
+                })
+                .catch((error) => {
+                  console.error("無法取得用戶資料:", error);
+                  window.location.href = externalUrl;
+                });
+            })
+            .catch((error) => {
+              console.error("LIFF 初始化失败:", error);
+              window.location.href = externalUrl;
+            });
+        } else {
+          
+          window.open(externalUrl);
+        }
+      });
+    </script>
+  </body>
+</html>
+</body>
+</html>

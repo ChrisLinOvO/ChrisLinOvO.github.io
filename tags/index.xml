@@ -6,22 +6,49 @@
     <description>Recent content in Tags on Chris Lin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 07 Nov 2023 22:00:00 +0800</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Jest</title>
-      <link>https://ChrisLinOvO.github.io/tags/jest/</link>
-      <pubDate>Tue, 07 Nov 2023 22:00:00 +0800</pubDate>
+      <title>CodeceptJS</title>
+      <link>https://ChrisLinOvO.github.io/tags/codeceptjs/</link>
+      <pubDate>Wed, 08 Nov 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://ChrisLinOvO.github.io/tags/jest/</guid>
+      <guid>https://ChrisLinOvO.github.io/tags/codeceptjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Puppeteer</title>
+      <link>https://ChrisLinOvO.github.io/tags/puppeteer/</link>
+      <pubDate>Wed, 08 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/tags/puppeteer/</guid>
       <description></description>
     </item>
     
     <item>
       <title>React.js</title>
       <link>https://ChrisLinOvO.github.io/tags/react.js/</link>
-      <pubDate>Tue, 07 Nov 2023 22:00:00 +0800</pubDate>
+      <pubDate>Wed, 08 Nov 2023 00:00:00 +0000</pubDate>
       
       <guid>https://ChrisLinOvO.github.io/tags/react.js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>webdriver</title>
+      <link>https://ChrisLinOvO.github.io/tags/webdriver/</link>
+      <pubDate>Wed, 08 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/tags/webdriver/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jest</title>
+      <link>https://ChrisLinOvO.github.io/tags/jest/</link>
+      <pubDate>Tue, 07 Nov 2023 22:00:00 +0800</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/tags/jest/</guid>
       <description></description>
     </item>
     
