@@ -8,9 +8,19 @@
     <language>zh-tw</language>
     <lastBuildDate>Tue, 24 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Lodash Introduction</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/11/lodash-introduction/</link>
+      <pubDate>Wed, 08 Nov 2023 15:00:00 +0800</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/11/lodash-introduction/</guid>
+      <description>前言 Lodash 是一個 JavaScript library，提供了很多常用的函式，處理資料可以省去很多時間，有時候也會比原生 JS 的效能還要好。
+安裝 透過 npm</description>
+    </item>
+    
+    <item>
       <title>End-to-End (E2E) Testing</title>
       <link>https://ChrisLinOvO.github.io/blogs/2023/11/react-e2e-testing/</link>
-      <pubDate>Wed, 08 Nov 2023 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 08 Nov 2023 10:00:00 +0800</pubDate>
       
       <guid>https://ChrisLinOvO.github.io/blogs/2023/11/react-e2e-testing/</guid>
       <description>前言 E2E 測試在模擬真實用戶在應用程式中的實際使用情境，驗證各個組件之間功能是否正常。

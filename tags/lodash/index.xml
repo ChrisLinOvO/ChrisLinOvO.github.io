@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lodash on Chris Lin&#39;s Blog</title>
+    <link>https://ChrisLinOvO.github.io/tags/lodash/</link>
+    <description>Recent content in Lodash on Chris Lin&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Wed, 08 Nov 2023 15:00:00 +0800</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/tags/lodash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lodash Introduction</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/11/lodash-introduction/</link>
+      <pubDate>Wed, 08 Nov 2023 15:00:00 +0800</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/11/lodash-introduction/</guid>
+      <description>前言 Lodash 是一個 JavaScript library，提供了很多常用的函式，處理資料可以省去很多時間，有時候也會比原生 JS 的效能還要好。
+安裝 透過 npm</description>
+    </item>
+    
+  </channel>
+</rss>
