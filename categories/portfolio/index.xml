@@ -6,7 +6,18 @@
     <description>Recent content in Portfolio on Chris Lin&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 03 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/categories/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/categories/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>午餐機器人</title>
+      <link>https://ChrisLinOvO.github.io/blogs/2023/11/portfolio-lunch-linebot/</link>
+      <pubDate>Wed, 15 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ChrisLinOvO.github.io/blogs/2023/11/portfolio-lunch-linebot/</guid>
+      <description>前言 當時在前公司訂便當的時候，都要跑去每個人座位詢問，挺麻煩的!
+於是決定與一位後端同仁一起搭建午餐機器人。
+架構 這邊我是用 Feathers + MongoDB Atlas 部署到 Render 作品</description>
+    </item>
+    
     <item>
       <title>複合型健身房官方網站「WoW FIT」</title>
       <link>https://ChrisLinOvO.github.io/blogs/2023/11/portfolio-wow-fit/</link>
@@ -25,17 +36,6 @@
       <guid>https://ChrisLinOvO.github.io/blogs/2023/11/portfolio-match-game/</guid>
       <description>前言 這是我練習用 React Native 來寫 App，並使用 Expo 呈現
 以下用 Expo 線上工具 Demo 進到 Expo 可以針對不同 Device 查案 以下環境是 iOS 遊戲規則：直到全部配對成功</description>
-    </item>
-    
-    <item>
-      <title>午餐機器人</title>
-      <link>https://ChrisLinOvO.github.io/blogs/2023/11/portfolio-lunch-linebot/</link>
-      <pubDate>Thu, 02 Nov 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://ChrisLinOvO.github.io/blogs/2023/11/portfolio-lunch-linebot/</guid>
-      <description>前言 當時在前公司訂便當的時候，都要跑去每個人座位詢問，挺麻煩的!
-於是決定與一位後端同仁一起搭建午餐機器人。
-架構 這邊我是用 Feathers + MongoDB Atlas 部署到 Render 作品</description>
     </item>
     
     <item>
