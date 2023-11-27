@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>前端優化- Throttle &amp; Debounce - Chris Lin&#39;s Blog</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="簡單實作 throttle &amp; debounce">
+  <meta name="author" content="Chris">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+
+  
+  
+  <meta name="generator" content="Hugo 0.119.0">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ChrisLinOvO.github.io/images/favicon-blog-2.png " type="image/x-icon">
+  <link rel="icon" href="https://ChrisLinOvO.github.io/images/favicon-blog-2.png " type="image/x-icon">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VG0G1B3B5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3VG0G1B3B5');
+  </script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.3.4/vconsole.min.js"></script>
+  
+
+</head>
+<body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view nav-link-mobile" href="https://ChrisLinOvO.github.io">Chris Lin's Blog</a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu nav-link-mobile"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="https://ChrisLinOvO.github.io">Chris Lin's Blog</a>
+            </li>
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://ChrisLinOvO.github.io"></a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ChrisLinOvO.github.io/about/">About Me</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://chrislinovo.github.io/blog/" target="_blank">Old Website</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search nav-link-mobile"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ChrisLinOvO.github.io/search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark nav-link-mobile"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <h2>前端優化- Throttle &amp; Debounce</h2>
+        <div class="mb-3 post-meta">
+          <span
+            >By Chris</span
+          >
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2023-11-27</span>
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          
+          <a
+            href="/categories/notes"
+            class="text-primary"
+            >Notes</a
+          >
+           
+        </div>
+        
+        <img
+          src="https://ChrisLinOvO.github.io/images/post/throttle-debounce-logo.jpg"
+          class="img-fluid w-100 mb-4"
+          alt="前端優化- Throttle &amp; Debounce"
+        />
+        
+        <div class="content mb-5"><h3 id="前言">前言</h3>
+<hr>
+<p>以下是我針對 throttle &amp; debounce 兩種方法在React上實作。</p>
+<h3 id="throttle-節流">Throttle (節流)</h3>
+<hr>
+<p>以下範例用<code>throttle</code>實現<code>Infinite Scroll</code>效果。</p>
+<h4 id="demo">Demo</h4>
+<p>影片中可以看到當滾動頁面到90%位置，就會載入新的元素進來。</p>
+<video width="100%" height="auto" controls>
+    <source src="/images/post/throttle.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<h4 id="程式碼範例">程式碼範例</h4>
+<p>這段程式碼使用了閉包（closure）的概念，主要是為了維護 <code>timer</code> 變數的狀態。閉包是指函數內部可以訪問其外部作用域的變數，即使在外部函數已經執行完畢的情況下。</p>
+<p>在這裡，<code>throttle</code> 函數返回了一個匿名函數，而這個匿名函數引用了 <code>timer</code> 變數，形成了閉包。這樣可以確保 <code>timer</code> 的狀態在多次呼叫 <code>throttle</code> 函數時保持一致。</p>
+<p>具體來說：</p>
+<ol>
+<li>
+<p><strong><code>timer</code> 的保存：</strong></p>
+<ul>
+<li>在 <code>throttle</code> 函數內，<code>timer</code> 是一個在外部作用域（<code>throttle</code> 函數）中定義的變數。每次呼叫 <code>throttle</code> 函數，都會創建一個新的 <code>timer</code> 變數，但由於閉包的存在，每個返回的匿名函數都保留對自己的 <code>timer</code> 的引用。</li>
+</ul>
+</li>
+<li>
+<p><strong>檢查 <code>timer</code>：</strong></p>
+<ul>
+<li>在返回的匿名函數內部，首先檢查 <code>timer</code> 是否存在。如果存在，表示上一次的執行還在範圍內，則直接返回，不執行後續的操作。</li>
+</ul>
+</li>
+<li>
+<p><strong>執行 <code>setTimeout</code>：</strong></p>
+<ul>
+<li>如果 <code>timer</code> 不存在，則使用 <code>setTimeout</code> 設置一個計時器。這個計時器在指定的時間後會執行提供的 <code>callback</code> 函數。同時，將 <code>timer</code> 設為 <code>null</code>，表示現在已經可以再次觸發。</li>
+</ul>
+</li>
+</ol>
+<p>這種方式保證了在一個特定時間內，只有第一次呼叫 <code>throttle</code> 函數的 <code>callback</code> 函數被執行，後續的呼叫都被忽略。這在一些需要限制執行頻率的情境下是非常有用的。閉包確保了 <code>timer</code> 的狀態在整個過程中的一致性。</p>
+<pre tabindex="0"><code>// helper/throttle.js
+
+export const throttle = (callback, time) =&gt; {
+  let timer;
+  return () =&gt; {
+    // 如果 timer 存在（表示上一次的執行還在範圍內），則直接返回，不執行後續的操作。
+    if (timer) {
+      return;
+    }
+    // 如果 timer 不存在，則使用 setTimeout 設置一個計時器，
+    // 當計時器過期時，執行 callback 函數，然後將 timer 設為 null，表示現在已經可以再次觸發。
+    timer = setTimeout(() =&gt; {
+      callback();
+      timer = null;
+    }, time);
+  };
+};
+</code></pre><p>這段程式碼實現一個無窮捲動效果，值得注意的是<code>組件掛載時添加了滾動事件監聽器，而在組件卸載時清理這個監聽器，以防止內存洩漏和不必要的事件處理</code>。</p>
+<pre tabindex="0"><code>// components/InfiniteScrollDemo/InfiniteScroll.js
+
+import React, { useState, useEffect } from &#34;react&#34;;
+import { throttle } from &#34;../../helper/throttle&#34;;
+
+const InfiniteScroll = () =&gt; {
+  // 初始化 paragraphs 的初始資料
+  const initialParagraphs = Array.from({ length: 30 }, (_, index) =&gt; (
+    &lt;p key={`origin-${index}`}&gt;123&lt;/p&gt;
+  ));
+
+  const [paragraphs, setParagraphs] = useState(initialParagraphs);
+
+  const handleScrollThrottled = throttle(() =&gt; {
+    // 檢查是否滾動到頁面底部
+    let clientHeight = document.documentElement.clientHeight;
+    let scrollTop = document.documentElement.scrollTop;
+    let scrollHeight = document.documentElement.scrollHeight;
+
+    if ((scrollTop + clientHeight) / scrollHeight &gt;= 0.9) {
+      // 生成 &#34;456&#34; 字串的 p 標籤節點
+      const newParagraphs = Array.from({ length: 9 }, (_, index) =&gt; (
+        &lt;p key={`new-${index + paragraphs.length}`}&gt;456&lt;/p&gt;
+      ));
+
+      // 更新 paragraphs 狀態
+      setParagraphs((prevParagraphs) =&gt; [...prevParagraphs, ...newParagraphs]);
+    }
+  }, 1000);
+
+  useEffect(() =&gt; {
+    // 將 handleScrollThrottled 函數添加到 scroll 事件監聽器
+    window.addEventListener(&#34;scroll&#34;, handleScrollThrottled);
+
+    // 在組件卸載時清理滾動事件監聽器
+    return () =&gt; {
+      window.removeEventListener(&#34;scroll&#34;, handleScrollThrottled);
+    };
+  }, [handleScrollThrottled]);
+
+  return &lt;div&gt;{paragraphs}&lt;/div&gt;;
+};
+
+export default InfiniteScroll;
+</code></pre><h3 id="debounce-防抖">Debounce (防抖)</h3>
+<hr>
+<p>以下範例用<code>debounce</code>實現<code>延遲對輸入值的處理</code>。</p>
+<h4 id="demo1">Demo1</h4>
+<p>影片中可以確保只有在使用者輸入停頓 1.5 秒後才會觸發對輸入值的處理 (可參照右邊log)。</p>
+<video width="100%" height="auto" controls>
+    <source src="/images/post/debounce1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<h4 id="程式碼範例-1">程式碼範例</h4>
+<p>這段程式碼使用自訂的 useDebounce hook，透過 debounce 技術來降低對輸入值的處理頻率。</p>
+<pre tabindex="0"><code>// helper/debounce.js
+
+import { useEffect } from &#39;react&#39;
+
+// useEffect with debounce
+const useDebounce = (fn, delay, deps = []) =&gt; {
+  useEffect(
+    () =&gt; {
+      // 設置一個定時器，延遲 delay 毫秒後執行 
+      const timer = setTimeout(fn, delay)
+      // 在每次 useEffect 執行前，清除之前的定時器，確保防彈跳邏輯的正確性
+      return () =&gt; clearTimeout(timer)
+    },
+    // eslint-disable-next-line
+    deps
+  )
+}
+export default useDebounce
+</code></pre><pre tabindex="0"><code>// components/SearchBarDemo/SearchBar.js
+
+import React, { useState } from &#34;react&#34;;
+import useDebounce from &#34;../../helper/debounce&#34;;
+
+const SearchBar = () =&gt; {
+  const [inputValue, setInputValue] = useState(&#34;&#34;);
+  const [debouncedValue, setDebouncedValue] = useState(&#34;&#34;);
+
+  const handleInputChange = (value) =&gt; {
+    setInputValue(value);
+    console.log(&#34;Input Value:&#34;, value);
+  };
+
+  useDebounce(
+    () =&gt; {
+      console.log(&#34;Debounced Input Value:&#34;, inputValue);
+      setDebouncedValue(inputValue);
+    },
+    1500,
+    [inputValue]
+  );
+
+  return (
+    &lt;div&gt;
+      &lt;input
+        type=&#34;text&#34;
+        value={inputValue}
+        onChange={(e) =&gt; handleInputChange(e.target.value)}
+        placeholder=&#34;Type something...&#34;
+      /&gt;
+      &lt;p&gt;Input Value: {inputValue}&lt;/p&gt;
+      &lt;p&gt;Debounced Value: {debouncedValue}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default SearchBar;
+</code></pre><h4 id="demo2">Demo2</h4>
+<p>影片中用戶實際輸入後停頓後 1.5 秒後，才會觸發 API 請求。</p>
+<video width="100%" height="auto" controls>
+    <source src="/images/post/debounce2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<h4 id="程式碼範例-2">程式碼範例</h4>
+<p>在這邊我是拿到全部資料過濾<code>userId === 1</code>，印出每筆的 title。</p>
+<pre tabindex="0"><code>// helper/debounce.js
+
+import { useEffect } from &#34;react&#34;;
+
+// useEffect with debounce
+const useDebounce = (fn, delay, deps = []) =&gt; {
+  useEffect(
+    () =&gt; {
+      if (deps.length &gt; 0) {
+        // 設置一個定時器，延遲 delay 毫秒後執行
+        const timer = setTimeout(fn, delay);
+        // 在每次 useEffect 執行前，清除之前的定時器，確保防彈跳邏輯的正確性
+        return () =&gt; clearTimeout(timer);
+      }
+    },
+    // eslint-disable-next-line
+    deps
+  );
+};
+export default useDebounce;
+</code></pre><pre tabindex="0"><code>// components/SearchBarDemo/SearchBarAPI.js
+
+import React, { useState } from &#34;react&#34;;
+import useDebounce from &#34;../../helper/debounce&#34;;
+
+const SearchBarAPI = () =&gt; {
+  const [inputValue, setInputValue] = useState(&#34;&#34;);
+  const [filteredPosts, setFilteredPosts] = useState([]);
+
+  const fetchData = async () =&gt; {
+    try {
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/posts`
+      );
+      const data = await response.json();
+      const filteredData = data.filter((post) =&gt; post.userId === 1);
+      console.log(filteredData);
+      setFilteredPosts(filteredData);
+    } catch (error) {
+      console.error(&#34;Error fetching data:&#34;, error);
+    }
+  };
+
+  // 使用 useDebounce 包裹 fetchData，只有在有輸入值的情況下才會觸發資料請求
+  useDebounce(
+    () =&gt; {
+      if (inputValue) {
+        fetchData();
+      }
+    },
+    1500,
+    [inputValue]
+  );
+
+  const handleChange = (event) =&gt; {
+    setInputValue(event.target.value);
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;input
+        type=&#34;text&#34;
+        value={inputValue}
+        onChange={handleChange}
+        placeholder=&#34;Type something...&#34;
+      /&gt;
+      &lt;p&gt;Filtered Posts:&lt;/p&gt;
+      &lt;ul&gt;
+        {filteredPosts.map((post) =&gt; (
+          &lt;li key={post.id}&gt;{post.title}&lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default SearchBarAPI;
+</code></pre><h3 id="結語">結語</h3>
+<hr>
+<p><code>Throttle（節流）</code> 和 <code>Debounce（防抖）</code>是用於控制某些操作執行頻率的兩種不同的技術。這兩種技術主要應用在處理用戶輸入、監聽事件或執行一些高頻率操作的情境中。以下是它們的主要區別：</p>
+<ol>
+<li>
+<p><strong>Throttle（節流）：</strong></p>
+<ul>
+<li><strong>定義：</strong> 當一個操作在固定的時間間隔內只執行一次，不論這段時間內有多少次觸發事件，都只會執行一次。</li>
+<li><strong>使用場景：</strong> 當你希望限制某個操作的執行頻率，特別是在高頻率事件觸發的情況下，例如滾動事件或鍵盤輸入。</li>
+</ul>
+</li>
+<li>
+<p><strong>Debounce（防抖）：</strong></p>
+<ul>
+<li><strong>定義：</strong> 當一個操作在最後一次觸發事件後，等待一段時間，只有在這段時間內沒有新的觸發事件發生時，才執行該操作。</li>
+<li><strong>使用場景：</strong> 當你希望等待一段時間，確保用戶已經停止輸入或停止觸發事件，然後再執行相應的操作。這對於節省資源和減少不必要的操作很有用，例如在搜索欄輸入時實時搜索。</li>
+</ul>
+</li>
+</ol>
+<p>簡單來說，節流主要用於控制一個操作的執行頻率，確保在一段時間內只執行一次；而防抖則確保在最後一次觸發事件後的等待時間內沒有新的觸發事件，才執行相應的操作。這兩種技術都有助於提高性能和優化用戶體驗，特別是在處理大量事件或高頻率觸發的情況下。</p>
+</div>
+
+        
+        
+        <script
+  src="https://utteranc.es/client.js"
+  repo="ChrisLinOvO/ChrisLinOvO.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ChrisLinOvO.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ChrisLinOvO.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ChrisLinOvO.github.io/js/script.min.js"></script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+<div id="js-cookie-box" class="cookie-box cookie-box-hide">
+	This site uses cookies. By continuing to use this website, you agree to their use. <span id="js-cookie-button" class="btn btn-sm btn-primary ml-2">I Accept</span>
+</div>
+<script>
+	(function ($) {
+		const cookieBox = document.getElementById('js-cookie-box');
+		const cookieButton = document.getElementById('js-cookie-button');
+		if (!Cookies.get('cookie-box')) {
+			cookieBox.classList.remove('cookie-box-hide');
+			cookieButton.onclick = function () {
+				Cookies.set('cookie-box', true, {
+					expires:  2 
+				});
+				cookieBox.classList.add('cookie-box-hide');
+			};
+		}
+	})(jQuery);
+</script>
+
+
+<style>
+.cookie-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 9999;
+  padding: 1rem 2rem;
+  background: rgb(71, 71, 71);
+  transition: all .75s cubic-bezier(.19, 1, .22, 1);
+  color: #fdfdfd;
+}
+
+.cookie-box-hide {
+  display: none;
+}
+</style>
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <style>
+       
+      #lineShareButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        z-index: 9999;  
+      }
+
+      #lineShareButton img {
+        width: 60px;  
+        height: auto;
+      }
+
+      #lineShareButton p {
+        margin: 0;  
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="lineShareButton">
+      <button style="background: none; border: none; cursor: pointer">
+        <img src="/images/line-icon.png" alt="LINE APP 圖片" />
+        <p>分享好友</p>
+      </button>
+    </div>
+    <script>
+      
+      const shareButton = document.getElementById("lineShareButton");
+      const currentUrl = window.location.href;
+      const externalUrl = `https://lineit.line.me/share/ui?url=${currentUrl}`;
+
+      window.addEventListener("scroll", function () {
+        var scrollY = window.scrollY || window.pageYOffset;
+        if (scrollY > 100) {
+          
+          shareButton.style.display = "none";
+        } else {
+          shareButton.style.display = "flex"; 
+        }
+      });
+
+      function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      }
+
+      shareButton.addEventListener("click", () => {
+        
+        if (isMobileDevice()) {
+          console.log("isMobile");
+          
+          liff
+            .init({
+              liffId: "2001397246-jbLPM3xw",
+              login: "required",
+            })
+            .then(() => {
+              liff
+                .getProfile()
+                .then((profile) => {
+                  const nickname = profile.displayName;
+                  const shareText = `好友 ${nickname} 分享了這個連結😊: ${currentUrl}`;
+                  
+                  if (liff.isApiAvailable("shareTargetPicker")) {
+                    liff
+                      .shareTargetPicker([
+                        {
+                          type: "text",
+                          text: shareText,
+                        },
+                      ])
+                      .then((res) => {
+                        console.log("在 Line 客户端中分享成功", res);
+                      })
+                      .catch((error) => {
+                        console.error("在 Line 客户端中分享失敗", error);
+                        window.location.href = externalUrl;
+                      });
+                  } else {
+                    console.error(
+                      "你的 LINE App 暫時不支援 Share Target Picker ，將開啟外部瀏覽器。"
+                    );
+                    window.location.href = externalUrl;
+                  }
+                })
+                .catch((error) => {
+                  console.error("無法取得用戶資料:", error);
+                  window.location.href = externalUrl;
+                });
+            })
+            .catch((error) => {
+              console.error("LIFF 初始化失败:", error);
+              window.location.href = externalUrl;
+            });
+        } else {
+          
+          window.open(externalUrl);
+        }
+      });
+    </script>
+  </body>
+</html>
+</body>
+</html>
