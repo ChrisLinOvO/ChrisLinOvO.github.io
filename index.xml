@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 24 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://ChrisLinOvO.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 Zustand 實作 Todo List</title>
-      <link>https://ChrisLinOvO.github.io/blogs/2024/react-zustand-todos/</link>
+      <link>https://ChrisLinOvO.github.io/blogs/2024/03/react-zustand-todos/</link>
       <pubDate>Sun, 24 Mar 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://ChrisLinOvO.github.io/blogs/2024/react-zustand-todos/</guid>
+      <guid>https://ChrisLinOvO.github.io/blogs/2024/03/react-zustand-todos/</guid>
       <description>前言 因為工作需要使用到 Zustand，這邊稍微研究一下並實作 Todo List。
 Zustand 現在 react 的相關套件裡面最使用最廣泛的全域管理工具應該是 Redux，在工作上較大的專案也都是使用 Redux 在做狀態管理，但是我想要介紹另外一個比較輕量狀態管理工具，Zustand 官方文件。</description>
     </item>
