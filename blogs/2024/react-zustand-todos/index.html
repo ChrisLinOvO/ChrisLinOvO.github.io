@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>使用 Zustand 實作 Todo List - Chris Lin&#39;s Blog</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="簡單實作一下React 的 Zustand State Management 套件怎麼使用">
+  <meta name="author" content="Chris">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+
+  
+  
+  <meta name="generator" content="Hugo 0.119.0">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ChrisLinOvO.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ChrisLinOvO.github.io/images/favicon-blog-2.png " type="image/x-icon">
+  <link rel="icon" href="https://ChrisLinOvO.github.io/images/favicon-blog-2.png " type="image/x-icon">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3VG0G1B3B5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3VG0G1B3B5');
+  </script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.3.4/vconsole.min.js"></script>
+  
+
+</head>
+<body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view nav-link-mobile" href="https://ChrisLinOvO.github.io">Chris Lin's Blog</a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu nav-link-mobile"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="https://ChrisLinOvO.github.io">Chris Lin's Blog</a>
+            </li>
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://ChrisLinOvO.github.io"></a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ChrisLinOvO.github.io/about/">About Me</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://chrislinovo.github.io/blog/" target="_blank">Old Website</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search nav-link-mobile"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ChrisLinOvO.github.io/search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark nav-link-mobile"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <h2>使用 Zustand 實作 Todo List</h2>
+        <div class="mb-3 post-meta">
+          <span
+            >By Chris</span
+          >
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2024-03-24</span>
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          
+          <a
+            href="/categories/notes"
+            class="text-primary"
+            >Notes</a
+          >
+           
+        </div>
+        
+        <img
+          src="https://ChrisLinOvO.github.io/images/post/react-zustand-todos-logo.png"
+          class="img-fluid w-100 mb-4"
+          alt="使用 Zustand 實作 Todo List"
+        />
+        
+        <div class="content mb-5"><h3 id="前言">前言</h3>
+<hr>
+<p>因為工作需要使用到 Zustand，這邊稍微研究一下並實作 Todo List。</p>
+<h3 id="zustand">Zustand</h3>
+<hr>
+<p>現在 react 的相關套件裡面最使用最廣泛的全域管理工具應該是 Redux，在工作上較大的專案也都是使用 Redux 在做狀態管理，但是我想要介紹另外一個比較輕量狀態管理工具，Zustand。</p>
+<blockquote>
+<p>npm install zustand</p>
+</blockquote>
+<h4 id="概念">概念</h4>
+<ol>
+<li><strong><code>create</code>:</strong>
+是 Zustand 提供的一個函數，用於創建狀態容器。它接受一個參數，這個參數是一個稱為 State Creator 的函數。在這個函數中，可以定義初始狀態以及一些操作這個狀態的方法。</li>
+<li><strong><code>set</code>:</strong>
+是一個在 State Creator 函數中可以使用的函數。它允許更新狀態容器的數據。更新函數接受一個參數，這個參數是當前的狀態數據，並且返回新的狀態數據。</li>
+</ol>
+<p>總之，<code>create</code>函數用於創建狀態容器，而<code>set</code>函數用於更新狀態。</p>
+<h4 id="程式碼範例">程式碼範例</h4>
+<p>這段程式碼是使用 TypeScript 和 Zustand 庫來建立一個簡單的待辦事項應用程序的狀態管理系統。</p>
+<p>程式碼結構：</p>
+<ol>
+<li>
+<p><strong><code>Interface</code> 定義：</strong></p>
+<ul>
+<li><code>Todo</code>，定義資料結構，包括 ID、內容、完成狀態和編輯狀態等。</li>
+<li><code>TodoState</code>，定義狀態結構，包括一個待辦事項數組和一些操作這些待辦事項的方法。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>Todo List</code> 操作函數：</strong></p>
+<ul>
+<li>用於執行各種待辦事項的操作，包括新增、標記完成、刪除和編輯待辦事項等。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>useTodo</code> 狀態創建函數：</strong></p>
+<ul>
+<li>創建並返回一個包含狀態和操作函數的對象。這些操作函數內部調用了 Zustand 提供的 set 函數，來更新應用程序的狀態。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>create</code> 導出默認值：</strong></p>
+<ul>
+<li>最後，將使用 create 函數導出一個具有預設狀態的狀態儲存容器。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><code>StateCreator&lt;TodoState&gt;</code>：這裡定義了狀態創建函數（State Creator）的類型。它告訴 TypeScript 狀態創建函數的參數類型以及返回的狀態的類型。在這個例子中，TodoState 定義了狀態的結構和方法，所以我們將其傳遞給 StateCreator 來確保狀態創建函數返回的狀態與 TodoState 相符。</p>
+</blockquote>
+<blockquote>
+<p><code>devtools((set: SetState&lt;TodoState&gt;) =&gt; ({</code>：這裡使用了 devtools 中間件來對狀態進行調試和監控。devtools 函數接受一個函數作為參數，這個函數內部定義了狀態的創建邏輯。在這個函數中，我們明確地指定了 set 函數的類型為 SetState<!-- raw HTML omitted -->，這樣做是為了確保 set 函數可以正確地更新 TodoState 類型的狀態。</p>
+</blockquote>
+<pre tabindex="0"><code>// state/useTodo.tsx
+
+import { create, State, StateCreator, SetState } from &#34;zustand&#34;;
+import { devtools } from &#34;zustand/middleware&#34;;
+import { v4 as uuidv4 } from &#34;uuid&#34;;
+
+export interface Todo {
+  id: string;
+  todoContent: string;
+  complete: boolean;
+  edit: boolean;
+}
+
+interface TodoState extends State {
+  todos: Array&lt;Todo&gt;;
+  addNewTodo: (todoContent: string) =&gt; void;
+  toggleCompleteTodo: (todoId: string) =&gt; void;
+  deleteTodo: (todoId: string) =&gt; void;
+  toggleEditTodo: (todoId: string) =&gt; void;
+  updateEditingTodoContent: (todoId: string, todoContent: string) =&gt; void;
+}
+
+const todoObj = (todoContent: string): Todo =&gt; {
+  return {
+    id: uuidv4(),
+    todoContent,
+    complete: false,
+    edit: false,
+  };
+};
+
+const addNewTodo = (todos: Array&lt;Todo&gt;, todoContent: string): Array&lt;Todo&gt; =&gt; {
+  const todo = todoObj(todoContent);
+  const newTodo = todos.concat(todo);
+
+  return newTodo;
+};
+
+const toggleCompleteTodo = (todos: Array&lt;Todo&gt;, todoId: string): Array&lt;Todo&gt; =&gt; {
+  const newTodo = todos.map((todo) =&gt;
+    todo.id === todoId ? { ...todo, complete: !todo.complete } : todo
+  );
+
+  return newTodo;
+};
+
+const deleteTodo = (todos: Array&lt;Todo&gt;, todoId: string): Array&lt;Todo&gt; =&gt; {
+  const newTodo = todos.filter((todo) =&gt; todo.id !== todoId);
+
+  return newTodo;
+};
+
+const toggleEditTodo = (todos: Array&lt;Todo&gt;, todoId: string): Array&lt;Todo&gt; =&gt; {
+  const newTodo = todos.map((todo) =&gt;
+    todo.id === todoId ? { ...todo, edit: !todo.edit } : todo
+  );
+
+  return newTodo;
+};
+
+const updateEditingTodoContent = (
+  todos: Array&lt;Todo&gt;,
+  todoId: string,
+  todoContent: string
+): Array&lt;Todo&gt; =&gt; {
+  const newTodo = todos.map((todo) =&gt;
+    todo.id === todoId ? { ...todo, todoContent } : todo
+  );
+
+  return newTodo;
+};
+
+const useTodo: StateCreator&lt;TodoState&gt; = devtools((set: SetState&lt;TodoState&gt;) =&gt; ({
+  todos: [],
+  addNewTodo: (todoContent: string) =&gt; {
+    set((state: TodoState) =&gt; ({ // 明確指定 state 參數的型別為 TodoState
+      ...state,
+      todos: addNewTodo(state.todos, todoContent),
+    }));
+  },
+  toggleCompleteTodo: (todoId: string) =&gt; {
+    set((state: TodoState) =&gt; ({
+      ...state,
+      todos: toggleCompleteTodo(state.todos, todoId),
+    }));
+  },
+  deleteTodo: (todoId: string) =&gt; {
+    set((state: TodoState) =&gt; ({
+      ...state,
+      todos: deleteTodo(state.todos, todoId),
+    }));
+  },
+  toggleEditTodo: (todoId: string) =&gt; {
+    set((state: TodoState) =&gt; ({
+      ...state,
+      todos: toggleEditTodo(state.todos, todoId),
+    }));
+  },
+  updateEditingTodoContent: (todoId: string, todoContent: string) =&gt; {
+    set((state: TodoState) =&gt; ({
+      ...state,
+      todos: updateEditingTodoContent(state.todos, todoId, todoContent),
+    }));
+  },
+}));
+
+export default create&lt;TodoState&gt;(useTodo);
+</code></pre><p>這時候 component 就可以去接收 golbal 狀態，以下舉例 Form Input 及渲染項目和操作 UI。</p>
+<pre tabindex="0"><code>// TodoForm.tsx
+
+import * as React from &#34;react&#34;;
+import { useRef, FormEvent } from &#34;react&#34;;
+import useTodo from &#34;./state/useTodo&#34;;
+
+const TodoForm: React.FC = () =&gt; {
+  const { addNewTodo } = useTodo();
+  const inputRef = useRef&lt;HTMLInputElement&gt;(null);
+
+  const handleSubmit = (e: FormEvent&lt;HTMLFormElement&gt;) =&gt; {
+    e.preventDefault();
+    if (!inputRef.current || !inputRef.current.value.trim()) return;
+
+    const value = inputRef.current.value.trim();
+    addNewTodo(value);
+
+    inputRef.current.value = &#34;&#34;;
+  };
+
+  return (
+    &lt;form onSubmit={handleSubmit}&gt;
+      &lt;input type=&#34;text&#34; placeholder=&#34;Type in Something ...&#34; ref={inputRef} /&gt;
+    &lt;/form&gt;
+  );
+};
+
+export default TodoForm;
+</code></pre><pre tabindex="0"><code>// Todos.tsx
+
+import * as React from &#34;react&#34;;
+import useTodo, { Todo } from &#34;./state/useTodo&#34;;
+
+const Todos: React.FC = () =&gt; {
+  const {
+    todos,
+    toggleCompleteTodo,
+    deleteTodo,
+    toggleEditTodo,
+    updateEditingTodoContent,
+  } = useTodo();
+  console.log(todos);
+  return (
+    &lt;div&gt;
+      {todos.map((todo: Todo) =&gt; (
+        &lt;div className=&#34;todo&#34; key={todo.id}&gt;
+          {todo.edit ? (
+            &lt;div&gt;
+              &lt;input
+                value={todo.todoContent}
+                onChange={(e) =&gt;
+                  updateEditingTodoContent(todo.id, e.target.value)
+                }
+              /&gt;
+              &lt;button className=&#34;save&#34; onClick={() =&gt; toggleEditTodo(todo.id)}&gt;
+                Save
+              &lt;/button&gt;
+            &lt;/div&gt;
+          ) : (
+              &lt;div&gt;
+                &lt;span
+                  style={{
+                    textDecoration: todo.complete ? &#34;line-through&#34; : undefined,
+                  }}
+                &gt;
+                  {todo.todoContent}
+                &lt;/span&gt;
+                &lt;button
+                  className=&#34;toggle&#34;
+                  onClick={() =&gt; toggleCompleteTodo(todo.id)}
+                &gt;
+                  Complete
+              &lt;/button&gt;
+
+                &lt;button className=&#34;edit&#34; onClick={() =&gt; toggleEditTodo(todo.id)}&gt;
+                  Edit
+              &lt;/button&gt;
+                &lt;button className=&#34;delete&#34; onClick={() =&gt; deleteTodo(todo.id)}&gt;
+                  Delete
+              &lt;/button&gt;
+              &lt;/div&gt;
+            )}
+        &lt;/div&gt;
+      ))}
+    &lt;/div&gt;
+  );
+};
+
+export default Todos;
+</code></pre><h4 id="demo">Demo</h4>
+<p>示範在 Redux Devtools上 監控 Todo List 操作。</p>
+<video width="100%" height="auto" controls>
+    <source src="/images/post/zustamd-todos.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<h3 id="結語">結語</h3>
+<hr>
+<p>透過 Zustand 就可以做到把狀態跟元件分開，而且不需要使用 React 的 Context 或 Provider component 是還蠻方便的。</p>
+</div>
+
+        
+        
+        <script
+  src="https://utteranc.es/client.js"
+  repo="ChrisLinOvO/ChrisLinOvO.github.io"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ChrisLinOvO.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ChrisLinOvO.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ChrisLinOvO.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ChrisLinOvO.github.io/js/script.min.js"></script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+<div id="js-cookie-box" class="cookie-box cookie-box-hide">
+	This site uses cookies. By continuing to use this website, you agree to their use. <span id="js-cookie-button" class="btn btn-sm btn-primary ml-2">I Accept</span>
+</div>
+<script>
+	(function ($) {
+		const cookieBox = document.getElementById('js-cookie-box');
+		const cookieButton = document.getElementById('js-cookie-button');
+		if (!Cookies.get('cookie-box')) {
+			cookieBox.classList.remove('cookie-box-hide');
+			cookieButton.onclick = function () {
+				Cookies.set('cookie-box', true, {
+					expires:  2 
+				});
+				cookieBox.classList.add('cookie-box-hide');
+			};
+		}
+	})(jQuery);
+</script>
+
+
+<style>
+.cookie-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 9999;
+  padding: 1rem 2rem;
+  background: rgb(71, 71, 71);
+  transition: all .75s cubic-bezier(.19, 1, .22, 1);
+  color: #fdfdfd;
+}
+
+.cookie-box-hide {
+  display: none;
+}
+</style>
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <style>
+       
+      #lineShareButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        z-index: 9999;  
+      }
+
+      #lineShareButton img {
+        width: 60px;  
+        height: auto;
+      }
+
+      #lineShareButton p {
+        margin: 0;  
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="lineShareButton">
+      <button style="background: none; border: none; cursor: pointer">
+        <img src="/images/line-icon.png" alt="LINE APP 圖片" />
+        <p>分享好友</p>
+      </button>
+    </div>
+    <script>
+      
+      const shareButton = document.getElementById("lineShareButton");
+      const currentUrl = window.location.href;
+      const externalUrl = `https://lineit.line.me/share/ui?url=${currentUrl}`;
+
+      window.addEventListener("scroll", function () {
+        var scrollY = window.scrollY || window.pageYOffset;
+        if (scrollY > 100) {
+          
+          shareButton.style.display = "none";
+        } else {
+          shareButton.style.display = "flex"; 
+        }
+      });
+
+      function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      }
+
+      shareButton.addEventListener("click", () => {
+        
+        if (isMobileDevice()) {
+          console.log("isMobile");
+          
+          liff
+            .init({
+              liffId: "2001397246-jbLPM3xw",
+              login: "required",
+            })
+            .then(() => {
+              liff
+                .getProfile()
+                .then((profile) => {
+                  const nickname = profile.displayName;
+                  const shareText = `好友 ${nickname} 分享了這個連結😊: ${currentUrl}`;
+                  
+                  if (liff.isApiAvailable("shareTargetPicker")) {
+                    liff
+                      .shareTargetPicker([
+                        {
+                          type: "text",
+                          text: shareText,
+                        },
+                      ])
+                      .then((res) => {
+                        console.log("在 Line 客户端中分享成功", res);
+                      })
+                      .catch((error) => {
+                        console.error("在 Line 客户端中分享失敗", error);
+                        window.location.href = externalUrl;
+                      });
+                  } else {
+                    console.error(
+                      "你的 LINE App 暫時不支援 Share Target Picker ，將開啟外部瀏覽器。"
+                    );
+                    window.location.href = externalUrl;
+                  }
+                })
+                .catch((error) => {
+                  console.error("無法取得用戶資料:", error);
+                  window.location.href = externalUrl;
+                });
+            })
+            .catch((error) => {
+              console.error("LIFF 初始化失败:", error);
+              window.location.href = externalUrl;
+            });
+        } else {
+          
+          window.open(externalUrl);
+        }
+      });
+    </script>
+  </body>
+</html>
+</body>
+</html>
