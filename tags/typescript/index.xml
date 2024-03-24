@@ -14,7 +14,7 @@
       
       <guid>https://ChrisLinOvO.github.io/blogs/2024/react-zustand-todos/</guid>
       <description>前言 因為工作需要使用到 Zustand，這邊稍微研究一下並實作 Todo List。
-Zustand 現在 react 的相關套件裡面最使用最廣泛的全域管理工具應該是 Redux，在工作上較大的專案也都是使用 Redux 在做狀態管理，但是我想要介紹另外一個比較輕量狀態管理工具，Zustand。</description>
+Zustand 現在 react 的相關套件裡面最使用最廣泛的全域管理工具應該是 Redux，在工作上較大的專案也都是使用 Redux 在做狀態管理，但是我想要介紹另外一個比較輕量狀態管理工具，Zustand 官方文件。</description>
     </item>
     
   </channel>
